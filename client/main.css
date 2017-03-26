@@ -1,1 +1,8 @@
-/* CSS declarations go here */
+
+.signout{
+  margin-left: 50em;
+}
+
+.navbar .nav > li > a{
+  padding: 10px 15px 20px;
+}
