@@ -6,10 +6,17 @@ import Accounts from './AccountsUIWrapper.jsx';
 import { Meteor } from 'meteor/meteor';
 
 export default class Header extends Component {
+	constructor(props) {
+        super(props);
 
+        this.state = {
+            log: '',
+        }
+  }
 
 	render()
 	{
+
 		return(
       <div name="header">
         <div className="navbar navbar-default navbar-fixed-top">
