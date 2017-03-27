@@ -1,14 +1,13 @@
 import React, {Component} from 'react';
 import {render} from 'react-dom';
-import { Template } from 'meteor/templating';
-import {LinkContainer} from 'react-router-bootstrap';
+import  {Link}  from 'react-router-dom';
 
 export default class Header extends Component {
 
 	signOut(){
 		//todo
 	}
-	
+
 	render()
 	{
 		return(
@@ -32,9 +31,9 @@ export default class Header extends Component {
                     <a href="#" className="dropdown-toggle" data-toggle="dropdown">General<b className="caret"></b></a>
                     <ul className="dropdown-menu">
                       {/**{#if isInRole 'admin,manage-users'}*/}
-                      <li><LinkContainer to="/general/Votos">Lo más votado</LinkContainer></li>
+											<li><Link to="/general/Votos"  >Lo más votado</Link></li>
                       {/*{/if}*/}
-                      <li><LinkContainer to="/general/Busqueda">quiero buscar algo especifico</LinkContainer></li>
+											<li><Link to="/general/Busqueda"  >quiero buscar algo especifico</Link></li>
                     </ul>
                   </li>
 
@@ -46,9 +45,9 @@ export default class Header extends Component {
                     <a href="#" className="dropdown-toggle" data-toggle="dropdown">Mis recetas<b className="caret"></b></a>
                     <ul className="dropdown-menu">
                       {/**{#if isInRole 'admin,manage-users'}*/}
-                      <li><LinkContainer to="/misRecetas/adicionar">Añadir receta</LinkContainer></li>
+											<li><Link to="/misRecetas/adicionar"  >Añadir receta</Link></li>
                       {/*{/if}*/}
-                      <li><LinkContainer to="/misRecetas/ver">Ver mis recetas</LinkContainer></li>
+                      <li><Link to="/misRecetas/ver"  >Ver mis recetas</Link></li>
                     </ul>
                   </li>
 
@@ -56,9 +55,9 @@ export default class Header extends Component {
                     <a href="#" className="dropdown-toggle" data-toggle="dropdown">Mi Perfil<b className="caret"></b></a>
                     <ul className="dropdown-menu">
                       {/**{#if isInRole 'admin,manage-users'}*/}
-                      <li><LinkContainer to="/miPerfil">Mostrar info</LinkContainer></li>
+                      <li><Link to="/miPerfil"  >Mostrar info</Link></li>
                       {/*{/if}*/}
-                      <li><LinkContainer to="/" onClick={()=>{this.signOut();}}>Sign out</LinkContainer></li>
+                      <li><Link to="/"   onClick={()=>{this.signOut();}}>Sign out</Link></li>
                     </ul>
                   </li>
 

@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
-import axios from 'axios';
 import {Table, Button, Well} from 'react-bootstrap';
 import Ingredient from './ingredient';
-import Input from '../sign/input'
 
 class Ingredients extends Component {
   constructor(props){

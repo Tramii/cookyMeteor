@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import Recipe from './recipe';
 import {Button, Well} from 'react-bootstrap';
-import axios from 'axios';
 
 "use strict";
 const ROOT_URL = "https://tramii-cooky-back.herokuapp.com";

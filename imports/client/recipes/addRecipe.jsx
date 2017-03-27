@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
-import Input from '../sign/input';
 import {Button, Well, Table} from 'react-bootstrap';
-import axios from 'axios';
 import Ingredients from './ingredients'
 
 "use strict";

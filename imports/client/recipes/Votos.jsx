@@ -1,14 +1,13 @@
 import React, {Component} from 'react';
 import {render} from 'react-dom';
-import Header from './Header.jsx';
-export default class App extends Component {
+export default class Votos extends Component {
 
 
 	render()
 	{
 		return(
 			<div name="app">
-				<Header/>
+				votos
 			</div>
 		);
 	}
