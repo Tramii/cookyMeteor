@@ -16,6 +16,14 @@
   color: #e96309;
 }
 
+.grey{
+  color: #434345;
+}
+
+.light-grey{
+  color: #706F73;
+}
+
 .light-blue{
   color: #09DCE9;
 }
@@ -35,4 +43,9 @@
 
 .navbar .nav > li > a{
   padding: 10px 15px 20px;
+}
+
+/*HomePage --------------------------------------------------------------------*/
+.bigCooky{
+  width: 30em;
 }

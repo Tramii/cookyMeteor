@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {render} from 'react-dom';
 import Accounts from './AccountsUIWrapper.jsx';
+import {Well} from 'react-bootstrap';
 
 export default class HomePage extends Component {
 
@@ -9,7 +10,7 @@ export default class HomePage extends Component {
 	{
 		return(
 			<div name="app">
-				<br/><br/><br/><br/><br/><br/>
+				<br/><br/><br/><br/>
 				{new WOW().init()}
         <section id="intro" className="colored text-center">
           <div className="container">
@@ -17,61 +18,46 @@ export default class HomePage extends Component {
               <div className="row">
                 <div className="col-lg-6 col-sm-6"></div>
                 <div className="col-lg-6 col-sm-6 textP" >
-                  <h1 className="textP">Bienvenido a Cooky</h1>
-                  <Accounts /><br/>
-                  <p>Si no tienes cuenta, ve directamente a <a onClick={() => {this.props.goProjects()}}>los proyectos</a></p>
+                  <h1 className="textP head orange">Bienvenido a</h1>
+									<img className="bigCooky" src="https://68.media.tumblr.com/caa95bb0890f2f65129cd56a50130c64/tumblr_omd0idc0Wd1w7ypfio1_1280.png"/>
+                  <br/><br/><Accounts /><br/>
                 </div>
               </div>
             </div>
           </div>
         </section>
-        <section id="how-it-works" className="text-center">
+        <section id="how-it-works" className="text-center bod">
           <div className="container wow fadeIn animated" >
-            <div className="row col-md-12">
+            <div className="row col-md-12 bod">
               <br/><br/>
-              <h3>¿Cómo funciona?</h3>
-              <h4 className="text-justify">Demuestra tu lado culinario compartiendo tus recetas</h4>
+              <h2 className="grey">¿Cómo funciona?</h2>
             </div>
           </div>
+					<br/>
           <div className="container">
             <div className="row" id="icon-row">
-              <div className="col-md-3 wow fadeInUp animated" data-wow-delay="0.4s">
-                <div className="iconbox">
-                  <i className="fa fa-folder fa-3x"></i>
-                </div>
-                <h1 className="icntitle">1. Da like</h1>
-                <p className="icnp text-justify">T</p>
+              <div className="col-md-4 wow fadeInUp animated" data-wow-delay="0.4s">
+                <Well className="col-md-4">
+									<h3 className="grey">Comparte tus recetas</h3>
+								</Well>
               </div>
-              <div className="col-md-3 wow fadeInUp animated" data-wow-delay="0.8s">
-                <div className="iconbox">
-                  <i className="fa fa-refresh fa-3x"></i>
-                </div>
-                <h1 className="icntitle">2. Guarda</h1>
-                <p className="icnp text-justify">E
-                </p>
+              <div className="col-md-4 wow fadeInUp animated" data-wow-delay="0.8s">
+                <Well>
+									<h3>Descubre nuevas recetas</h3>
+								</Well>
               </div>
-              <div className="col-md-3 wow fadeInUp animated" data-wow-delay="1.2s">
-                <div className="iconbox">
-                  <i className="fa fa-search fa-3x"></i>
-                </div>
-                <h1 className="icntitle">3. Crea nuevas recetas</h1>
-                <p className="icnp text-justify">Aorresponda
-                </p>
-              </div>
-              <div className="col-md-3 wow fadeInUp animated" data-wow-delay="1.6s">
-                <div className="iconbox">
-                  <i className="fa fa-check fa-3x"></i>
-                </div>
-                <h1 className="icntitle">4. Conviertete en un chef reconocido</h1>
-                <p className="icnp text-justify">Lle el momento.</p>
-              </div>
-              <div className="col-md-12 wow fadeInUp animated" data-wow-delay="2.4s">
-                <br/><br/>
-                <h3 className="text-justify">
-                  Si
-                </h3>
+              <div className="col-md-4 wow fadeInUp animated" data-wow-delay="1.2s">
+								<Well>
+									<h3>Busca por ingredientes</h3>
+								</Well>
               </div>
             </div>
+						<div className="col-md-12 wow fadeInUp animated" data-wow-delay="2.4s">
+							<br/><br/>
+							<h3 className="text-justify">
+								Si
+							</h3>
+						</div>
           </div>
         </section>
       </div>);
