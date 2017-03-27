@@ -9,6 +9,7 @@ export default class HomePage extends Component {
 	{
 		return(
 			<div name="app">
+				<br/><br/><br/><br/><br/><br/>
 				{new WOW().init()}
         <section id="intro" className="colored text-center">
           <div className="container">
@@ -67,7 +68,7 @@ export default class HomePage extends Component {
               <div className="col-md-12 wow fadeInUp animated" data-wow-delay="2.4s">
                 <br/><br/>
                 <h3 className="text-justify">
-                  Si nuestros algoritmos identifican algo sospechoso, el contrato se verá de color <span className="red-font">rojo</span> y el público en general podrá indagar al respecto y exigir que la empresa que está llevando a cabo la obra sea investigada. La idea es que si hay un contrato cuyas facturas aparecen en rojo, el estado no cancele a la empresa esas facturas hasta investigar bien si la factura es legítima y está justificada la compra de dichos productos.⁠⁠⁠⁠
+                  Si
                 </h3>
               </div>
             </div>
