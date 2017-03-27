@@ -15,6 +15,10 @@
   font-family: 'Open Sans', sans-serif;
 }
 
+.bold{
+  font-weight: bold;
+}
+
 .orange{
   color: #e96309;
 }
