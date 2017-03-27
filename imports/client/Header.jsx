@@ -24,13 +24,13 @@ export default class Header extends Component {
               <div className="nav-collapse collapse">
                 <ul className="nav">
 
-                  <li className="dropdown pull-right">
+                  <li className="dropdown pull-center">
                     <a href="#" className="dropdown-toggle" data-toggle="dropdown">General<b className="caret"></b></a>
                     <ul className="dropdown-menu">
                       {/**{#if isInRole 'admin,manage-users'}*/}
-                      <li><a href="/manageUsers">Lo más votado</a></li>
+                      <li><a href="/general/Votos">Lo más votado</a></li>
                       {/*{/if}*/}
-                      <li><a className="signout" href="/signout">quiero buscar algo especifico</a></li>
+                      <li><a href="/general/Busqueda">quiero buscar algo especifico</a></li>
                     </ul>
                   </li>
 
@@ -38,17 +38,26 @@ export default class Header extends Component {
                   <li><a href="/secrets">Secrets</a></li>
                   {{/if}*/}
 
-                  <li className="dropdown pull-right">
+                  <li className="dropdown pull-center">
                     <a href="#" className="dropdown-toggle" data-toggle="dropdown">Mis recetas<b className="caret"></b></a>
                     <ul className="dropdown-menu">
                       {/**{#if isInRole 'admin,manage-users'}*/}
-                      <li><a href="/manageUsers">Añadir receta</a></li>
+                      <li><a href="/misRecetas/adicionar">Añadir receta</a></li>
                       {/*{/if}*/}
-                      <li><a className="signout" href="/signout">Ver mis recetas</a></li>
+                      <li><a href="/misRecetas/ver">Ver mis recetas</a></li>
                     </ul>
                   </li>
 
-                  <li><a className="signout" href="/signout">Sign out</a></li>
+                  <li className="dropdown pull-center perfil">
+                    <a href="#" className="dropdown-toggle" data-toggle="dropdown">Mi Perfil<b className="caret"></b></a>
+                    <ul className="dropdown-menu">
+                      {/**{#if isInRole 'admin,manage-users'}*/}
+                      <li><a href="/miPerfil">Mostrar info</a></li>
+                      {/*{/if}*/}
+                      <li><a href="/signout">Sign out</a></li>
+                    </ul>
+                  </li>
+
                 </ul>
               </div>
               {/**{/if}*/}
