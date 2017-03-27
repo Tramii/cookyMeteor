@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import {render} from 'react-dom';
 import { Template } from 'meteor/templating';
 import {Link} from 'react-router-dom';
+import Accounts from './AccountsUIWrapper.jsx';
+import { Meteor } from 'meteor/meteor';
 
 export default class Header extends Component {
 
@@ -18,10 +20,14 @@ export default class Header extends Component {
               <div className="nav-collapse collapse">
                 <ul className="nav">
 
-									<li className="nav-item bod">
+									{Meteor.user()?
+									(<li className="nav-item bod">
 										<Link to="/misRecetas/adicionar">Añadir receta</Link>
                       {/*{/if}*/}
-                  </li>
+                  </li>) :(<li className="nav-item bod hide">
+										<Link to="/misRecetas/adicionar">Añadir receta</Link>
+                      {/*{/if}*/}
+                  </li>)}
 
 									<li className="nav-item bod">
 										<Link to="/misRecetas/ver">Ver mis recetas</Link>
@@ -39,14 +45,15 @@ export default class Header extends Component {
                   {/**{#if isInRole 'admin,secrets'}}
                   <li><a href="/secrets">Secrets</a></li>
                   {{/if}*/}
-
+									<li className="dropdown pull-center signIn"><Link to="/"><Accounts /></Link></li>
                   <li className="dropdown pull-center perfil">
                     <a href="#" className="dropdown-toggle" data-toggle="dropdown">Mi Perfil<b className="caret"></b></a>
                     <ul className="dropdown-menu">
                       {/**{#if isInRole 'admin,manage-users'}*/}
-                      <li><a href="/miPerfil">Mostrar info</a></li>
+                      <li><Link to="/miPerfil">Mostrar info</Link></li>
                       {/*{/if}*/}
-                      <li><a href="/signout">Sign out</a></li>
+
+                      <li><Link to="/">Sign out</Link></li>
                     </ul>
                   </li>
 

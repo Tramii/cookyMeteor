@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {render} from 'react-dom';
-import Accounts from './AccountsUIWrapper.jsx';
 import {Well} from 'react-bootstrap';
+import { Meteor } from 'meteor/meteor';
 
 export default class HomePage extends Component {
 
@@ -18,9 +18,9 @@ export default class HomePage extends Component {
               <div className="row">
                 <div className="col-lg-6 col-sm-6"></div>
                 <div className="col-lg-6 col-sm-6 textP" >
-                  <h1 className="textP head orange">Bienvenido a</h1>
+                  <h1 className="textP head orange"> Bienvenido a</h1>
 									<img className="bigCooky" src="https://68.media.tumblr.com/caa95bb0890f2f65129cd56a50130c64/tumblr_omd0idc0Wd1w7ypfio1_1280.png"/>
-                  <br/><br/><Accounts /><br/>
+                  <br/><br/>
                 </div>
               </div>
             </div>
@@ -55,8 +55,9 @@ export default class HomePage extends Component {
 						<div className="col-md-12 wow fadeInUp animated" data-wow-delay="2.4s">
 							<br/><br/>
 							<h3 className="text-justify">
-								Si
+							  Conviertete en el mejor chef!
 							</h3>
+							<br/><br/><br/><br/>
 						</div>
           </div>
         </section>

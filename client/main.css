@@ -32,9 +32,12 @@
   color: #00939C;
 }
 
+.hide{
+  display: none;
+}
 /*Navbar --------------------------------------------------------------------*/
 .perfil{
-  margin-left: 50em;
+  float: right;
 }
 
 .brand{
@@ -44,6 +47,15 @@
 .navbar .nav > li > a{
   padding: 10px 15px 20px;
 }
+.navbar .nav {
+  width: 60em;
+}
+
+#login-buttons a, .accounts-dialog a{
+  text-decoration: none !important;
+  color: #706F73;
+}
+
 
 /*HomePage --------------------------------------------------------------------*/
 .bigCooky{
