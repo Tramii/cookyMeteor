@@ -10,7 +10,7 @@ export default class Header extends Component {
 	{
 		return(
       <div name="header">
-        <div className="navbar navbar-fixed-top">
+        <div className="navbar navbar-default navbar-fixed-top">
           <div className="navbar-inner">
               <a className="brand head bold" href="/"><strong>Cooky</strong></a>
 

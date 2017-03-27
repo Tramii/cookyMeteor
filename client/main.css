@@ -1,12 +1,5 @@
 
-.perfil{
-  margin-left: 50em;
-}
-
-.navbar .nav > li > a{
-  padding: 10px 15px 20px;
-}
-
+/*General styling*/
 .head{
   font-family: 'Quicksand', sans-serif;
 }
@@ -29,4 +22,17 @@
 
 .dark-blue{
   color: #00939C;
+}
+
+/*Navbar --------------------------------------------------------------------*/
+.perfil{
+  margin-left: 50em;
+}
+
+.brand{
+  margin-left: 1em !important;
+}
+
+.navbar .nav > li > a{
+  padding: 10px 15px 20px;
 }
