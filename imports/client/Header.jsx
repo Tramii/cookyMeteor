@@ -5,7 +5,10 @@ import {LinkContainer} from 'react-router-bootstrap';
 
 export default class Header extends Component {
 
-
+	signOut(){
+		//todo
+	}
+	
 	render()
 	{
 		return(
@@ -55,7 +58,7 @@ export default class Header extends Component {
                       {/**{#if isInRole 'admin,manage-users'}*/}
                       <li><LinkContainer to="/miPerfil">Mostrar info</LinkContainer></li>
                       {/*{/if}*/}
-                      <li><LinkContainer to="/signout">Sign out</LinkContainer></li>
+                      <li><LinkContainer to="/" onClick={()=>{this.signOut();}}>Sign out</LinkContainer></li>
                     </ul>
                   </li>
 
