@@ -6,3 +6,23 @@
 .navbar .nav > li > a{
   padding: 10px 15px 20px;
 }
+
+.head{
+  font-family: 'Quicksand', sans-serif;
+}
+
+.bod{
+  font-family: 'Open Sans', sans-serif;
+}
+
+.orange{
+  color: #e96309;
+}
+
+.light-blue{
+  color: #09DCE9;
+}
+
+.dark-blue{
+  color: #00939C;
+}
