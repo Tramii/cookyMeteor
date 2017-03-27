@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {render} from 'react-dom';
 import { Template } from 'meteor/templating';
+import {LinkContainer} from 'react-router-bootstrap';
 
 export default class Header extends Component {
 
@@ -28,9 +29,9 @@ export default class Header extends Component {
                     <a href="#" className="dropdown-toggle" data-toggle="dropdown">General<b className="caret"></b></a>
                     <ul className="dropdown-menu">
                       {/**{#if isInRole 'admin,manage-users'}*/}
-                      <li><a href="/general/Votos">Lo más votado</a></li>
+                      <li><LinkContainer to="/general/Votos">Lo más votado</LinkContainer></li>
                       {/*{/if}*/}
-                      <li><a href="/general/Busqueda">quiero buscar algo especifico</a></li>
+                      <li><LinkContainer to="/general/Busqueda">quiero buscar algo especifico</LinkContainer></li>
                     </ul>
                   </li>
 
@@ -42,9 +43,9 @@ export default class Header extends Component {
                     <a href="#" className="dropdown-toggle" data-toggle="dropdown">Mis recetas<b className="caret"></b></a>
                     <ul className="dropdown-menu">
                       {/**{#if isInRole 'admin,manage-users'}*/}
-                      <li><a href="/misRecetas/adicionar">Añadir receta</a></li>
+                      <li><LinkContainer to="/misRecetas/adicionar">Añadir receta</LinkContainer></li>
                       {/*{/if}*/}
-                      <li><a href="/misRecetas/ver">Ver mis recetas</a></li>
+                      <li><LinkContainer to="/misRecetas/ver">Ver mis recetas</LinkContainer></li>
                     </ul>
                   </li>
 
@@ -52,9 +53,9 @@ export default class Header extends Component {
                     <a href="#" className="dropdown-toggle" data-toggle="dropdown">Mi Perfil<b className="caret"></b></a>
                     <ul className="dropdown-menu">
                       {/**{#if isInRole 'admin,manage-users'}*/}
-                      <li><a href="/miPerfil">Mostrar info</a></li>
+                      <li><LinkContainer to="/miPerfil">Mostrar info</LinkContainer></li>
                       {/*{/if}*/}
-                      <li><a href="/signout">Sign out</a></li>
+                      <li><LinkContainer to="/signout">Sign out</LinkContainer></li>
                     </ul>
                   </li>
 
