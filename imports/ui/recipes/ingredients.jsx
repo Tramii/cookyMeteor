@@ -24,6 +24,8 @@ class Ingredients extends Component {
     this.props.ingredients.push(this.state.ingredienteConstruccion);
     console.log(this.state.ingredienteConstruccion);
     console.log(this.props.ingredients);
+
+    ReactDOM.findDOMNode(this.refs.textInput).value = '';
     this.setState({ingredienteConstruccion : ''});
   }
 
@@ -34,7 +36,7 @@ class Ingredients extends Component {
             {this.props.ingredients.map((ingredient,i)=> {
                 return <Ingredient name={ingredient.ingrediente} key={i}/>
               })}
-            <Input name="nuevoIngrediente" type="text"  onTextInput={this.nuevoIngrediente}
+            <Input ref="textInput" name="nuevoIngrediente" type="text"  onTextInput={this.nuevoIngrediente}
              placeholder="New Ingredient" value={this.state.ingredienteConstruccion.name}/>
              <Button onClick={() => {this.saveIngredient()}}  bsStyle="info">Insert ingredient!</Button>
         </Well>

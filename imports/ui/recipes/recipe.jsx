@@ -1,7 +1,9 @@
-import React, {Component} from 'react';
+import React, {Component, PropTypes} from 'react';
 import {Table, Button, Well} from 'react-bootstrap';
 import Ingredient from './ingredient';
 
+import { createContainer } from 'meteor/react-meteor-data';
+import { UsersWithRecipesCollection } from '../../api/users.js';
 
 class Recipe extends Component {
 
@@ -26,7 +28,11 @@ class Recipe extends Component {
         }
 
      like(title){
-
+          UsersWithRecipesCollection.update(
+          {titulo: this.props.recipe.title},
+          {$inc: 'likes'},
+                   {multi: false}
+        );
      }
     render() {
         return (
