@@ -20,13 +20,13 @@ class Featured extends Component {
 			<div name="app">
 				<Header/>
 				{console.log(this.props.allRecipes)}
-				{this.props.allRecipes.map(recipe => {
+				{this.props.allRecipes.map((recipe) => {
 					console.log(recipe);
 						return (
 							<div key={recipe.title}>
 								<Recipe recipe={recipe} ingredients={recipe.Ingredients}
 								 username={this.props.username} password={this.props.password}
-								 title={recipe.title} getRecipes={this.getRecipesByUsername.bind(this)}/>
+								 title={recipe.title}/>
 							</div>
 						);
 
@@ -41,6 +41,6 @@ Featured.propTypes = {
 
 export default createContainer(() => {
   return {
-    allRecipes: UsersWithRecipesCollection.find({}).fetch(),
+    allRecipes: UsersWithRecipesCollection.find().sort( { likes: -1 } ).fetch(),
   };
 }, Featured);

@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {Table, Button, Well} from 'react-bootstrap';
 import Ingredient from './ingredient';
 
-const ROOT_URL = "https://tramii-cooky-back.herokuapp.com";
 
 class Recipe extends Component {
 
