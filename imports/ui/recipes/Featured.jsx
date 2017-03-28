@@ -25,8 +25,8 @@ class Featured extends Component {
 						return (
 							<div key={recipe.title}>
 								<Recipe recipe={recipe} ingredients={recipe.Ingredients}
-								 username={this.props.username} password={this.props.password}
-								 title={recipe.title}/>
+								 username={recipe.username}
+								 title={recipe.title} showDelete={false}/>
 							</div>
 						);
 

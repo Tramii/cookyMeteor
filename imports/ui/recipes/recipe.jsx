@@ -25,16 +25,20 @@ class Recipe extends Component {
           })
         }
 
+     like(title){
 
+     }
     render() {
         return (
-            <div>
+            <div className="row">
+              <div className="col-md-2"></div>
+              <div className="col-md-8">
                 <Well>
                     <Table condensed hover>
                         <tbody>
                             <tr>
                                 <td>Cook</td>
-                                <td>{this.props.recipe.creadaPor}</td>
+                                <td>{this.props.recipe.username}</td>
                             </tr>
                             <tr>
                                 <td>Title</td>
@@ -55,16 +59,19 @@ class Recipe extends Component {
                                 <td>{this.props.recipe.description}</td>
                             </tr>
                             <tr>
-                                <td>Likes</td>
+                                <td><Button bsStyle="info" onClick={() => {this.like(this.props.title)}}>Likes</Button></td>
                                 <td>{this.props.recipe.likes}</td>
                             </tr>
                             <tr>
-                              <td colSpan="2"><Button onClick={() => {this.deleteRecipe(this.props.title)}}  bsStyle="danger">Delete</Button></td>
+                              {this.props.showDelete?<td  className="deleteRecipe" colSpan="2"><Button onClick={() => {this.deleteRecipe(this.props.title)}}
+                                 bsStyle="danger">Delete</Button></td>:''}
                             </tr>
                         </tbody>
                     </Table>
 
                 </Well>
+              </div>
+              <div className="col-md-2"></div>
             </div>
         );
     }

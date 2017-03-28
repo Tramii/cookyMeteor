@@ -71,3 +71,8 @@
 .desc{
   padding: 1em 1em;
 }
+
+/*Recipes--------------------------------------------------------------------------*/
+.deleteRecipe{
+  text-align: center !important;
+}

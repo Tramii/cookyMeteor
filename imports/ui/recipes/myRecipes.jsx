@@ -1,60 +1,50 @@
-import React, {Component, PropTypes } from 'react';
-import Recipe from './recipe';
-import {Button, Well} from 'react-bootstrap';
+import React, {Component, PropTypes} from 'react';
+import {render} from 'react-dom';
 import Header from '../Header.jsx';
+import Recipe from './recipe.jsx';
 
 import { createContainer } from 'meteor/react-meteor-data';
 import { UsersWithRecipesCollection } from '../../api/users.js';
 
-"use strict";
 class myRecipes extends Component {
+	constructor(props){
+		super(props);
+		this.state = {
+		}
+	}
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            recipes: [],
-            cook: '',
-            title: '',
-            ingredients: [],
-            instructions: '',
-            likes: ''
-        }
-    }
+	render()
+	{
+		console.log("entra a destacado");
+		return(
+			<div name="app">
+				<Header/>
+				{console.log(this.props.allRecipes)}
+				{this.props.allRecipes.map((recipe) => {
+					console.log(recipe);
+						return (
+							<div key={recipe.title}>
+								<Recipe recipe={recipe} ingredients={recipe.Ingredients}
+								 username={recipe.username}
+								 title={recipe.title} showDelete={true}/>
+							</div>
+						);
 
-
-    render() {
-        return (
-
-            <div>
-              <Header/>
-              <br/><br/><br/><br/><br/>
-              <Button onClick={this.getRecipesByUsername.bind(this)}> ver mis recetas </Button>
-                <div className="recipeList">
-                    {this.props.myRecipes[0]?this.props.myRecipes[0].recipes.map(recipe => {
-                        return (
-                          <div key={recipe.title}>
-                            <Recipe recipe={recipe} ingredients={recipe.Ingredients}
-                             username={this.props.username} password={this.props.password}
-                             title={recipe.title} getRecipes={this.getRecipesByUsername.bind(this)} />
-                          </div>
-                        );
-                    }):''}
-                </div>
-            </div>
-
-        );
-    }
+				})}
+			</div>
+		);
+	}
 }
-
 myRecipes.propTypes = {
-  myRecipes: PropTypes.any.isRequired,
+  allRecipes: PropTypes.any.isRequired,
 };
 
 export default createContainer(() => {
   return {
-    myRecipes: UsersWithRecipesCollection.find({}).fetch(),
+    allRecipes: UsersWithRecipesCollection.find({username: Meteor.user().username}, { sort: { likes: -1 } }).fetch()
   };
 }, myRecipes);
+
 /**
 
 {
