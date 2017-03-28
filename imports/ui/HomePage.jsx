@@ -10,7 +10,7 @@ export default class HomePage extends Component {
 	{
 		return(
 			<div name="app">
-				<br/><br/><br/><br/>
+				<br/><br/>
 				{new WOW().init()}
         <section id="intro" className="colored text-center">
           <div className="container">
@@ -56,7 +56,7 @@ export default class HomePage extends Component {
 							<h3>
 							  Conviertete en el mejor chef!
 							</h3>
-							<br/><br/><br/><br/>
+							<br/><br/><br/>
 						</div>
           </div>
         </section>
