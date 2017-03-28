@@ -35,11 +35,15 @@ export default class Header extends Component {
 										<Link to="/misRecetas/adicionar">Añadir receta</Link>
                       {/*{/if}*/}
                   </li>)}
-
+									{Meteor.user()?
+									(
 									<li className="nav-item bod">
 										<Link to="/misRecetas/ver">Ver mis recetas</Link>
 										{/**{#if isInRole 'admin,manage-users'}*/}
-									</li>
+									</li>):(<li className="nav-item bod">
+										<Link to="/misRecetas/ver">Ver mis recetas</Link>
+										{/**{#if isInRole 'admin,manage-users'}*/}
+									</li>)}
 
                   <li className="nav-item bod">
 										<Link to="/general/Votos">Destacado</Link>
