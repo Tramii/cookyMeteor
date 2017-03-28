@@ -29,7 +29,6 @@ export default class HomePage extends Component {
         <section id="how-it-works" className="text-center bod">
           <div className="container wow fadeIn animated" >
             <div className="row col-md-12 bod">
-              <br/><br/>
               <h2 className="grey">¿Cómo funciona?</h2>
             </div>
           </div>
@@ -37,7 +36,7 @@ export default class HomePage extends Component {
           <div className="container">
             <div className="row" id="icon-row">
               <div className="col-md-4 wow fadeInUp animated" data-wow-delay="0.4s">
-                <Well className="col-md-4">
+                <Well>
 									<h3 className="grey">Comparte tus recetas</h3>
 								</Well>
               </div>
@@ -52,9 +51,9 @@ export default class HomePage extends Component {
 								</Well>
               </div>
             </div>
-						<div className="col-md-12 wow fadeInUp animated" data-wow-delay="2.4s">
+						<div className="col-md-12 wow fadeInUp animated final" data-wow-delay="2.4s">
 							<br/><br/>
-							<h3 className="text-justify">
+							<h3>
 							  Conviertete en el mejor chef!
 							</h3>
 							<br/><br/><br/><br/>
