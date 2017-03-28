@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Recipe from './recipe';
 import {Button, Well} from 'react-bootstrap';
 import Header from '../Header.jsx';
+import axios from 'axios';
 
 "use strict";
 const ROOT_URL = "https://tramii-cooky-back.herokuapp.com";
@@ -23,8 +24,6 @@ class myRecipes extends Component {
 
 
     getRecipesByUsername() {
-        console.log(this.props.username);
-        console.log(this.props.password);
         console.log("hace el get");
         axios.post(ROOT_URL + "/recipes/getRecipesByUser", {
           nickName: 'Josega149',
