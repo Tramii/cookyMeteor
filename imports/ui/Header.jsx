@@ -42,11 +42,11 @@ export default class Header extends Component {
 									</li>
 
                   <li className="nav-item bod">
-										<Link to="/general/Votos">Destacado</Link>
+										<Link to="/general/featured">Destacado</Link>
 										{/**{#if isInRole 'admin,manage-users'}*/}
 									</li>
 									<li className="nav-item bod">
-                    <Link to="/general/Busqueda">Buscar</Link>
+                    <Link to="/general/search">Buscar</Link>
                   </li>
 
                   {/**{#if isInRole 'admin,secrets'}}

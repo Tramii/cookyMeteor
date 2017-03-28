@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
 import {render} from 'react-dom';
-export default class Votos extends Component {
+export default class Search extends Component {
 
 
 	render()
 	{
 		return(
 			<div name="app">
-				votos
+				busqueda
 			</div>
 		);
 	}
