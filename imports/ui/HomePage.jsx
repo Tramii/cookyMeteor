@@ -10,7 +10,6 @@ export default class HomePage extends Component {
 	{
 		return(
 			<div name="app">
-				<br/><br/>
 				{new WOW().init()}
         <section id="intro" className="colored text-center">
           <div className="container">
@@ -36,24 +35,42 @@ export default class HomePage extends Component {
             <div className="row" id="icon-row">
               <div className="col-md-4 wow fadeInUp animated" data-wow-delay="0.4s">
                 <Well>
-									<h3 className="grey">Comparte tus recetas</h3>
+									<h3 className="center row">
+										<i className="fa fa-fw fa-bullhorn fa-2x"></i><br/>
+										<strong className="orange">Comparte</strong> tus recetas
+									</h3>
+									<p className="row desc">
+										Añade tus recetas y compártelas con la comunidad.
+									</p>
 								</Well>
               </div>
               <div className="col-md-4 wow fadeInUp animated" data-wow-delay="0.8s">
                 <Well>
-									<h3>Descubre nuevas recetas</h3>
+									<h3 className="center row">
+										<i className="fa fa-fw fa-star fa-2x"></i><br/>
+										<strong className="orange">Descubre</strong> nuevas recetas
+									</h3>
+									<p className="row desc">
+										Mira recetas de otros usuarios y guarda tus favoritas.
+									</p>
 								</Well>
               </div>
               <div className="col-md-4 wow fadeInUp animated" data-wow-delay="1.2s">
 								<Well>
-									<h3>Busca por ingredientes</h3>
+									<h3 className="center row">
+										<i className="fa fa-fw fa-search fa-2x"></i><br/>
+										<strong className="orange">Busca</strong> por ingredientes
+									</h3>
+									<p className="row desc">
+										Encuentra recetas de acuerdo a los ingredientes que tengas en tu cocina.
+									</p>
 								</Well>
               </div>
             </div>
 						<div className="col-md-12 wow fadeInUp animated final" data-wow-delay="2.4s">
 							<br/><br/>
 							<h3>
-							  Conviertete en el mejor chef!
+							  ¡Únete y consigue recetas para toda ocasión!
 							</h3>
 							<br/><br/><br/>
 						</div>
