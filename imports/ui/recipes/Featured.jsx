@@ -7,7 +7,8 @@ export default class Featured extends Component {
 	{
 		return(
 			<div name="app">
-				votos
+				<Header/>
+        <br/><br/><br/><br/><br/>
 			</div>
 		);
 	}

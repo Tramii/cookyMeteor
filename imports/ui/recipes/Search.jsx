@@ -7,7 +7,8 @@ export default class Search extends Component {
 	{
 		return(
 			<div name="app">
-				busqueda
+				<Header/>
+        <br/><br/><br/><br/><br/>
 			</div>
 		);
 	}

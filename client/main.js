@@ -16,6 +16,7 @@ import myRecipes from '../imports/ui/recipes/myRecipes.jsx';
 import Add from '../imports/ui/recipes/addRecipe.jsx';
 
 import Me from '../imports/ui/Me.jsx';
+import '../imports/startup/accounts-config.js';
 
 Meteor.startup(()=>{
 	ReactDOM.render((
