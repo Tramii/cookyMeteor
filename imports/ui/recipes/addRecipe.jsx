@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {Button, Well, Table} from 'react-bootstrap';
 import Ingredients from './ingredients'
+import Input from '../Input.jsx'
+import Header from '../Header.jsx';
 
 "use strict";
 const ROOT_URL = "https://tramii-cooky-back.herokuapp.com";//"http://localhost:3000"//
@@ -24,8 +26,8 @@ class AddRecipe extends Component{
     {
       console.log("esta haciendo el post recipe "+this.state.title+ "  "+this.state.description+"  "+ this.state.ingredients);
       axios.post(ROOT_URL + "/recipes/addRecipe", {
-        nickName: this.props.username,
-        password: this.props.password,
+        nickName: 'Josega149',
+        password: 'password',
         folder: 'Favoritos',
         recipe: {
                   tipo: 1,
@@ -58,10 +60,10 @@ class AddRecipe extends Component{
   render(){
     return (
       <div>
-        <div><Well></Well></div>
-        <div><Well></Well></div>
-        <h2>Add a recipe</h2>
-        <p>Fill in the form in order to add your recipe</p>
+        <Header/>
+        <br/><br/><br/><br/><br/>
+        <h2>Añadir una nueva receta</h2>
+        <p>Llena todos los cambios para guardar tu receta</p>
         <form>
           <Well>
               <Table condensed hover>
@@ -71,16 +73,16 @@ class AddRecipe extends Component{
                           <td>{this.props.username}</td>
                       </tr>
                       <tr>
-                          <td>Title</td>
+                          <td>Titulo</td>
                           <td><Input name="titulo" type="text"  onTextInput={this.escribeTitle}
                           placeholder="Grandma's lemonade" value={this.state.titulo}/></td>
                       </tr>
                       <tr>
-                          <td>Ingredients</td>
+                          <td>Ingredientes</td>
                           <td><Ingredients ingredients={this.state.ingredients}/></td>
                       </tr>
                       <tr>
-                          <td>Instructions</td>
+                          <td>Instruciones</td>
                           <td><Input name="instructions" type="text"  onTextInput={this.escribeInstructions}
                           placeholder="First, cut 3 lemons in halves..." value={this.state.titulo}/></td>
                       </tr>

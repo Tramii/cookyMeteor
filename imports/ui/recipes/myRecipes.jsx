@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
 import Recipe from './recipe';
 import {Button, Well} from 'react-bootstrap';
+import Header from '../Header.jsx';
 
 "use strict";
 const ROOT_URL = "https://tramii-cooky-back.herokuapp.com";
-class Recipes extends Component {
+class myRecipes extends Component {
 
     constructor(props) {
         super(props);
@@ -26,8 +27,9 @@ class Recipes extends Component {
         console.log(this.props.password);
         console.log("hace el get");
         axios.post(ROOT_URL + "/recipes/getRecipesByUser", {
-            nickName: this.props.username,
-            password: this.props.password
+          nickName: 'Josega149',
+          password: 'password'
+
         }).then(response => {
           console.log("la response es: "+response);
           console.log(response.data.carpetas[0].recetasDelFolder);
@@ -39,8 +41,8 @@ class Recipes extends Component {
         return (
 
             <div>
-              <div className="row"><Well></Well></div>
-              <div className="row"><Well></Well></div>
+              <Header/>
+              <br/><br/><br/><br/><br/>
               <Button onClick={this.getRecipesByUsername.bind(this)}> ver mis recetas </Button>
                 <div className="recipeList">
                     {this.state.recipes.map(recipe => {
@@ -59,4 +61,4 @@ class Recipes extends Component {
     }
 }
 
-export default Recipes;
+export default myRecipes;

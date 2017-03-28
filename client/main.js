@@ -12,7 +12,7 @@ import HomePage from '../imports/ui/HomePage.jsx';
 
 import Featured from '../imports/ui/recipes/Featured.jsx';
 import Search from '../imports/ui/recipes/Search.jsx';
-import Recipes from '../imports/ui/recipes/recipes.jsx';
+import myRecipes from '../imports/ui/recipes/myRecipes.jsx';
 import Add from '../imports/ui/recipes/addRecipe.jsx';
 
 import Me from '../imports/ui/Me.jsx';
@@ -25,7 +25,7 @@ Meteor.startup(()=>{
 		     <Route path='/general/featured' component={Featured}/>
 		     <Route path='/general/search' component={Search}/>
 		     <Route path='/misRecetas/adicionar' component={Add}/>
-		     <Route path='/misRecetas/ver' component={Recipes}/>
+		     <Route path='/misRecetas/ver' component={myRecipes}/>
 		     <Route path='/miPerfil' component={Me}/>
 	 		 </div>
 	  	 </HashRouter>
