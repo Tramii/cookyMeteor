@@ -16,13 +16,12 @@ export default class HomePage extends Component {
           <div className="container">
             <div className="intro-well wow animated bounceIn" >
               <div className="row">
-                <div className="col-lg-6 col-sm-6"></div>
-                <div className="col-lg-6 col-sm-6 textP" >
-                  <h1 className="textP head orange"> Bienvenido a</h1>
-									<img className="bigCooky" src="https://68.media.tumblr.com/caa95bb0890f2f65129cd56a50130c64/tumblr_omd0idc0Wd1w7ypfio1_1280.png"/>
-                  <br/><br/>
-                </div>
+                  <h1 className="textP head orange bold"> Bienvenido a</h1>
               </div>
+							<div className="row">
+								<img className="bigCooky" src="https://68.media.tumblr.com/caa95bb0890f2f65129cd56a50130c64/tumblr_omd0idc0Wd1w7ypfio1_1280.png"/>
+								<br/><br/>
+							</div>
             </div>
           </div>
         </section>
