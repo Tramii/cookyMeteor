@@ -41,6 +41,6 @@ Featured.propTypes = {
 
 export default createContainer(() => {
   return {
-    allRecipes: UsersWithRecipesCollection.find().sort( { likes: -1 } ).fetch(),
+    allRecipes: UsersWithRecipesCollection.find({}).sort( { likes: -1 } ).fetch(),
   };
 }, Featured);
