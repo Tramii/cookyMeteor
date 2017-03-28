@@ -29,37 +29,40 @@ class Header extends Component {
 		console.log(logueado);
 		if(logueado !== null)
 		{
-			bar = (<Nav>
-										<NavItem className="bod">
-											<Link to="/misRecetas/adicionar">Añadir receta</Link>
-									 </NavItem>
-									 <NavItem className="bod">
-									 <Link to="/misRecetas/ver">Mis recetas</Link>
-									 </NavItem>
-									 <NavItem className="bod">
-									 <Link to="/general/featured">Destacado</Link>
-								 </NavItem>
-									 <NavItem className="bod">
-											<Link to="/general/search">Buscar</Link>
-										</NavItem>
-										<NavDropdown title="Mi Perfil" id="basic-nav-dropdown" className="bod perfil">
-												<MenuItem><Link to="/miPerfil">Mostrar info</Link></MenuItem>
-										</NavDropdown>
-										<NavItem className="dropdown pull-center signIn"><Accounts log={this.login.bind(this)}/></NavItem>
-								</Nav>);
+			bar = (
+				<Nav>
+						<NavItem className="bod">
+								<Link to="/misRecetas/adicionar">Añadir receta</Link>
+						</NavItem>
+						<NavItem className="bod">
+								<Link to="/misRecetas/ver">Mis recetas</Link>
+						</NavItem>
+						<NavItem className="bod">
+							 	<Link to="/general/featured">Destacado</Link>
+						</NavItem>
+						<NavItem className="bod">
+								<Link to="/general/search">Buscar</Link>
+						</NavItem>
+						<NavDropdown title="Mi Perfil" id="basic-nav-dropdown" className="bod perfil">
+								<MenuItem><Link to="/miPerfil">Mostrar info</Link></MenuItem>
+						</NavDropdown>
+								<NavItem className="dropdown pull-center signIn"><Accounts/></NavItem>
+				</Nav>
+			);
 		}
 		else{
-			bar = (<Nav>
-
-									<NavItem className="dropdown pull-center signIn"><Accounts/></NavItem>
-							</Nav>);
+			bar = (
+				<Nav>
+						<NavItem className="dropdown pull-center signIn"><Accounts/></NavItem>
+				</Nav>
+			);
 		}
 
 		return(
       <div name = "header">
 				<Navbar collapseOnSelect>
     				<Navbar.Header>
-        				<Navbar.Brand className="brand head bold">
+        				<Navbar.Brand className="head bold">
                 				Cooky
         				</Navbar.Brand>
     			</Navbar.Header>
