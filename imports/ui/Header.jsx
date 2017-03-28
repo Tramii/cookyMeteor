@@ -37,10 +37,10 @@ export default class Header extends Component {
 											<a href="#" className="dropdown-toggle" data-toggle="dropdown">Mi Perfil<b className="caret"></b></a>
 											<ul className="dropdown-menu">
 												<li><Link to="/miPerfil">Mostrar info</Link></li>
-
-												<li><Link to="/">Sign out</Link></li>
 											</ul>
-										</li></div>);
+										</li>
+										<li className="dropdown pull-center signIn"><a><Accounts /></a></li>
+								</div>);
 		}
 		else{
 			bar = (<div><li className="nav-item bod hide">
@@ -59,7 +59,7 @@ export default class Header extends Component {
 										<a href="#" className="dropdown-toggle" data-toggle="dropdown">Mi Perfil<b className="caret"></b></a>
 										<ul className="dropdown-menu">
 											<li><Link to="/miPerfil">Mostrar info</Link></li>
-											<li><Link to="/">Sign out</Link></li>
+
 										</ul>
 									</li>
 									<li className="dropdown pull-center signIn"><a><Accounts /></a></li>
