@@ -1,11 +1,12 @@
-import React, {Component} from 'react';
+import React, {Component, PropTypes } from 'react';
 import Recipe from './recipe';
 import {Button, Well} from 'react-bootstrap';
 import Header from '../Header.jsx';
-import axios from 'axios';
+
+import { createContainer } from 'meteor/react-meteor-data';
+import { UsersWithRecipesCollection } from '../../api/users.js';
 
 "use strict";
-const ROOT_URL = "https://tramii-cooky-back.herokuapp.com";
 class myRecipes extends Component {
 
     constructor(props) {
@@ -18,23 +19,8 @@ class myRecipes extends Component {
             instructions: '',
             likes: ''
         }
-        this.getRecipesByUsername = this.getRecipesByUsername.bind(this);
     }
 
-
-
-    getRecipesByUsername() {
-        console.log("hace el get");
-        axios.post(ROOT_URL + "/recipes/getRecipesByUser", {
-          nickName: 'Josega149',
-          password: 'password'
-
-        }).then(response => {
-          console.log("la response es: "+response);
-          console.log(response.data.carpetas[0].recetasDelFolder);
-            this.setState({recipes: response.data.carpetas[0].recetasDelFolder})
-        })
-    }
 
     render() {
         return (
@@ -44,7 +30,7 @@ class myRecipes extends Component {
               <br/><br/><br/><br/><br/>
               <Button onClick={this.getRecipesByUsername.bind(this)}> ver mis recetas </Button>
                 <div className="recipeList">
-                    {this.state.recipes.map(recipe => {
+                    {this.props.myRecipes[0]?this.props.myRecipes[0].recipes.map(recipe => {
                         return (
                           <div key={recipe.title}>
                             <Recipe recipe={recipe} ingredients={recipe.Ingredients}
@@ -52,7 +38,7 @@ class myRecipes extends Component {
                              title={recipe.title} getRecipes={this.getRecipesByUsername.bind(this)} />
                           </div>
                         );
-                    })}
+                    }):''}
                 </div>
             </div>
 
@@ -60,4 +46,30 @@ class myRecipes extends Component {
     }
 }
 
-export default myRecipes;
+myRecipes.propTypes = {
+  myRecipes: PropTypes.any.isRequired,
+};
+
+export default createContainer(() => {
+  return {
+    myRecipes: UsersWithRecipesCollection.find({}).fetch(),
+  };
+}, myRecipes);
+/**
+
+{
+	"tipo":1,
+	"likes":0,
+	"username":"josega149",
+	"title":"Jugo de mora de la abuela",
+	"description":"Se hace jugo de mora con el agua y la mora y el azucar.",
+	"pictureGif":"p",
+  "Ingredients":[
+	    {"ingrediente":"mora"},
+			{"ingrediente":"azucar"},
+			{"ingrediente":"agua"}
+	]
+}
+
+
+*/

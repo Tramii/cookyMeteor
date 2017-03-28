@@ -1,10 +1,13 @@
-import React, {Component} from 'react';
+import React, { Component, PropTypes } from 'react';
 import {Button, Well, Table} from 'react-bootstrap';
 import Ingredients from './ingredients'
 import Input from '../Input.jsx'
 import Header from '../Header.jsx';
+import { createContainer } from 'meteor/react-meteor-data';
+import { UsersWithRecipesCollection } from '../../api/users.js';
 
 "use strict";
+
 const ROOT_URL = "https://tramii-cooky-back.herokuapp.com";//"http://localhost:3000"//
 class AddRecipe extends Component{
 
@@ -61,43 +64,56 @@ class AddRecipe extends Component{
     return (
       <div>
         <Header/>
-        <br/><br/><br/><br/><br/>
-        <h2>Añadir una nueva receta</h2>
-        <p>Llena todos los cambios para guardar tu receta</p>
-        <form>
-          <Well>
-              <Table condensed hover>
-                  <tbody>
-                      <tr>
-                          <td>Cook</td>
-                          <td>{this.props.username}</td>
-                      </tr>
-                      <tr>
-                          <td>Titulo</td>
-                          <td><Input name="titulo" type="text"  onTextInput={this.escribeTitle}
-                          placeholder="Grandma's lemonade" value={this.state.titulo}/></td>
-                      </tr>
-                      <tr>
-                          <td>Ingredientes</td>
-                          <td><Ingredients ingredients={this.state.ingredients}/></td>
-                      </tr>
-                      <tr>
-                          <td>Instruciones</td>
-                          <td><Input name="instructions" type="text"  onTextInput={this.escribeInstructions}
-                          placeholder="First, cut 3 lemons in halves..." value={this.state.titulo}/></td>
-                      </tr>
-                      <tr>
-                        <td colSpan="2"><Button onClick={() => {this.postRecipe()}}  bsStyle="info">Insert recipe!</Button></td>
-                      </tr>
-                  </tbody>
-              </Table>
+        <div className ="row">
+          <div className="col-md-2"></div>
+          <div className ="col-md-8">
+            <h2>Añadir una nueva receta</h2>
+            <p>Llena todos los cambios para guardar tu receta</p>
+            <form>
+              <Well>
+                  <Table condensed hover>
+                      <tbody>
+                          <tr>
+                              <td>Cook</td>
+                              <td>{this.props.username}</td>
+                          </tr>
+                          <tr>
+                              <td>Titulo</td>
+                              <td><Input name="titulo" type="text"  onTextInput={this.escribeTitle}
+                              placeholder="Limonada de la abue" value={this.state.titulo}/></td>
+                          </tr>
+                          <tr>
+                              <td>Ingredientes</td>
+                              <td><Ingredients ingredients={this.state.ingredients}/></td>
+                          </tr>
+                          <tr>
+                              <td>Instruciones</td>
+                              <td><Input name="instructions" type="text"  onTextInput={this.escribeInstructions}
+                              placeholder="Primero, cortar los limones en mitades..." value={this.state.titulo}/></td>
+                          </tr>
+                          <tr>
+                            <td colSpan="2"><Button onClick={() => {this.postRecipe()}}  bsStyle="info">Añadir receta!</Button></td>
+                          </tr>
+                      </tbody>
+                  </Table>
 
-          </Well>
+              </Well>
 
-        </form>
+            </form>
+          </div>
+          <div className="col-md-2"></div>
+          </div>
       </div>
     );
   }
 }
-
 export default AddRecipe;
+/**AddRecipe.propTypes = {
+  myRecipes: PropTypes.array.isRequired,
+};
+
+export default createContainer(() => {
+  return {
+    myRecipes: UsersWithRecipesCollection.find({user:Meteor.user()}).fetch(),
+  };
+}, AddRecipe);*/
