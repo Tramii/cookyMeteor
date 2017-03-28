@@ -41,6 +41,6 @@ Featured.propTypes = {
 
 export default createContainer(() => {
   return {
-    allRecipes: UsersWithRecipesCollection.find({}),
+    allRecipes: UsersWithRecipesCollection.find({}).fetch(),
   };
 }, Featured);
