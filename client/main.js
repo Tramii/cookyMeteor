@@ -10,7 +10,7 @@ import { HashRouter, Route, Link } from 'react-router-dom';
 
 import HomePage from '../imports/ui/HomePage.jsx';
 
-import Votos from '../imports/ui/recipes/Featured.jsx';
+import Featured from '../imports/ui/recipes/Featured.jsx';
 import Search from '../imports/ui/recipes/Search.jsx';
 import Recipes from '../imports/ui/recipes/recipes.jsx';
 import Add from '../imports/ui/recipes/addRecipe.jsx';
