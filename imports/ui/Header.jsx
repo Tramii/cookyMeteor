@@ -4,9 +4,10 @@ import { Template } from 'meteor/templating';
 import {Navbar, Nav, NavItem, NavDropdown, MenuItem} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 import Accounts from './AccountsUIWrapper.jsx';
+import {createContainer} from 'meteor/react-meteor-data';
 import { Meteor } from 'meteor/meteor';
 
-export default class Header extends Component {
+class Header extends Component {
 	constructor(props) {
         super(props);
 
@@ -14,6 +15,12 @@ export default class Header extends Component {
             log: '',
         }
   }
+
+	login(x){
+		this.setState({
+			log:x
+		})
+	}
 
 	render()
 	{
@@ -27,7 +34,7 @@ export default class Header extends Component {
 											<Link to="/misRecetas/adicionar">Añadir receta</Link>
 									 </NavItem>
 									 <NavItem className="bod">
-									 <Link to="/misRecetas/ver">Ver mis recetas</Link>
+									 <Link to="/misRecetas/ver">Mis recetas</Link>
 									 </NavItem>
 									 <NavItem className="bod">
 									 <Link to="/general/featured">Destacado</Link>
@@ -38,30 +45,13 @@ export default class Header extends Component {
 										<NavDropdown title="Mi Perfil" id="basic-nav-dropdown" className="bod perfil">
 												<MenuItem><Link to="/miPerfil">Mostrar info</Link></MenuItem>
 										</NavDropdown>
-										<NavItem className="dropdown pull-center signIn"><a><Accounts /></a></NavItem>
+										<NavItem className="dropdown pull-center signIn"><Accounts log={this.login.bind(this)}/></NavItem>
 								</Nav>);
 		}
 		else{
-			bar = (<Nav><li className="nav-item bod hide">
-										<Link to="/misRecetas/adicionar">Añadir receta</Link>
-									</li>
-									<li className="nav-item bod hide">
-										<Link to="/misRecetas/ver">Ver mis recetas</Link>
-									</li>
-									<li className="nav-item bod hide">
-										<Link to="/general/featured">Destacado</Link>
-									</li>
-									<li className="nav-item bod hide">
-										<Link to="/general/search">Buscar</Link>
-									</li>
-									<li className="dropdown pull-center perfil hide">
-										<a href="#" className="dropdown-toggle" data-toggle="dropdown">Mi Perfil<b className="caret"></b></a>
-										<ul className="dropdown-menu">
-											<li><Link to="/miPerfil">Mostrar info</Link></li>
+			bar = (<Nav>
 
-										</ul>
-									</li>
-									<li className="dropdown pull-center signIn"><a><Accounts /></a></li>
+									<NavItem className="dropdown pull-center signIn"><Accounts/></NavItem>
 							</Nav>);
 		}
 
@@ -69,14 +59,11 @@ export default class Header extends Component {
       <div name = "header">
 				<Navbar collapseOnSelect>
     				<Navbar.Header>
-        				<Navbar.Brand>
-            				<a className="brand head bold" href="/">
-                				<strong>Cooky</strong>
-            				</a>
+        				<Navbar.Brand className="brand head bold">
+                				Cooky
         				</Navbar.Brand>
     			</Navbar.Header>
 					<Navbar.Collapse>
-
             {bar}
 					</Navbar.Collapse>
 				</Navbar>
@@ -84,3 +71,9 @@ export default class Header extends Component {
 		);
 	}
 }
+
+export default createContainer(() =>{
+	return{
+		currentUser: Meteor.user()
+	};
+}, Header);
