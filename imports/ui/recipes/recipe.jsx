@@ -13,26 +13,12 @@ class Recipe extends Component {
         }
     }
 
-    deleteRecipe(titleR){
+    deleteRecipe(){
+      Meteor.call('recipes.remove', this.props.recipe._id);
+    }
 
-          console.log("nickName: "+this.props.username);
-            axios.post(ROOT_URL+"/recipes/deleteRecipe",{
-              nickName: this.props.username,
-              password: this.props.password,
-              title: titleR
-            }
-          ).then(response => {
-            console.log("BORROOOO"+response),
-            this.props.getRecipes()
-          })
-        }
-
-     like(title){
-          UsersWithRecipesCollection.update(
-          {titulo: this.props.recipe.title},
-          {$inc: 'likes'},
-                   {multi: false}
-        );
+     like(){
+      Meteor.call('recipesLike.update', this.props.recipe._id);
      }
     render() {
         return (
@@ -65,12 +51,13 @@ class Recipe extends Component {
                                 <td>{this.props.recipe.description}</td>
                             </tr>
                             <tr>
-                                <td><Button bsStyle="info" onClick={() => {this.like(this.props.title)}}>Likes</Button></td>
+                                <td><Button bsStyle="info" onClick={() => {this.like()}}>Likes</Button></td>
                                 <td>{this.props.recipe.likes}</td>
                             </tr>
                             <tr>
-                              {this.props.showDelete?<td  className="deleteRecipe" colSpan="2"><Button onClick={() => {this.deleteRecipe(this.props.title)}}
-                                 bsStyle="danger">Delete</Button></td>:''}
+                              {this.props.showDelete?<td className="deleteRecipe" colSpan="2">
+                                <Button bsStyle="danger" onClick={() => {this.deleteRecipe()}}>
+                                  Delete</Button></td>:''}
                             </tr>
                         </tbody>
                     </Table>
