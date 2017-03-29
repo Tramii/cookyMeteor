@@ -27,6 +27,8 @@ class Header extends Component {
 		var bar;
 		var logueado = Meteor.user();
 		console.log(logueado);
+		//José Felipe: aunque esta bien, es mas facil ver este condicional como:
+		//if(Meteor.user()) o if(logueado)
 		if(logueado !== null)
 		{
 			bar = (
