@@ -14,7 +14,7 @@ class Recipe extends Component {
     }
 
     deleteRecipe(titleR){
-
+//Deberían usar meteor para el manejo de collections
           console.log("nickName: "+this.props.username);
             axios.post(ROOT_URL+"/recipes/deleteRecipe",{
               nickName: this.props.username,

@@ -17,6 +17,7 @@ class Featured extends Component {
 	{
 		console.log("entra a destacado");
 		return(
+			/*General styling*/
 			<div name="app">
 				<Header/>
 				{console.log(this.props.allRecipes)}

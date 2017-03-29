@@ -22,6 +22,8 @@ class Header extends Component {
 		})
 	}
 
+//Muy chevere de su navbar que se bloqueen las acciones de usuarios cuando todavía no se han loggeado.
+//El perfil de usuario no estoy segura que podría tener, pero el dropdown no me pparece necesario
 	render()
 	{
 		var bar;

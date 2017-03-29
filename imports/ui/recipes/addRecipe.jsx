@@ -79,6 +79,7 @@ class AddRecipe extends Component{
                           </tr>
                           <tr>
                               <td>Titulo</td>
+                              {/*Podría poner un label para que el input sea más accesible*/}
                               <td><Input name="titulo" type="text"  onTextInput={this.escribeTitle}
                               placeholder="Limonada de la abue" value={this.state.titulo}/></td>
                           </tr>
@@ -108,6 +109,7 @@ class AddRecipe extends Component{
   }
 }
 export default AddRecipe;
+//Este código comentado podría ser eliminado
 /**AddRecipe.propTypes = {
   myRecipes: PropTypes.array.isRequired,
 };

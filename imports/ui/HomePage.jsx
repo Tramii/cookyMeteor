@@ -18,6 +18,7 @@ export default class HomePage extends Component {
                   <h1 className="textP head orange bold"> Bienvenido a</h1>
               </div>
 							<div className="row">
+								{/*deberían siempre poner alt en las imágenes para accesibilidad*/}
 								<img className="bigCooky" src="https://68.media.tumblr.com/caa95bb0890f2f65129cd56a50130c64/tumblr_omd0idc0Wd1w7ypfio1_1280.png"/>
 								<br/><br/>
 							</div>
