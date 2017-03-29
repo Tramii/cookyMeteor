@@ -43,10 +43,12 @@ class Header extends Component {
 						<NavItem className="bod">
 								<Link to="/general/search">Buscar</Link>
 						</NavItem>
-						<NavDropdown title="Mi Perfil" id="basic-nav-dropdown" className="bod perfil">
-								<MenuItem><Link to="/miPerfil">Mostrar info</Link></MenuItem>
-						</NavDropdown>
-								<NavItem className="dropdown pull-center signIn"><Accounts/></NavItem>
+						<NavItem className="bod">
+								<Link to="/miPerfil">Mi perfil</Link>
+						</NavItem>
+						<NavItem className="dropdown pull-center signIn">
+								<Accounts/>
+						</NavItem>
 				</Nav>
 			);
 		}
