@@ -8,6 +8,8 @@ import { UsersWithRecipesCollection } from '../../api/users.js';
 
 "use strict";
 
+//José Felipe: En este caso no se si es mas facil utilizar una colleción de meteor para manejar las recetas.
+//Aun asi diria que si ya el backend esta hecho, mejor utilizarlo como lo hicieron aqui.
 const ROOT_URL = "https://tramii-cooky-back.herokuapp.com";//"http://localhost:3000"//
 class AddRecipe extends Component{
 
