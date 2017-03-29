@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import {Button, Well, Table} from 'react-bootstrap';
+import {Button, Well, Table, FormGroup, ControlLabel, FormControl, Checkbox} from 'react-bootstrap';
 import Ingredients from './ingredients'
 import Input from '../Input.jsx'
 import Header from '../Header.jsx';
@@ -24,6 +24,7 @@ class AddRecipe extends Component{
     this.escribeTitle = this.escribeTitle.bind(this);
   }
 
+  /*Post recipe to MongoDB*/
   postRecipe(){
     if(this.state.title!=='' && this.state.description!=='' && this.state.ingredients!==[] )
     {
@@ -48,58 +49,82 @@ class AddRecipe extends Component{
     }
   }
 
+  /*Sets recipe's instructions*/
   escribeInstructions(value)
   {
     this.setState({description: value})
   }
 
-
+  /*Sets recipe's title*/
   escribeTitle(value)
   {
     this.setState({title: value})
   }
 
+  /*FieldGroup*/
+  FieldGroup({ id, label, help, ...props }) {
+    return (
+      <FormGroup controlId={id}>
+        <ControlLabel>{label}</ControlLabel>
+        <FormControl {...props} />
+        {help && <HelpBlock>{help}</HelpBlock>}
+      </FormGroup>
+    );
+  }
 
   render(){
+
+    /*Form instance that will be rendered*/
+    let formInstance = (
+    <form className="bod">
+      <FormGroup controlId="formControlsText">
+        <ControlLabel>Título</ControlLabel>
+        <FormControl type="text" value={this.state.title} placeholder="La mejor receta del mundo" onChange={this.state.title}/>
+      </FormGroup>
+
+      <FormGroup controlId="formControlsFile">
+        <ControlLabel>Adjunta una imagen</ControlLabel>
+        <FormControl type="file"/>
+      </FormGroup>
+
+      <FormGroup>
+        <ControlLabel>Tipo</ControlLabel>
+        <Checkbox inline>
+          Desayuno
+        </Checkbox>
+        {' '}
+        <Checkbox inline>
+          Almuerzo o Cena
+        </Checkbox>
+        {' '}
+        <Checkbox inline>
+          Postre
+        </Checkbox>
+      </FormGroup>
+
+      <FormGroup controlId="formControlsText">
+        <ControlLabel>Ingredientes</ControlLabel>
+        <FormControl type="text" value={this.state.title} placeholder="Ingrediente 1" onChange={this.state.title}/>
+      </FormGroup>
+
+      <FormGroup controlId="formControlsTextarea">
+        <ControlLabel>Instrucciones</ControlLabel>
+        <FormControl componentClass="textarea" placeholder="Pasos para hacer tu receta" />
+      </FormGroup>
+
+    </form>
+  );
+
     return (
       <div>
         <Header/>
         <div className ="row">
           <div className="col-md-2"></div>
           <div className ="col-md-8">
-            <h2>Añadir una nueva receta</h2>
+            <h2 className="head orange">Añadir una nueva receta</h2>
             <p>Llena todos los cambios para guardar tu receta</p>
-            <form>
-              <Well>
-                  <Table condensed hover>
-                      <tbody>
-                          <tr>
-                              <td>Cook</td>
-                              <td>{this.props.username}</td>
-                          </tr>
-                          <tr>
-                              <td>Titulo</td>
-                              <td><Input name="titulo" type="text"  onTextInput={this.escribeTitle}
-                              placeholder="Limonada de la abue" value={this.state.titulo}/></td>
-                          </tr>
-                          <tr>
-                              <td>Ingredientes</td>
-                              <td><Ingredients ingredients={this.state.ingredients}/></td>
-                          </tr>
-                          <tr>
-                              <td>Instruciones</td>
-                              <td><Input name="instructions" type="text"  onTextInput={this.escribeInstructions}
-                              placeholder="Primero, cortar los limones en mitades..." value={this.state.titulo}/></td>
-                          </tr>
-                          <tr>
-                            <td colSpan="2"><Button onClick={() => {this.postRecipe()}}  bsStyle="info">Añadir receta!</Button></td>
-                          </tr>
-                      </tbody>
-                  </Table>
-
-              </Well>
-
-            </form>
+            {formInstance}
+            <Button onClick={() => {this.postRecipe()}}>Añadir receta</Button>
           </div>
           <div className="col-md-2"></div>
           </div>
@@ -107,13 +132,13 @@ class AddRecipe extends Component{
     );
   }
 }
-export default AddRecipe;
-/**AddRecipe.propTypes = {
+AddRecipe.propTypes = {
   myRecipes: PropTypes.array.isRequired,
 };
 
 export default createContainer(() => {
   return {
     myRecipes: UsersWithRecipesCollection.find({user:Meteor.user()}).fetch(),
+    currentUser: Meteor.user()
   };
-}, AddRecipe);*/
+}, AddRecipe);
