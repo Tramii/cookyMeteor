@@ -5,8 +5,7 @@ import { check } from 'meteor/check';
 export const UsersWithRecipesCollection = new Mongo.Collection('UsersWithRecipesCollection');
 
 Meteor.methods({
-  'recipes.insert'(text) {
-    check(text, String);
+  'recipes.insert'(rec) {
 
     // Make sure the user is logged in before inserting a task
     if (! Meteor.userId()) {
@@ -14,10 +13,9 @@ Meteor.methods({
     }
 
     UsersWithRecipesCollection.insert({
-      text,
+      rec,
       createdAt: new Date(),
-      owner: Meteor.userId(),
-      username: Meteor.user().username,
+      owner: Meteor.userId()
     });
   },
   'recipes.remove'(recipeId) {
