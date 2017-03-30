@@ -16,8 +16,6 @@ class AddRecipe extends Component{
       ingredients:[ ],
       pictureGif:''
     }
-    this.escribeInstructions = this.escribeInstructions.bind(this);
-    this.escribeTitle = this.escribeTitle.bind(this);
   }
 
   /*Adds ingredient to ingredient list*/
@@ -38,7 +36,7 @@ class AddRecipe extends Component{
   }
 
   /*Sets recipe's title*/
-  handleTile(event)
+  handleTitle(event)
   {
     this.setState({
       title: event.target.value
@@ -82,14 +80,17 @@ class AddRecipe extends Component{
             <p className="bod">Llena todos los cambios para guardar tu receta</p>
 
             <form className="bod">
-            <RecipeForm/>
+            <RecipeForm
+              title={this.state.title}
+              setTitle={this.handleTitle.bind(this)}
+            />
             <FormGroup controlId="formControlsFile">
               <ControlLabel>Adjunta una imagen</ControlLabel>
               <FormControl type="file"/>
             </FormGroup>
             </form>
 
-            <Button onClick={() => {this.postRecipe()}}>Añadir receta</Button>
+            <Button onClick={() => {this.handleTitle.bind(this)}}>Añadir receta</Button>
           </div>
           <div className="col-md-2"></div>
           </div>
