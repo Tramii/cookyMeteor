@@ -11,44 +11,70 @@ class AddedIngredients extends Component {
     }
   }
 
-  addIngredient(event) {
-    event.preventDefault();
-    this.setState({
-      ingredients: this.state.ingredients.concat(this.state.currIngredient),
-      currIngredient: ''
-    });
-  }
-
-  deleteIngredient(ing){
-    var found = false;
-    var i = 0;
-    while (!found){
-      if (ing === this.state.ingredients[i]){
-        this.state.ingredients.splice(i,1);
-        found === true;
-      }
-    }
-  }
-
   handleIngredient(event) {
     this.setState({
         currIngredient: event.target.value
-      }, ()=>{
-      console.log(currIngredient);
-    });
+      });
+  }
+
+  addIngredient(event) {
+    event.preventDefault();
+    this.props.addIngredient(this.state.currIngredient);
+    this.setState({
+      ingredients: this.state.ingredients.concat(this.state.currIngredient),
+      currIngredient: ''
+    },()=>{
+      console.log(this.state.ingredients);
+  });
+  }
+
+  deleteIngredient(ing){
+    console.log('entraa1');
+    this.props.deleteIngredient(ing);
+    var found = false;
+    var i = 0;
+    while (!found){
+      console.log('busca '+i);
+
+      if (ing === this.state.ingredients[i]){
+        found=true;
+        var temp = this.state.ingredients;
+        temp.splice(i,1);
+        this.setState({
+          ingredients: temp
+        },()=>{
+
+        });
+      }
+    }
   }
 
   render() {
     return(
       <div>
+
         {this.state.ingredients.map(ingredient => {
-          return <AddedIngredient text={ingredient} deleteIngredient={this.deleteIngredient.bind(this)} />
+          return(
+            <div key={ingredient}>
+              <AddedIngredient
+                text={ingredient}
+                deleteIngredient={this.deleteIngredient.bind(this)}
+              />
+            </div>
+          );
         })}
+
         <div>
           <form onSubmit={this.addIngredient.bind(this)}>
-            <input value={this.state.currIngredient} type="text" placeholder="Ingrediente1" onChange={this.handleIngredient.bind(this)}/>
+            <input
+              value={this.state.currIngredient}
+              type="text" placeholder="Ingrediente1"
+              onChange={this.handleIngredient.bind(this)}
+            />
           </form>
+          <h4><small>Presiona Enter para guardar</small></h4>
         </div>
+
       </div>
     )
   }

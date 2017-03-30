@@ -35,6 +35,10 @@
 .hide{
   visibility: hidden;
 }
+
+.right{
+  float: right;
+}
 /*Navbar --------------------------------------------------------------------*/
 .perfil{
   float: right;
