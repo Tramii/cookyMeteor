@@ -67,7 +67,7 @@ export default class HomePage extends Component {
 								</Well>
               </div>
             </div>
-						<div className="col-md-12 wow fadeInUp animated final" data-wow-delay="2.4s">
+						<div className="col-md-12 wow fadeInUp animated final" data-wow-delay="1.4s">
 							<br/><br/>
 							<h3>
 							  ¡Únete y consigue recetas para toda ocasión!
