@@ -9,8 +9,10 @@ import { UsersWithRecipesCollection } from '../../api/users.js';
 class myRecipes extends Component {
 	constructor(props){
 		super(props);
+		//Creo que no hay necesidad de crear el state si no hay valores con que llenarlo 
+		/*
 		this.state = {
-		}
+		}*/
 	}
 
 	render()
