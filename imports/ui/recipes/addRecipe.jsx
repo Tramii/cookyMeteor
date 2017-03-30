@@ -1,27 +1,48 @@
 import React, { Component, PropTypes } from 'react';
 import {Button, Well, Table, FormGroup, ControlLabel, FormControl, Checkbox} from 'react-bootstrap';
-import Ingredients from './ingredients'
-import Input from '../Input.jsx'
 import Header from '../Header.jsx';
+import RecipeForm from './recipeForm.jsx';
 import { createContainer } from 'meteor/react-meteor-data';
 import { UsersWithRecipesCollection } from '../../api/users.js';
 
-"use strict";
-
-const ROOT_URL = "https://tramii-cooky-back.herokuapp.com";//"http://localhost:3000"//
 class AddRecipe extends Component{
 
   constructor(props){
     super(props);
     this.state = {
       title: '',
-      type:-1,
+      type:[ ],
       description:'',
-      ingredients:[],
-      pictureGif:' nop '
+      ingredients:[ ],
+      pictureGif:''
     }
     this.escribeInstructions = this.escribeInstructions.bind(this);
     this.escribeTitle = this.escribeTitle.bind(this);
+  }
+
+  /*Adds ingredient to ingredient list*/
+  addIngredient(event){
+    event.preventDefault();
+    this.setState({
+      ingredients : this.state.comentarios.concat(this.state.comentarioActual),
+      comentarioActual:''
+    });
+  }
+
+  /*Sets recipe's instructions*/
+  handleInstructions(event)
+  {
+    this.setState({
+      description: event.target.value
+    });
+  }
+
+  /*Sets recipe's title*/
+  handleTile(event)
+  {
+    this.setState({
+      title: event.target.value
+    })
   }
 
   /*Post recipe to MongoDB*/
@@ -49,71 +70,7 @@ class AddRecipe extends Component{
     }
   }
 
-  /*Sets recipe's instructions*/
-  escribeInstructions(value)
-  {
-    this.setState({description: value})
-  }
-
-  /*Sets recipe's title*/
-  escribeTitle(value)
-  {
-    this.setState({title: value})
-  }
-
-  /*FieldGroup*/
-  FieldGroup({ id, label, help, ...props }) {
-    return (
-      <FormGroup controlId={id}>
-        <ControlLabel>{label}</ControlLabel>
-        <FormControl {...props} />
-        {help && <HelpBlock>{help}</HelpBlock>}
-      </FormGroup>
-    );
-  }
-
   render(){
-
-    /*Form instance that will be rendered*/
-    let formInstance = (
-    <form className="bod">
-      <FormGroup controlId="formControlsText">
-        <ControlLabel>Título</ControlLabel>
-        <FormControl type="text" value={this.state.title} placeholder="La mejor receta del mundo" onChange={this.state.title}/>
-      </FormGroup>
-
-      <FormGroup controlId="formControlsFile">
-        <ControlLabel>Adjunta una imagen</ControlLabel>
-        <FormControl type="file"/>
-      </FormGroup>
-
-      <FormGroup>
-        <ControlLabel>Tipo</ControlLabel>
-        <Checkbox inline>
-          Desayuno
-        </Checkbox>
-        {' '}
-        <Checkbox inline>
-          Almuerzo o Cena
-        </Checkbox>
-        {' '}
-        <Checkbox inline>
-          Postre
-        </Checkbox>
-      </FormGroup>
-
-      <FormGroup controlId="formControlsText">
-        <ControlLabel>Ingredientes</ControlLabel>
-        <FormControl type="text" value={this.state.title} placeholder="Ingrediente 1" onChange={this.state.title}/>
-      </FormGroup>
-
-      <FormGroup controlId="formControlsTextarea">
-        <ControlLabel>Instrucciones</ControlLabel>
-        <FormControl componentClass="textarea" placeholder="Pasos para hacer tu receta" />
-      </FormGroup>
-
-    </form>
-  );
 
     return (
       <div>
@@ -121,9 +78,17 @@ class AddRecipe extends Component{
         <div className ="row">
           <div className="col-md-2"></div>
           <div className ="col-md-8">
-            <h2 className="head orange">Añadir una nueva receta</h2>
-            <p>Llena todos los cambios para guardar tu receta</p>
-            {formInstance}
+            <h1 className="head orange bold">Añadir una nueva receta</h1>
+            <p className="bod">Llena todos los cambios para guardar tu receta</p>
+
+            <form className="bod">
+            <RecipeForm/>
+            <FormGroup controlId="formControlsFile">
+              <ControlLabel>Adjunta una imagen</ControlLabel>
+              <FormControl type="file"/>
+            </FormGroup>
+            </form>
+
             <Button onClick={() => {this.postRecipe()}}>Añadir receta</Button>
           </div>
           <div className="col-md-2"></div>
