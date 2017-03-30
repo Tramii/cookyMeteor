@@ -41,4 +41,9 @@ Meteor.methods({
       $inc: { likes:1 }
     });
   },
+  'recipes.findAll'() {
+    /**check(recipesId, String);*/
+    UsersWithRecipesCollection.find({}, { sort: { likes: -1 } }).fetch()
+  },
+
 });

@@ -3,7 +3,6 @@ import {Table, Button, Well} from 'react-bootstrap';
 import Ingredient from './ingredient';
 
 import { createContainer } from 'meteor/react-meteor-data';
-import { UsersWithRecipesCollection } from '../../api/users.js';
 
 class Recipe extends Component {
 
