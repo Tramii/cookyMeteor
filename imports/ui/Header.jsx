@@ -1,3 +1,5 @@
+//Sergio Velásquez: Creo que no hay necesidad de crear este Header.jsx, esto se podría poner en App.jsx sin que App.jsx quede muy cargado, porque pues en este momento esta casi desocupado
+import React, {Component} from 'react';
 import React, {Component} from 'react';
 import {render} from 'react-dom';
 import { Template } from 'meteor/templating';
@@ -8,13 +10,14 @@ import {createContainer} from 'meteor/react-meteor-data';
 import { Meteor } from 'meteor/meteor';
 
 class Header extends Component {
+	//No se usa log, por lo que no no se debería crear estado	
 	constructor(props) {
-        super(props);
+		super(props);
 
-        this.state = {
-            log: '',
-        }
-  }
+		this.state = {
+		    log: '',
+		}
+  	}
 
 	login(x){
 		this.setState({
