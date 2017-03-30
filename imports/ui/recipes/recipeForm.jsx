@@ -23,16 +23,17 @@ class RecipeForm extends Component {
                 <FormGroup>
                     <ControlLabel>Tipo</ControlLabel>
                     <br/>
-                    <Checkbox inline>Desayuno </Checkbox>
+                    <Checkbox inline onChange={(event)=>{this.props.addType(event.target)}} name="1">Desayuno </Checkbox>
                     {' '}
-                    <Checkbox inline>Almuerzo o Cena </Checkbox>
+                    <Checkbox inline onChange={(event)=>{this.props.addType(event.target)}} name="2">Almuerzo o Cena </Checkbox>
                     {' '}
-                    <Checkbox inline>Postre </Checkbox>
+                    <Checkbox inline onChange={(event)=>{this.props.addType(event.target)}} name="3">Postre </Checkbox>
                 </FormGroup>
 
                 <FormGroup controlId="formControlsText">
                     <ControlLabel>Ingredientes</ControlLabel>
                     <AddedIngredients
+                      ingredients={this.props.ingredients}
                       addIngredient={this.props.addIngredient}
                       deleteIngredient={this.props.deleteIngredient}
                     />
