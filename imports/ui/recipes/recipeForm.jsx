@@ -8,7 +8,7 @@ class RecipeForm extends Component {
 
     render() {
         return (
-            <div>
+            <div className="bod">
 
                 <FormGroup controlId="formControlsText">
                     <ControlLabel>Título</ControlLabel>
@@ -23,22 +23,21 @@ class RecipeForm extends Component {
                 <FormGroup>
                     <ControlLabel>Tipo</ControlLabel>
                     <br/>
-                    <Checkbox inline> Desayuno </Checkbox>
+                    <Checkbox inline>Desayuno </Checkbox>
                     {' '}
-                    <Checkbox inline> Almuerzo o Cena </Checkbox>
+                    <Checkbox inline>Almuerzo o Cena </Checkbox>
                     {' '}
-                    <Checkbox inline> Postre </Checkbox>
+                    <Checkbox inline>Postre </Checkbox>
                 </FormGroup>
 
                 <FormGroup controlId="formControlsText">
                     <ControlLabel>Ingredientes</ControlLabel>
-                    <AddedIngredients/>
+                    <AddedIngredients
+                      addIngredient={this.props.addIngredient}
+                      deleteIngredient={this.props.deleteIngredient}
+                    />
                 </FormGroup>
 
-                <FormGroup controlId="formControlsTextarea">
-                    <ControlLabel>Instrucciones</ControlLabel>
-                    <FormControl componentClass="textarea" placeholder="Pasos para hacer tu receta"/>
-                </FormGroup>
             </div>
         );
     }
