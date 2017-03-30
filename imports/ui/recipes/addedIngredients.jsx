@@ -6,8 +6,7 @@ class AddedIngredients extends Component {
     super(props);
 
     this.state = {
-      currIngredient: '',
-      ingredients: []
+      currIngredient: ''
     }
   }
 
@@ -18,47 +17,25 @@ class AddedIngredients extends Component {
   }
 
   addIngredient(event) {
-    event.preventDefault();
-    this.props.addIngredient(this.state.currIngredient);
-    this.setState({
-      ingredients: this.state.ingredients.concat(this.state.currIngredient),
-      currIngredient: ''
-    },()=>{
-      console.log(this.state.ingredients);
-  });
-  }
-
-  deleteIngredient(ing){
-    console.log('entraa1');
-    this.props.deleteIngredient(ing);
-    var found = false;
-    var i = 0;
-    while (!found){
-      console.log('busca '+i);
-
-      if (ing === this.state.ingredients[i]){
-        found=true;
-        var temp = this.state.ingredients;
-        temp.splice(i,1);
-        this.setState({
-          ingredients: temp
-        },()=>{
-
-        });
-      }
-    }
+      event.preventDefault();
+      this.props.addIngredient(this.state.currIngredient);
+      this.setState({
+          currIngredient: ''
+      }, () => {
+        
+      });
   }
 
   render() {
     return(
       <div>
 
-        {this.state.ingredients.map(ingredient => {
+        {this.props.ingredients.map(ingredient => {
           return(
             <div key={ingredient}>
               <AddedIngredient
                 text={ingredient}
-                deleteIngredient={this.deleteIngredient.bind(this)}
+                deleteIngredient={this.props.deleteIngredient}
               />
             </div>
           );
