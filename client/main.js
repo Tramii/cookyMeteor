@@ -18,6 +18,8 @@ import Add from '../imports/ui/recipes/addRecipe.jsx';
 import Me from '../imports/ui/Me.jsx';
 import '../imports/startup/accounts-config.js';
 
+//<!-- Esta organizada, es muy facil entender como esta distribuida. Mi recomendacion es depronto agregar ya recetas en la parte principal, depronto consejos nutricionales. Esta Api te puede dar receta y parte de informacion nutricional https://developer.edamam.com/es/api-recetas-edamam-documentacion -->
+// tambien agregar como iconos para los ingredientes, depronto puede ser intereante el fitro mas visual
 Meteor.startup(()=>{
 	ReactDOM.render((
 			 <HashRouter>
