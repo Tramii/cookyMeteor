@@ -19,31 +19,44 @@ class AddRecipe extends Component{
   }
 
   /*Adds ingredient to ingredient list*/
-  addIngredient(event){
-    this.setState({
-      ingredients : this.state.ingredients.concat(event)
-    }, ()=>{
-       console.log(this.state.ingredients);
-    });
+  addIngredient(ing) {
+      var i = 0;
+      var n = this.state.ingredients.length;
+      var rep = false;
+      while (i<n && !rep) {
+          if (ing === this.state.ingredients[i]){
+              rep = true;
+              console.log('Ingrediente repetido');
+              window.alert('Ingrediente repetido');
+          }
+          console.log('holaaaaaaaa '+i);
+          i++;
+      }
+      if (!rep) {
+          this.setState({
+              ingredients: this.state.ingredients.concat(ing)
+          }, () => {
+              console.log('holaa');
+              console.log(this.state.ingredients);
+          });
+      }
   }
 
-  deleteIngredient(ing){
-    console.log('salee');
-    var found = false;
-    var i = 0;
-    while (!found){
-      console.log('busca '+i);
-      if (ing === this.state.ingredients[i]){
-        var temp = this.state.ingredients;
-        found=true;
-        temp.splice(i,1);
-        this.setState({
-          ingredients: temp
-        },()=>{
-          
-        });
+  /*Searches and deletes ingredient*/
+  deleteIngredient(ing) {
+      console.log('quiero borrar: ' + ing);
+      var found = false;
+      var i = 0;
+      while (!found) {
+          console.log('busca ' + i);
+          if (ing === this.state.ingredients[i]) {
+              var temp = this.state.ingredients;
+              found = true;
+              temp.splice(i, 1);
+              this.setState({ingredients: temp});
+          }
+          i++;
       }
-    }
   }
 
   /*Sets recipe's instructions*/
@@ -62,6 +75,33 @@ class AddRecipe extends Component{
     });
   }
 
+  /*Sets types: 1 is breakfast, 2 is lunch or dinner, 3 is dessert*/
+  addType(chbx){
+    console.log(chbx.checked);
+    if(chbx.checked){
+      console.log(chbx.name);
+      this.setState({
+        type: this.state.type.concat(chbx.name)
+      });
+    }else{
+      var i = 0;
+      var found = false;
+      while (!found){
+        if (this.state.type[i] === chbx.name){
+          console.log('Found it!');
+          found = true;
+          temp = this.state.type;
+          temp.splice(i,1);
+          this.setState({
+            type: temp
+          });
+          i++;
+        }
+      }
+    }
+  }
+
+  /*Sets picture's URL*/
   handlePicture(event){
     this.setState({
       pictureGif: event.target.value
@@ -105,8 +145,10 @@ class AddRecipe extends Component{
             <RecipeForm
               title={this.state.title}
               setTitle={this.handleTitle.bind(this)}
+              ingredients={this.state.ingredients}
               addIngredient={this.addIngredient.bind(this)}
               deleteIngredient={this.deleteIngredient.bind(this)}
+              addType={this.addType.bind(this)}
             />
             <FormGroup className="bod" controlId="formControlsTextarea">
                 <ControlLabel>Instrucciones</ControlLabel>
@@ -118,8 +160,8 @@ class AddRecipe extends Component{
                 />
             </FormGroup>
 
-            <FormGroup controlId="formControlsText">
-                <ControlLabel>Agrega una imagen o video</ControlLabel>
+            <FormGroup className="bod" controlId="formControlsText">
+                <ControlLabel>Agrega una imagen o video </ControlLabel>
                 <FormControl
                   type="text"
                   value={this.props.pictureGif}
@@ -131,6 +173,7 @@ class AddRecipe extends Component{
             <Button className="bod" onClick={() => {this.saveRecipe.bind(this)}}>
               Añadir receta
             </Button>
+
           </div>
           <div className="col-md-2"></div>
           </div>
