@@ -6,7 +6,7 @@ class AddedIngredient extends Component {
   render(){
     return(
       <div>
-        <Well bsSize="small">
+        <Well>
           {this.props.text}
           <Button className="right" onClick={()=>this.props.deleteIngredient(this.props.text)}>
             <i className="fa fa-trash" aria-hidden="true"></i>
