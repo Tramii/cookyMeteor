@@ -12,23 +12,22 @@ class RecipeForm extends Component {
 
                 <FormGroup controlId="formControlsText">
                     <ControlLabel>Título</ControlLabel>
-                    <FormControl type="text" value={this.state.title} placeholder="La mejor receta del mundo" onChange={this.setTitle.bind(this)}/>
+                    <FormControl
+                      type="text"
+                      value={this.props.title}
+                      placeholder="La mejor receta del mundo"
+                      onChange={this.props.setTitle}
+                    />
                 </FormGroup>
 
                 <FormGroup>
                     <ControlLabel>Tipo</ControlLabel>
                     <br/>
-                    <Checkbox inline>
-                        Desayuno
-                    </Checkbox>
+                    <Checkbox inline> Desayuno </Checkbox>
                     {' '}
-                    <Checkbox inline>
-                        Almuerzo o Cena
-                    </Checkbox>
+                    <Checkbox inline> Almuerzo o Cena </Checkbox>
                     {' '}
-                    <Checkbox inline>
-                        Postre
-                    </Checkbox>
+                    <Checkbox inline> Postre </Checkbox>
                 </FormGroup>
 
                 <FormGroup controlId="formControlsText">
