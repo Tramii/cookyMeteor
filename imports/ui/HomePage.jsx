@@ -1,3 +1,4 @@
+//Igual que en Header no veo la necesidad de crear otro componente, se podría poner esto en App.jsx y si no se quiere poner todo en el Render se pueden crear funciones que tengan todo el html y llamarlas en el render()
 import React, {Component} from 'react';
 import {render} from 'react-dom';
 import {Well} from 'react-bootstrap';
