@@ -1,33 +1,32 @@
-import React, {Component} from 'react';
-import {Table, Button, Well} from 'react-bootstrap';
-import Ingredient from './ingredient';
-import Input from '../Input.jsx'
+import React, { Component } from 'react';
+import { Button, Well } from 'react-bootstrap';
+import Ingredient from './ingredient.jsx';
+import Input from '../Input.jsx';
 
 class Ingredients extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
-      ingredienteConstruccion:''
-    }
+      ingredienteConstruccion: '',
+    };
     this.nuevoIngrediente = this.nuevoIngrediente.bind(this);
   }
 
-  nuevoIngrediente(event)
-  {
-    this.setState({ingredienteConstruccion: {ingrediente:event}})
+  nuevoIngrediente(event) {
+    this.setState( { ingredienteConstruccion: { ingrediente:event } });
   }
 
-  saveIngredient(){
+  saveIngredient() {
     this.props.ingredients.push(this.state.ingredienteConstruccion);
     console.log(this.state.ingredienteConstruccion);
     console.log(this.props.ingredients);
 
     ReactDOM.findDOMNode(this.refs.textInput).value = '';
-    this.setState({ingredienteConstruccion : ''});
+    this.setState({ ingredienteConstruccion : '' });
   }
 
-  render(){
-    return(
+  render() {
+    return (
       <div>
         <Well>
             {this.props.ingredients.map((ingredient,i)=> {

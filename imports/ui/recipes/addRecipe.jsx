@@ -95,33 +95,32 @@ class AddRecipe extends Component{
           this.setState({
             type: temp,
           });
-
         }
         i++;
       }
     }
   }
 
-  /*Sets picture's URL*/
-  handlePicture(event){
+  /* Sets picture's URL*/
+  handlePicture(event) {
     this.setState({
-      pictureGif: event.target.value
-    })
+      pictureGif: event.target.value,
+    });
   }
 
-  /*Post recipe to MongoDB*/
+  /* Post recipe to MongoDB*/
   saveRecipe(){
     console.log('entra a guardar');
-    var ingr = [];
-    for(var i=0; i<this.state.ingredients.length;i++){
-      var newI = {"ingrediente":this.state.ingredients[i]};
+    const ingr = [];
+    for (let i = 0; i < this.state.ingredients.length; i++) {
+      const newI = { "ingrediente": this.state.ingredients[i] };
       ingr.push(newI);
-      //console.log(newI);
+      // console.log(newI);
     }
-    //console.log(ingr);
-    if(this.state.title!=='' && this.state.description!=='' && this.state.ingredients!==[] ) {
-      console.log("esta haciendo el post recipe "+this.state.title+ "  "+this.state.description+"  "+ this.state.ingredients);
-      var recipe = {
+    // console.log(ingr);
+    if (this.state.title !== '' && this.state.description !== '' && this.state.ingredients !== []) {
+      console.log("esta haciendo el post recipe " + this.state.title + "  "+ this.state.description + "  " + this.state.ingredients);
+      const recipe = {
         "tipo": this.state.type,
         "likes": 0,
         "username": Meteor.user().username,
@@ -137,16 +136,15 @@ class AddRecipe extends Component{
     }
   }
 
-  render(){
-
+  render() {
     return (
       <div className="pad">
-        <Header/>
-        <div className ="row">
-          <div className="col-md-2"></div>
-          <div className ="col-md-8">
+        <Header />
+        <div className="row" >
+          <div className="col-md-2" />
+          <div className="col-md-8">
             <h1 className="head orange bold">
-              <i className="fa fa-plus" aria-hidden="true"> </i> Añadir una nueva receta
+              <i className="fa fa-plus" aria-hidden="true" /> Añadir una nueva receta
             </h1>
             <p className="bod">Llena todos los campos para guardar tu receta</p>
 
@@ -178,17 +176,16 @@ class AddRecipe extends Component{
                 />
             </FormGroup>
 
-            <div className="row buscar">
-            <Button bsSize="large" className="bod" onClick={this.saveRecipe.bind(this)}>
-              <i className="fa fa-plus" aria-hidden="true"></i> <strong>Añadir receta</strong>
+            <Button className="bod" onClick={this.saveRecipe.bind(this)}>
+              <i className="fa fa-plus" aria-hidden="true" /> <strong>Añadir receta</strong>
             </Button>
-          </div>
+
             <div className="row">
               {' '}
             </div>
 
           </div>
-          </div>
+        </div>
       </div>
     );
   }
