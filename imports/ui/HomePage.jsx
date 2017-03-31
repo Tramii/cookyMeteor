@@ -9,7 +9,7 @@ export default class HomePage extends Component {
 	render()
 	{
 		return(
-			<div name="app">
+			<div className="pad" name="app">
 				{new WOW().init()}
         <section id="intro" className="colored text-center">
           <div className="container">

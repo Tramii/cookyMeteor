@@ -6,7 +6,7 @@ export default class Me extends Component {
 	render()
 	{
 		return(
-			<div name="app">
+			<div className="pad" name="app">
 				me
 			</div>
 		);

@@ -1,5 +1,5 @@
 import React, {Component, PropTypes} from 'react';
-import {Button,Well,Table,FormGroup,ControlLabel,FormControl,Checkbox} from 'react-bootstrap';
+import {Button,Well,Table,FormGroup,ControlLabel,FormControl,Checkbox,HelpBlock} from 'react-bootstrap';
 import AddedIngredients from './addedIngredients.jsx';
 import {createContainer} from 'meteor/react-meteor-data';
 import {UsersWithRecipesCollection} from '../../api/users.js';
@@ -37,6 +37,7 @@ class RecipeForm extends Component {
                       addIngredient={this.props.addIngredient}
                       deleteIngredient={this.props.deleteIngredient}
                     />
+                    <HelpBlock> Presiona Enter para guardar el ingrediente.</HelpBlock>
                 </FormGroup>
 
             </div>

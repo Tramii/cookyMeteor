@@ -5,17 +5,22 @@ import { check } from 'meteor/check';
 export const UsersWithRecipesCollection = new Mongo.Collection('UsersWithRecipesCollection');
 
 Meteor.methods({
-  'recipes.insert'(rec) {
+  'recipes.insert'(recipe) {
 
     // Make sure the user is logged in before inserting a task
     if (! Meteor.userId()) {
       throw new Meteor.Error('not-authorized');
     }
+    var tipo = recipe.tipo;
+    var likes = recipe.likes;
+    var username = recipe.username;
+    var title = recipe.title;
+    var description = recipe.description;
+    var pictureGif = recipe.pictureGif;
+    var Ingredients = recipe.Ingredients;
 
     UsersWithRecipesCollection.insert({
-      rec,
-      createdAt: new Date(),
-      owner: Meteor.userId()
+      tipo, likes, username, title, description, pictureGif, Ingredients
     });
   },
   'recipes.remove'(recipeId) {

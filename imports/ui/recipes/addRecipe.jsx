@@ -71,7 +71,7 @@ class AddRecipe extends Component{
     this.setState({
       title: event.target.value
     }, ()=>{
-      console.log(this.state.title);
+      //console.log(this.state.title);
     });
   }
 
@@ -95,8 +95,9 @@ class AddRecipe extends Component{
           this.setState({
             type: temp
           });
-          i++;
+
         }
+        i++;
       }
     }
   }
@@ -110,19 +111,25 @@ class AddRecipe extends Component{
 
   /*Post recipe to MongoDB*/
   saveRecipe(){
-    if(this.state.title!=='' && this.state.description!=='' && this.state.ingredients!==[] )
-    {
+    console.log('entra a guardar');
+    var ingr = [];
+    for(var i=0; i<this.state.ingredients.length;i++){
+      var newI = {"ingrediente":this.state.ingredients[i]};
+      ingr.push(newI);
+      //console.log(newI);
+    }
+    //console.log(ingr);
+    if(this.state.title!=='' && this.state.description!=='' && this.state.ingredients!==[] ) {
       console.log("esta haciendo el post recipe "+this.state.title+ "  "+this.state.description+"  "+ this.state.ingredients);
       var recipe = {
-        "tipo": [1],
+        "tipo": this.state.type,
         "likes": 0,
         "username": Meteor.user().username,
         "title": this.state.title,
         "description": this.state.description,
         "pictureGif": this.state.pictureGif,
-        "Ingredients": this.state.ingredients
+        "Ingredients": ingr
       };
-
       Meteor.call('recipes.insert', recipe);
     }
     else {
@@ -133,14 +140,13 @@ class AddRecipe extends Component{
   render(){
 
     return (
-      <div>
+      <div className="pad">
         <Header/>
         <div className ="row">
           <div className="col-md-2"></div>
           <div className ="col-md-8">
             <h1 className="head orange bold">Añadir una nueva receta</h1>
             <p className="bod">Llena todos los campos para guardar tu receta</p>
-
 
             <RecipeForm
               title={this.state.title}
@@ -165,25 +171,25 @@ class AddRecipe extends Component{
                 <FormControl
                   type="text"
                   value={this.props.pictureGif}
-                  placeholder="La mejor receta del mundo"
+                  placeholder="URL de la imagen o el video"
                   onChange={this.handlePicture.bind(this)}
                 />
             </FormGroup>
 
-            <Button className="bod" onClick={() => {this.saveRecipe.bind(this)}}>
-              Añadir receta
+            <Button className="bod" onClick={this.saveRecipe.bind(this)}>
+              <i className="fa fa-plus" aria-hidden="true"></i> Añadir receta
             </Button>
 
+            <div className="row">
+              {' '}
+            </div>
+
           </div>
-          <div className="col-md-2"></div>
           </div>
       </div>
     );
   }
 }
-AddRecipe.propTypes = {
-  myRecipes: PropTypes.array.isRequired,
-};
 
 export default createContainer(() => {
   return {
