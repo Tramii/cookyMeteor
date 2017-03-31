@@ -1,6 +1,6 @@
 import React from 'react';
-import {meteor} from 'meteor/meteor';
-import {render} from 'react-dom';
+import { meteor } from 'meteor/meteor';
+import { render } from 'react-dom';
 import './main.html';
 import App from '../imports/ui/App.jsx';
 
@@ -18,7 +18,7 @@ import Add from '../imports/ui/recipes/addRecipe.jsx';
 import Me from '../imports/ui/Me.jsx';
 import '../imports/startup/accounts-config.js';
 
-Meteor.startup(()=>{
+Meteor.startup(() => {
 	ReactDOM.render((
 			 <HashRouter>
 	     <div>
@@ -30,6 +30,6 @@ Meteor.startup(()=>{
 		     <Route path='/miPerfil' component={Me}/>
 	 		 </div>
 	  	 </HashRouter>
-		),document.getElementById('render-target')
+		), document.getElementById('render-target')
 	);
 });
