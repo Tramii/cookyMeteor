@@ -46,20 +46,7 @@ export default createContainer(() => {
 }, myRecipes);
 
 /**
-
-{
-	"tipo":1,
-	"likes":0,
-	"username":"josega149",
-	"title":"Jugo de mora de la abuela",
-	"description":"Se hace jugo de mora con el agua y la mora y el azucar.",
-	"pictureGif":"p",
-  "Ingredients":[
-	    {"ingrediente":"mora"},
-			{"ingrediente":"azucar"},
-			{"ingrediente":"agua"}
-	]
-}
-
-
+{ "_id" : ObjectId("58da047698be6cf20943b1ac"), "tipo" : 1, "likes" : 15, "username" : "josega149", "title" : "Ramen con mariscos", "description" : "Ramen instantaneo, leer instrucciones", "pictureGif" : "p", "Ingredients" : [ { "ingrediente" : "Ramen" }, { "ingrediente" : "mariscos" }, { "ingrediente" : "agua" } ] }
+{ "_id" : ObjectId("58d9f98f98be6cf20943b1aa"), "tipo" : 1, "likes" : 6, "username" : "josega149", "title" : "Jugo de mora de la abuela", "description" : "Se hace jugo de mora con el agua y la mora y el azucar.", "pictureGif" : "p", "Ingredients" : [ { "ingrediente" : "mora" }, { "ingrediente" : "azucar" }, { "ingrediente" : "agua" } ] }
+{ "_id" : ObjectId("58da0bee98be6cf20943b1ad"), "tipo" : 1, "likes" : 3, "username" : "margari", "title" : "Pasta pesto", "description" : "Coger la pasta y ponerla al agua y hacer la pasta", "pictureGif" : "p", "Ingredients" : [ { "ingrediente" : "Pasta" }, { "ingrediente" : "Pesto" } ] }
 */
