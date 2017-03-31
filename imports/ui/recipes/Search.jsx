@@ -20,38 +20,35 @@ export default class Search extends Component {
 				}
 	}
 	buscar(){
-		var query ='';
-		var modifico=false;
-		if(this.state.titulo !== '')
+		var query = {};
+		if(this.state.titulo !== 'Titulo que quieres buscar')
 		{
-			query+="title:"+this.state.titulo;
-			modifico = true;
+			query.title = this.state.titulo;
 		}
 		if(this.state.type.length !==0)
 		{
-			if(modifico)
+			query.tipo={};
+			query.tipo.$in =[];
+			for(var i=0; i< this.state.type.length;i++)
 			{
-				query+=",tipo: { $in:" +this.state.type+ "}";
+				query.tipo.$in.push(parseInt( this.state.type[i]));
 			}
-			else {
-				query+="tipo: { $in:" +this.state.type+ "}";
-			}
-			modifico=true;
 		}
-		if(this.state.ingredients.length !==0)
+		if(this.state.ingredients.length !== 0)
 		{
-			if(modifico)
+			query.Ingredients ={};
+			//query.Ingredients.$elemMatch={};
+			//query.Ingredients.$elemMatch.$and=[];
+			query.Ingredients.$or=[];
+			
+			for(var i=0; i< this.state.ingredients.length;i++)
 			{
-				query+='"Ingredients": { $elemMatch:{ ingrediente:' +this.state.ingredients+ '}}';
-				modifico=false;
-			}
-			else {
-				query+='"Ingredients": { $elemMatch:{ "ingrediente":"' +this.state.ingredients+ '"}}';
+				query.Ingredients.$and.push({ ingrediente:this.state.ingredients[i]});
 			}
 		}
 		console.log('query');
 		console.log(query);
-		var searchInDB = query===''?UsersWithRecipesCollection.find({}, { sort: { likes: -1 } }).fetch():UsersWithRecipesCollection.find({query}, { sort: { likes: -1 } }).fetch();
+		var searchInDB = query===''?UsersWithRecipesCollection.find({}).fetch():UsersWithRecipesCollection.find(query, {sort: { likes: -1 }}).fetch();
 		console.log('Resultado');
 		console.log(searchInDB);
 		this.setState({modoForm:false, searchResult:searchInDB});
@@ -101,8 +98,9 @@ export default class Search extends Component {
 
 	/*Sets recipe's title*/
 	handleTitle(event){
-		this.setState({titulo: event.target.value});
-		console.log(this.state.titulo);
+		this.setState({titulo: event.target.value}, () => {
+				console.log(this.state.titulo);
+		});
 	}
 
 	/*Sets types: 1 is breakfast, 2 is lunch or dinner, 3 is dessert*/
