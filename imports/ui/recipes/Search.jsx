@@ -37,13 +37,12 @@ export default class Search extends Component {
 		if(this.state.ingredients.length !== 0)
 		{
 			query.Ingredients ={};
-			//query.Ingredients.$elemMatch={};
-			//query.Ingredients.$elemMatch.$and=[];
-			query.Ingredients.$or=[];
-			
+			query.Ingredients.$elemMatch={};
+			query.Ingredients.$elemMatch.$or=[];
+
 			for(var i=0; i< this.state.ingredients.length;i++)
 			{
-				query.Ingredients.$and.push({ ingrediente:this.state.ingredients[i]});
+				query.Ingredients.$elemMatch.$or.push({ ingrediente:this.state.ingredients[i]});
 			}
 		}
 		console.log('query');
