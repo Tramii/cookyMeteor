@@ -39,7 +39,7 @@ class Recipe extends Component {
               <tr>
                 <td>
                   <h4 className="bold bod">
-                    <i className="fa fa-lemon-o" aria-hidden="true" /> Ingredients
+                    <i className="fa fa-lemon-o" aria-hidden="true" /> Ingredientes
                   </h4>
                   <p>
                     {this.props.ingredients.map(ingredient =>{
@@ -55,7 +55,7 @@ class Recipe extends Component {
               <tr>
                 <td>
                   <h4 className="bold bod">
-                    <i className="fa fa-list-ol" aria-hidden="true" /> Instructions
+                    <i className="fa fa-list-ol" aria-hidden="true" /> Instrucciones
                   </h4>
                   <p>{this.props.recipe.description}</p>
                 </td>
