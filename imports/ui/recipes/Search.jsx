@@ -131,9 +131,13 @@ export default class Search extends Component {
 	render()
 	{
 		var form = (
-					<div><div>
-						<h2>Llena los campos por los cuales deseas filtrar</h2>
-					</div>
+					<div>
+						<h1 className="head orange bold">
+              <i className="fa fa-search" aria-hidden="true"> </i> Búsqueda de recetas
+            </h1>
+						<p className="bod">
+							Llena los campos por los cuales deseas filtrar tu búsqueda.
+						</p>
 					<RecipeForm
 						title={this.state.title}
 						setTitle={this.handleTitle.bind(this)}
@@ -143,12 +147,15 @@ export default class Search extends Component {
 						addType={this.addType.bind(this)}
 					/>
 					<div className="row buscar">
-						<Button bsStyle="info" onClick={() => {this.buscar()}}>
-						Buscar</Button>
+					<Button onClick={() => {this.buscar()}}>
+						<i className="fa fa-search" aria-hidden="true"> </i> <strong>Buscar</strong>
+					</Button>
 					</div></div>);
 		var busquedaCompleta=(
 			<div className="buscar">
-				<h2 onClick={()=>{this.paginaBusqueda()}}>Volver a realizar Busqueda </h2>
+				<h2 className="bold head orange" onClick={()=>{this.paginaBusqueda()}}>
+					<i className="fa fa-repeat" aria-hidden="true"></i>  Realizar otra búsqueda
+				</h2>
 				{this.state.searchResult.map((recipe,i) => {
 					console.log(recipe);
 						return (
@@ -166,8 +173,11 @@ export default class Search extends Component {
 		return(
 			<div className="pad" name="app">
 				<Header/>
-				<br/>
-				{this.state.modoForm? form:busquedaCompleta}
+				<div className="col-md-1"></div>
+				<div className="col-md-10">
+					{this.state.modoForm? form:busquedaCompleta}
+				</div>
+				<div className="col-md-1"></div>
 			</div>
 		);
 	}
