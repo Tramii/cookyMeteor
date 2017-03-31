@@ -19,6 +19,11 @@ class myRecipes extends Component {
 		return(
 			<div className="pad" name="app">
 				<Header/>
+				<div className="col-md-1"></div>
+				<div className="col-md-10">
+				<h1 className="head orange bold">
+					<i className="fa fa-cutlery" aria-hidden="true"></i> Mis recetas
+				</h1>
 				{console.log(this.props.allRecipes)}
 				{this.props.allRecipes.map((recipe) => {
 					console.log(recipe);
@@ -31,6 +36,8 @@ class myRecipes extends Component {
 						);
 
 				})}
+			</div>
+			<div className="col-md-1"></div>
 			</div>
 		);
 	}

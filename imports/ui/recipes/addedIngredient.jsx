@@ -8,7 +8,7 @@ class AddedIngredient extends Component {
       <div>
         <Well>
           {this.props.text}
-          <Button className="right" onClick={()=>this.props.deleteIngredient(this.props.text)}>
+          <Button className="right trsh" onClick={()=>this.props.deleteIngredient(this.props.text)}>
             <i className="fa fa-trash" aria-hidden="true"></i>
           </Button>
         </Well>

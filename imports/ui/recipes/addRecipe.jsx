@@ -145,7 +145,9 @@ class AddRecipe extends Component{
         <div className ="row">
           <div className="col-md-2"></div>
           <div className ="col-md-8">
-            <h1 className="head orange bold">Añadir una nueva receta</h1>
+            <h1 className="head orange bold">
+              <i className="fa fa-plus" aria-hidden="true"> </i> Añadir una nueva receta
+            </h1>
             <p className="bod">Llena todos los campos para guardar tu receta</p>
 
             <RecipeForm
@@ -177,7 +179,7 @@ class AddRecipe extends Component{
             </FormGroup>
 
             <Button className="bod" onClick={this.saveRecipe.bind(this)}>
-              <i className="fa fa-plus" aria-hidden="true"></i> Añadir receta
+              <i className="fa fa-plus" aria-hidden="true"></i> <strong>Añadir receta</strong>
             </Button>
 
             <div className="row">

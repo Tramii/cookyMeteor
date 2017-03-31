@@ -19,6 +19,11 @@ class Featured extends Component {
 		return(
 			<div className="pad" name="app">
 				<Header/>
+				<div className="col-md-1"></div>
+				<div className="col-md-10">
+				<h1 className="head orange bold">
+					<i className="fa fa-star" aria-hidden="true"></i> Recetas destacadas
+				</h1>
 				{console.log(this.props.allRecipes)}
 				{this.props.allRecipes.map((recipe) => {
 					console.log(recipe);
@@ -31,6 +36,8 @@ class Featured extends Component {
 						);
 
 				})}
+			</div>
+				<div className="col-md-1"></div>
 			</div>
 		);
 	}
