@@ -4,6 +4,7 @@ import Header from '../Header.jsx';
 import RecipeForm from './recipeForm.jsx';
 import { createContainer } from 'meteor/react-meteor-data';
 import { UsersWithRecipesCollection } from '../../api/users.js';
+import {Link} from 'react-router-dom';
 
 class AddRecipe extends Component{
 
@@ -176,9 +177,14 @@ class AddRecipe extends Component{
                 />
             </FormGroup>
 
-            <Button className="bod" onClick={this.saveRecipe.bind(this)}>
-              <i className="fa fa-plus" aria-hidden="true" /> <strong>Añadir receta</strong>
-            </Button>
+            <div className="row buscar">
+              <Link to="/misRecetas/ver">
+                <Button bsSize="large" className="bod" onClick={this.saveRecipe.bind(this)}>
+                  <i className="fa fa-plus" aria-hidden="true" /> <strong>Añadir receta</strong>
+                </Button>
+                </Link>
+            </div>
+
 
             <div className="row">
               {' '}
