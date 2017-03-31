@@ -8,7 +8,7 @@ class Ingredient extends Component {
   render(){
     return(
       <div>
-        {this.props.name}
+        <li>{this.props.name}</li>
       </div>
     );
   }

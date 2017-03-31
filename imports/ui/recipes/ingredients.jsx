@@ -12,8 +12,6 @@ class Ingredients extends Component {
     this.nuevoIngrediente = this.nuevoIngrediente.bind(this);
   }
 
-
-
   nuevoIngrediente(event)
   {
     this.setState({ingredienteConstruccion: {ingrediente:event}})
