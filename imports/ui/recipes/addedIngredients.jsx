@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import AddedIngredient from './addedIngredient.jsx';
 
 class AddedIngredients extends Component {
@@ -6,32 +6,31 @@ class AddedIngredients extends Component {
     super(props);
 
     this.state = {
-      currIngredient: ''
-    }
+      currIngredient: '',
+    };
   }
 
   handleIngredient(event) {
     this.setState({
-        currIngredient: event.target.value
-      });
+      currIngredient: event.target.value,
+    });
   }
 
   addIngredient(event) {
-      event.preventDefault();
-      this.props.addIngredient(this.state.currIngredient);
-      this.setState({
-          currIngredient: ''
-      }, () => {
-
-      });
+    event.preventDefault();
+    this.props.addIngredient(this.state.currIngredient);
+    this.setState({
+      currIngredient: '',
+    }, () => {
+    });
   }
 
   render() {
-    return(
+    return (
       <div>
 
         {this.props.ingredients.map(ingredient => {
-          return(
+          return (
             <div key={ingredient}>
               <AddedIngredient
                 text={ingredient}
@@ -54,7 +53,7 @@ class AddedIngredients extends Component {
         </div>
 
       </div>
-    )
+    );
   }
 }
 
