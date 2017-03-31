@@ -8,6 +8,10 @@
   font-family: 'Open Sans', sans-serif;
 }
 
+.pad{
+  padding-top: 5em;
+}
+
 .bold{
   font-weight: bold;
 }
@@ -44,24 +48,28 @@
   float: right;
 }
 
-.brand{
-  margin-left: 1em !important;
-}
+
 
 .navbar .nav > li > a{
   padding: 10px 15px 20px;
 }
-.navbar .nav {
-  width: 60em;
-}
+
 
 #login-buttons a, .accounts-dialog a{
   text-decoration: none !important;
   color: #706F73;
 }
+
 .signIn{
   float: right;
 }
+
+.navbar-default {
+  border-radius: 0px !important;
+}
+
+
+
 
 /*HomePage --------------------------------------------------------------------*/
 .bigCooky{

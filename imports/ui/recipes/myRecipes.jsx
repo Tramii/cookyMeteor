@@ -17,7 +17,7 @@ class myRecipes extends Component {
 	{
 		console.log("entra a destacado");
 		return(
-			<div name="app">
+			<div className="pad" name="app">
 				<Header/>
 				{console.log(this.props.allRecipes)}
 				{this.props.allRecipes.map((recipe) => {

@@ -167,7 +167,7 @@ export default class Search extends Component {
 		);
 
 		return(
-			<div name="app">
+			<div className="pad" name="app">
 				<Header/>
 				<br/>
 				{this.state.modoForm? form:busquedaCompleta}

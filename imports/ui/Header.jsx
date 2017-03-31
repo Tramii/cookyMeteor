@@ -62,11 +62,12 @@ class Header extends Component {
 
 		return(
       <div name = "header">
-				<Navbar collapseOnSelect>
+				<Navbar collapseOnSelect className="navbar-fixed-top">
     				<Navbar.Header>
         				<Navbar.Brand className="head bold">
                 				Cooky
         				</Navbar.Brand>
+								<Navbar.Toggle/>
     			</Navbar.Header>
 					<Navbar.Collapse>
             {bar}

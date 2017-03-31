@@ -124,7 +124,7 @@ class AddRecipe extends Component{
       var recipe = {
         "tipo": this.state.type,
         "likes": 0,
-        "username": Meteor.user().username, 
+        "username": Meteor.user().username,
         "title": this.state.title,
         "description": this.state.description,
         "pictureGif": this.state.pictureGif,
@@ -140,7 +140,7 @@ class AddRecipe extends Component{
   render(){
 
     return (
-      <div>
+      <div className="pad">
         <Header/>
         <div className ="row">
           <div className="col-md-2"></div>
