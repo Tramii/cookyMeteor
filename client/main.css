@@ -103,6 +103,10 @@ a {
   cursor: pointer;
 }
 
+.recipe{
+  float: left;
+}
+
 .trsh{
   padding-top: 0em;
 }

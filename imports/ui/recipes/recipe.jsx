@@ -21,50 +21,62 @@ class Recipe extends Component {
      }
     render() {
         return (
-            <div className="row">
-              <div className="col-md-2"></div>
-              <div className="col-md-8">
+              <div className="col-md-6 recipe">
                 <Well>
+                  <h3 className="orange head">
+                    {this.props.recipe.title}
+                  </h3>
                     <Table condensed hover>
                         <tbody>
                             <tr>
-                                <td>Cook</td>
-                                <td>{this.props.recipe.username}</td>
+                                <td>
+                                    <h4 className="bold bod">
+                                      <i className="fa fa-child" aria-hidden="true"></i> Cook
+                                    </h4>
+                                    <p>{this.props.recipe.username}</p>
+                                </td>
                             </tr>
                             <tr>
-                                <td>Title</td>
-                                <td>{this.props.recipe.title}</td>
+                                <td>
+                                    <h4 className="bold bod">
+                                      <i className="fa fa-lemon-o" aria-hidden="true"></i> Ingredients
+                                    </h4>
+                                    <p>
+                                      {this.props.ingredients.map(ingredient =>{
+                                        return(
+                                          <ul key={ingredient.ingrediente}>
+                                              <Ingredient name={ingredient.ingrediente}/>
+                                          </ul>
+                                        );
+                                      })}
+                                    </p>
+                                </td>
                             </tr>
                             <tr>
-                                <td>Ingredients</td>
-                                <td>{this.props.ingredients.map(ingredient =>{
-                                  return(
-                                    <ul key={ingredient.ingrediente}>
-                                        <Ingredient name={ingredient.ingrediente}/>
-                                    </ul>
-                                  );
-                                })}</td>
+                                <td>
+                                    <h4 className="bold bod">
+                                      <i className="fa fa-list-ol" aria-hidden="true"></i> Instructions
+                                    </h4>
+                                    <p>{this.props.recipe.description}</p>
+                                </td>
                             </tr>
                             <tr>
-                                <td>Instructions</td>
-                                <td>{this.props.recipe.description}</td>
-                            </tr>
-                            <tr>
-                                <td><Button bsStyle="info" onClick={() => {this.like()}}>Likes</Button></td>
-                                <td>{this.props.recipe.likes}</td>
-                            </tr>
-                            <tr>
-                              {this.props.showDelete?<td className="deleteRecipe" colSpan="2">
-                                <Button bsStyle="danger" onClick={() => {this.deleteRecipe()}}>
-                                  Delete</Button></td>:''}
+                                <td>
+                                    <Button className="center" onClick={() => {this.like()}}>
+                                        {this.props.recipe.likes} <i className="fa fa-thumbs-o-up" aria-hidden="true"> </i>
+                                    </Button>
+                                    {' '}
+                                    {this.props.showDelete?
+                                      <Button bsStyle="danger" onClick={() => {this.deleteRecipe()}}>
+                                        <i className="fa fa-trash" aria-hidden="true"> </i> Delete
+                                      </Button>:''}
+                                </td>
                             </tr>
                         </tbody>
                     </Table>
 
                 </Well>
               </div>
-              <div className="col-md-2"></div>
-            </div>
         );
     }
 }
