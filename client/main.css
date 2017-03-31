@@ -12,6 +12,11 @@
   padding-top: 5em;
 }
 
+a {
+    color: #777777 !important;
+    text-decoration: none;
+}
+
 .bold{
   font-weight: bold;
 }
@@ -48,26 +53,33 @@
   float: right;
 }
 
-
-
 .navbar .nav > li > a{
   padding: 10px 15px 20px;
 }
 
 
-#login-buttons a, .accounts-dialog a{
-  text-decoration: none !important;
-  color: #706F73;
+#login-buttons .login-button, .accounts-dialog .login-button {
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    padding: 4px 8px;
+    font-size: 80%;
+    font-family: 'Open Sans', sans-serif !important;
+    line-height: 1.5;
+    text-align: center;
+    color: #fff;
+    background: #e96309 !important;
+    border: 1px solid #e96309 !important;
+    border-radius: 4px;
+    text-decoration: none !important;
 }
 
 .signIn{
-  float: right;
+  float: right !important;
 }
-
-.navbar-default {
-  border-radius: 0px !important;
-}
-
 
 
 

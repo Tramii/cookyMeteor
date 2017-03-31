@@ -32,19 +32,29 @@ class Header extends Component {
 			bar = (
 				<Nav>
 						<NavItem className="bod">
-								<Link to="/misRecetas/adicionar">Añadir receta</Link>
+							<Link to="/misRecetas/adicionar">
+								<i className="fa fa-plus" aria-hidden="true"></i> Añadir receta
+							</Link>
 						</NavItem>
 						<NavItem className="bod">
-								<Link to="/misRecetas/ver">Mis recetas</Link>
+							<Link to="/misRecetas/ver">
+								<i className="fa fa-cutlery" aria-hidden="true"></i> Mis recetas
+							</Link>
 						</NavItem>
 						<NavItem className="bod">
-							 	<Link to="/general/featured">Destacado</Link>
+							 	<Link to="/general/featured">
+									<i className="fa fa-star" aria-hidden="true"></i> Destacado
+								</Link>
 						</NavItem>
 						<NavItem className="bod">
-								<Link to="/general/search">Buscar</Link>
+								<Link to="/general/search">
+									<i className="fa fa-search" aria-hidden="true"></i> Buscar
+								</Link>
 						</NavItem>
 						<NavItem className="bod">
-								<Link to="/miPerfil">Mi perfil</Link>
+								<Link to="/miPerfil">
+									<i className="fa fa-child" aria-hidden="true"></i> Mi perfil
+								</Link>
 						</NavItem>
 						<NavItem className="dropdown pull-center signIn">
 								<Accounts/>
@@ -64,7 +74,7 @@ class Header extends Component {
       <div name = "header">
 				<Navbar collapseOnSelect className="navbar-fixed-top">
     				<Navbar.Header>
-        				<Navbar.Brand className="head bold">
+        				<Navbar.Brand className="head bold orange">
                 				Cooky
         				</Navbar.Brand>
 								<Navbar.Toggle/>
