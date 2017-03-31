@@ -68,7 +68,7 @@ class Recipe extends Component {
                   {' '}
                   {this.props.showDelete?
                     <Button bsStyle="danger" onClick={() => {this.deleteRecipe()}}>
-                      <i className="fa fa-trash" aria-hidden="true" /> Delete
+                      <i className="fa fa-trash" aria-hidden="true" /> Borrar
                     </Button>:''}
                 </td>
               </tr>
