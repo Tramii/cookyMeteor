@@ -22,7 +22,7 @@ class AddedIngredients extends Component {
       this.setState({
           currIngredient: ''
       }, () => {
-        
+
       });
   }
 
@@ -49,7 +49,6 @@ class AddedIngredients extends Component {
               onChange={this.handleIngredient.bind(this)}
             />
           </form>
-          <h4><small>Presiona Enter para guardar</small></h4>
         </div>
 
       </div>
