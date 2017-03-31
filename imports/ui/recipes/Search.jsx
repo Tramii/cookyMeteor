@@ -147,7 +147,7 @@ export default class Search extends Component {
 						addType={this.addType.bind(this)}
 					/>
 					<div className="row buscar">
-					<Button onClick={() => {this.buscar()}}>
+					<Button bsSize="large" onClick={() => {this.buscar()}}>
 						<i className="fa fa-search" aria-hidden="true"> </i> <strong>Buscar</strong>
 					</Button>
 					</div></div>);
@@ -155,7 +155,7 @@ export default class Search extends Component {
 			<div className="buscar">
 				<h2 className="bold head orange" onClick={()=>{this.paginaBusqueda()}}>
 					<i className="fa fa-repeat" aria-hidden="true"></i>  Realizar otra búsqueda
-				</h2>
+				</h2><br/>
 				{this.state.searchResult.map((recipe,i) => {
 					console.log(recipe);
 						return (

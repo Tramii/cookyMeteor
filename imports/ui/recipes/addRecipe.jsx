@@ -178,10 +178,11 @@ class AddRecipe extends Component{
                 />
             </FormGroup>
 
-            <Button className="bod" onClick={this.saveRecipe.bind(this)}>
+            <div className="row buscar">
+            <Button bsSize="large" className="bod" onClick={this.saveRecipe.bind(this)}>
               <i className="fa fa-plus" aria-hidden="true"></i> <strong>Añadir receta</strong>
             </Button>
-
+          </div>
             <div className="row">
               {' '}
             </div>

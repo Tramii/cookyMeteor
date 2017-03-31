@@ -17,7 +17,6 @@ class Ingredients extends Component {
     this.setState({ingredienteConstruccion: {ingrediente:event}})
   }
 
-
   saveIngredient(){
     this.props.ingredients.push(this.state.ingredienteConstruccion);
     console.log(this.state.ingredienteConstruccion);
