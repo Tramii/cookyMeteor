@@ -10,7 +10,7 @@ class RecipeForm extends Component {
         return (
             <div className="bod">
 
-                <FormGroup controlId="formControlsText">
+                <FormGroup controlId="formControlsText1">
                     <ControlLabel>Título</ControlLabel>
                     <FormControl
                       type="text"

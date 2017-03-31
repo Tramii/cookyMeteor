@@ -45,8 +45,10 @@ class AddedIngredients extends Component {
           <form onSubmit={this.addIngredient.bind(this)}>
             <input
               value={this.state.currIngredient}
-              type="text" placeholder="Ingrediente1"
+              type="text"
+              placeholder="Ingrediente1"
               onChange={this.handleIngredient.bind(this)}
+              aria-label="Ingresa un ingrediente"
             />
           </form>
         </div>
