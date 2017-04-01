@@ -132,7 +132,7 @@ export default class Search extends Component {
     const form = (
       <div>
         <h1 className="head orange bold">
-          <i className="fa fa-search" aria-hidden="true"/> Búsqueda de recetas
+          <i className="fa fa-search" aria-hidden="true" /> Búsqueda de recetas
         </h1>
         <p className="bod">
           Llena los campos por los cuales deseas filtrar tu búsqueda.
@@ -145,7 +145,7 @@ export default class Search extends Component {
             this.buscar()
           }}
           >
-            <i className="fa fa-search" aria-hidden="true"/> <strong>Buscar</strong>
+            <i className="fa fa-search" aria-hidden="true" /> <strong>Buscar</strong>
           </Button>
         </div>
       </div>

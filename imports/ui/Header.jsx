@@ -60,7 +60,7 @@ class Header extends Component {
     } else {
       bar = (
         <Nav>
-          <NavItem className="dropdown pull-center signIn"><Accounts/></NavItem>
+          <NavItem className="dropdown pull-center signIn"><Accounts /></NavItem>
         </Nav>
       );
     }
