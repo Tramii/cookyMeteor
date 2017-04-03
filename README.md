@@ -27,3 +27,7 @@ Cooky enables users to:
 5. Explore!
 
 <img src="https://68.media.tumblr.com/785f26a20d0319b43aa692a204a049f1/tumblr_onprw2a87E1w7ypfio1_1280.png" alt="Cooky homepage" />
+
+## Demo video
+
+Check out the demo video [here](https://www.youtube.com/watch?v=dnLdivvmfd0&t=17s).
