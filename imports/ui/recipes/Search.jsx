@@ -26,9 +26,10 @@ export default class Search extends Component {
     }
     if (this.state.type.length !== 0) {
       query.tipo = {};
-      query.tipo.$in = [];
+      query.tipo.$elemMatch = {};
+      query.tipo.$elemMatch.$or = [];
       for (let i = 0; i < this.state.type.length; i++) {
-        query.tipo.$in.push(parseInt(this.state.type[i]));
+        query.tipo.$elemMatch.$or.push(parseInt(this.state.type[i]));
       }
     }
     if (this.state.ingredients.length !== 0) {
