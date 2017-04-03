@@ -7,3 +7,8 @@ Cooky enables users to:
 * Add their own recipes and share them.
 * Discover other users' featured recipes.
 * Search for new recipes using title, type and/or ingredients as filters.
+
+## Technologies used
+
+* [Meteor v1.4](https://www.meteor.com/)
+* [React v15.4.2](https://facebook.github.io/react/) 
