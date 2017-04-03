@@ -17,11 +17,11 @@ Cooky enables users to:
 
 ## How to run it
 0. First, make sure you have Meteor [installed](https://www.meteor.com/).
-1. Clone this project
+1. Clone this project <br>
 `git clone https://github.com/Tramii/cookyMeteor.git cooky`
-2. Download packages
+2. Download packages <br>
 `meteor npm install`
-3. Run it
+3. Run it <br>
 `meteor`
 4. Open http://localhost:3000
 5. Explore!
