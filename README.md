@@ -30,4 +30,4 @@ Cooky enables users to:
 
 ## Demo video
 
-Check out the demo video [here](https://www.youtube.com/watch?v=dnLdivvmfd0&t=17s).
+Check out the demo video [here](https://www.youtube.com/watch?v=dnLdivvmfd0).
