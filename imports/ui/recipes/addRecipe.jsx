@@ -82,13 +82,13 @@ class AddRecipe extends Component{
     if (chbx.checked) {
       console.log(chbx.name);
       this.setState({
-        type: this.state.type.concat(chbx.name),
+        type: this.state.type.concat({tipo: chbx.name}),
       });
     } else {
       let i = 0;
       let found = false;
       while (!found) {
-        if (this.state.type[i] === chbx.name) {
+        if (this.state.type[i].tipo === chbx.name) {
           console.log('Found it!');
           found = true;
           const temp = this.state.type;
@@ -122,7 +122,7 @@ class AddRecipe extends Component{
     if (this.state.title !== '' && this.state.description !== '' && this.state.ingredients !== []) {
       console.log("esta haciendo el post recipe " + this.state.title + "  "+ this.state.description + "  " + this.state.ingredients);
       const recipe = {
-        "tipo": this.state.type,
+        "tipos": this.state.type,
         "likes": 0,
         "username": Meteor.user().username,
         "title": this.state.title,

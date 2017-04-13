@@ -25,11 +25,14 @@ export default class Search extends Component {
       query.title = this.state.titulo;
     }
     if (this.state.type.length !== 0) {
-      query.tipo = {};
-      query.tipo.$elemMatch = {};
-      query.tipo.$elemMatch.$or = [];
+      query.tipos = {};
+      query.tipos.$elemMatch = {};
+      query.tipos.$elemMatch.$or = [];
       for (let i = 0; i < this.state.type.length; i++) {
-        query.tipo.$elemMatch.$or.push(parseInt(this.state.type[i]));
+        query.tipos.$elemMatch.$or.push({tipo: this.state.type[i]+""});
+        /**
+        tipos:[{tipo:1}]
+        */
       }
     }
     if (this.state.ingredients.length !== 0) {
@@ -112,6 +115,8 @@ export default class Search extends Component {
       console.log(chbx.name);
       this.setState({
         type: this.state.type.concat(chbx.name),
+      }, () => {
+        console.log(this.state.type);
       });
     } else {
       let i = 0;
@@ -122,7 +127,9 @@ export default class Search extends Component {
           found = true;
           const temp = this.state.type;
           temp.splice(i, 1);
-          this.setState({ type: temp });
+          this.setState({ type: temp }, () => {
+            console.log(this.state.type);
+          });
         }
         i++;
       }

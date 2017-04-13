@@ -10,7 +10,7 @@ Meteor.methods({
     if (!Meteor.userId()) {
       throw new Meteor.Error('not-authorized');
     }
-    const tipo = recipe.tipo;
+    const tipos = recipe.tipos;
     const likes = recipe.likes;
     const username = recipe.username;
     const title = recipe.title;
@@ -19,7 +19,7 @@ Meteor.methods({
     const Ingredients = recipe.Ingredients;
 
     UsersWithRecipesCollection.insert({
-      tipo, likes, username, title, description, pictureGif, Ingredients });
+      tipos, likes, username, title, description, pictureGif, Ingredients });
   },
   'recipes.remove'(recipeId) {
     /** check(recipeId, String);*/
