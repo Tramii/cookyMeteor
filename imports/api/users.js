@@ -45,5 +45,10 @@ Meteor.methods({
     /* check(recipesId, String);*/
     UsersWithRecipesCollection.find({}, { sort: { likes: -1 } }).fetch()
   },
-
+  'user.points'(){
+    if (!Meteor.userId()) {
+      throw new Meteor.Error('not-authorized');
+    }
+    UsersWithRecipesCollection.find({}).fetch();
+  },
 });
