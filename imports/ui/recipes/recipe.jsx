@@ -26,38 +26,15 @@ class Recipe extends Component {
               <h3 className="orange head">
                 {this.props.recipe.title}
               </h3>
+              <Table condensed hover>
+                <tbody>
               <HoverBox render = {hover => (
                   hover?
-                  <Table condensed hover>
-                    <tbody>
                       <iframe width="420" height="315"
                       src={this.props.recipe.pictureGif.replace("watch?v=", "embed/")}>
                       </iframe>
-                      <tr>
-                        <td>
-                          <h4 className="bold bod">
-                            <i className="fa fa-list-ol" aria-hidden="true" /> Instrucciones
-                          </h4>
-                          <p>{this.props.recipe.description}</p>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <Button className="center" onClick={() => {this.like()}}>
-                            {this.props.recipe.likes} <i className="fa fa-thumbs-o-up" aria-hidden="true"> </i>
-                          </Button>
-                          {' '}
-                          {this.props.showDelete?
-                            <Button bsStyle="danger" onClick={() => {this.deleteRecipe()}}>
-                              <i className="fa fa-trash" aria-hidden="true" /> Borrar
-                            </Button>:''}
-                        </td>
-                      </tr>
-                    </tbody>
-                  </Table>:
-                  <Table condensed hover>
-                    <tbody>
-                      <tr>
+                    :
+                      <div><tr>
                         <td>
                           <h4 className="bold bod">
                             <i className="fa fa-child" aria-hidden="true" /> Cook
@@ -80,30 +57,31 @@ class Recipe extends Component {
                             })}
                           </p>
                         </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <h4 className="bold bod">
-                            <i className="fa fa-list-ol" aria-hidden="true" /> Instrucciones
-                          </h4>
-                          <p>{this.props.recipe.description}</p>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <Button className="center" onClick={() => {this.like()}}>
-                            {this.props.recipe.likes} <i className="fa fa-thumbs-o-up" aria-hidden="true"> </i>
-                          </Button>
-                          {' '}
-                          {this.props.showDelete?
-                            <Button bsStyle="danger" onClick={() => {this.deleteRecipe()}}>
-                              <i className="fa fa-trash" aria-hidden="true" /> Borrar
-                            </Button>:''}
-                        </td>
-                      </tr>
-                    </tbody>
-                  </Table>
+                      </tr></div>
+
               )}/>
+              <tr>
+                <td>
+                  <h4 className="bold bod">
+                    <i className="fa fa-list-ol" aria-hidden="true" /> Instrucciones
+                  </h4>
+                  <p>{this.props.recipe.description}</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <Button className="center" onClick={() => {this.like()}}>
+                    {this.props.recipe.likes} <i className="fa fa-thumbs-o-up" aria-hidden="true"> </i>
+                  </Button>
+                  {' '}
+                  {this.props.showDelete?
+                    <Button bsStyle="danger" onClick={() => {this.deleteRecipe()}}>
+                      <i className="fa fa-trash" aria-hidden="true" /> Borrar
+                    </Button>:''}
+                </td>
+              </tr>
+            </tbody>
+          </Table>
             </Well>
       </div>
     );
