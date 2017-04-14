@@ -31,7 +31,7 @@ class Recipe extends Component {
                   <Table condensed hover>
                     <tbody>
                       <iframe width="420" height="315"
-                      src={recipe.pictureGif}>
+                      src={this.props.recipe.pictureGif.replace("watch?v=", "embed/")}>
                       </iframe>
                       <tr>
                         <td>
