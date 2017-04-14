@@ -22,21 +22,16 @@ import { createContainer } from 'meteor/react-meteor-data';
               <div className="text-center">
                 <img src="https://conferencecloud-assets.s3.amazonaws.com/default_avatar.png" className="avatar img-circle" alt="avatar" />
               </div>
-              <div className="puntosCook">
-                <h3>Puntos cook:  {points}</h3>
-              </div>
+
             </div>
 
             <div className="col-md-9 personal-info bod">
-              <h3>Información personal</h3>
+              <div className="puntosCook">
+                <h3>Puntos cook:  {points}</h3>
+              </div>
 
-                <div>
-                  <ul>
-                    <li>Nombre</li>
-                    <li>Edad</li>
-                    <li>Sexo</li>
-                  </ul>
-                </div>
+              <h3>Recomendaciones</h3>
+
             </div>
           </div>
         </div>
