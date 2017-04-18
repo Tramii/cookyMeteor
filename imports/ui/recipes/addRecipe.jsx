@@ -127,7 +127,7 @@ class AddRecipe extends Component {
             // console.log(newI);
         }
         // console.log(ingr);
-        if (this.state.title !== '' && this.state.description !== '' && ingr !== [] && this.state.type !== [] && this.state.pictureGif.includes("www") ) {
+        if (this.state.title !== '' && this.state.description !== '' && ingr.length!==0 && this.state.type !== [] && this.state.pictureGif.includes("www") ) {
             console.log("esta haciendo el post recipe " + this.state.title + "  " + this.state.description + "  " + this.state.ingredients);
             const recipe = {
                 "tipos": this.state.type,
