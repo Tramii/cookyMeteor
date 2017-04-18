@@ -110,11 +110,8 @@ class AddRecipe extends Component {
 
     /* Sets picture's URL*/
     handlePicture(event) {
-        if (!event.target.value.includes("<") && event.target.value.includes("www") ) {
+        if (!event.target.value.includes("<") ) {
             this.setState({pictureGif: event.target.value});
-        }
-        else{
-          alert("URL is not well defined");
         }
     }
 
@@ -130,7 +127,7 @@ class AddRecipe extends Component {
             // console.log(newI);
         }
         // console.log(ingr);
-        if (this.state.title !== '' && this.state.description !== '' && this.state.ingredients !== [] && this.state.type !== []) {
+        if (this.state.title !== '' && this.state.description !== '' && ingr !== [] && this.state.type !== [] && this.state.pictureGif.includes("www") ) {
             console.log("esta haciendo el post recipe " + this.state.title + "  " + this.state.description + "  " + this.state.ingredients);
             const recipe = {
                 "tipos": this.state.type,

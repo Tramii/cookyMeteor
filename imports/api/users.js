@@ -18,7 +18,7 @@ Meteor.methods({
       throw new Meteor.Error('not-authorized');
     }
     const tipos = recipe.tipos;
-    if((typeof tipos) !== 'array' || tipos.length === 0){
+    if((typeof tipos) !== 'object' || tipos.length === 0){
       throw new Meteor.Error('tipos is not well defined');
     }
 
@@ -48,7 +48,7 @@ Meteor.methods({
     }
 
     const Ingredients = recipe.Ingredients;
-    if((typeof Ingredients) !== 'array' || Ingredients.length === 0){
+    if((typeof Ingredients) !== 'object' || Ingredients.length === 0){
       throw new Meteor.Error('Ingredients is not well defined');
     }
 
@@ -61,7 +61,7 @@ Meteor.methods({
       throw new Meteor.Error('not-authorized');
     }
     //si aqui mandan recipesID {} borraria todas las recetas!!
-    if(((typeof recipesId) === 'string') && !recipesId.includes("{")){
+    if(((typeof recipeId) === 'string') && !recipeId.includes("{")){
       UsersWithRecipesCollection.remove(recipeId);
     }
   },
