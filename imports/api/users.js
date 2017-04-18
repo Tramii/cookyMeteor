@@ -36,7 +36,8 @@ Meteor.methods({
   },
   'recipesLike.update'(recipesId) {
     /** check(recipesId, String);*/
-
+    //si aqui mandan recipesID {} le daria like a todo!!
+    
     UsersWithRecipesCollection.update(recipesId, {
       $inc: { likes: 1 }
     });
@@ -51,4 +52,13 @@ Meteor.methods({
     }
     UsersWithRecipesCollection.find({}).fetch();
   },
+});
+
+
+// Deny all client-side updates on the Lists collection
+
+UsersWithRecipesCollection.deny({
+  insert() { return true; },
+  update() { return true; },
+  remove() { return true; },
 });

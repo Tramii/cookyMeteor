@@ -30,3 +30,4 @@ dburles:factory
 hwillson:stub-collections
 dispatch:mocha
 dispatch:mocha-browser
+mdg:validated-method
