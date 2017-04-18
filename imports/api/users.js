@@ -4,6 +4,13 @@ import { check } from 'meteor/check';
 
 export const UsersWithRecipesCollection = new Mongo.Collection('UsersWithRecipesCollection');
 
+// Deny all client-side updates on the Lists collection
+UsersWithRecipesCollection.deny({
+  insert() { return true; },
+  update() { return true; },
+  remove() { return true; },
+});
+
 Meteor.methods({
   'recipes.insert'(recipe) {
     // Make sure the user is logged in before inserting a task
@@ -37,10 +44,11 @@ Meteor.methods({
   'recipesLike.update'(recipesId) {
     /** check(recipesId, String);*/
     //si aqui mandan recipesID {} le daria like a todo!!
-    
-    UsersWithRecipesCollection.update(recipesId, {
-      $inc: { likes: 1 }
-    });
+    if(((typeof recipesId) === 'string') && !recipesId.includes("{")){
+      UsersWithRecipesCollection.update(recipesId, {
+        $inc: { likes: 1 }
+      });
+    }
   },
   'recipes.findAll'() {
     /* check(recipesId, String);*/
@@ -54,11 +62,21 @@ Meteor.methods({
   },
 });
 
-
-// Deny all client-side updates on the Lists collection
-
-UsersWithRecipesCollection.deny({
-  insert() { return true; },
-  update() { return true; },
-  remove() { return true; },
-});
+/**
+export const updateText = new ValidatedMethod({
+  name: 'todos.updateText',
+  validate: new SimpleSchema({
+    todoId: { type: String },
+    newText: { type: String }
+  }).validator(),
+  run({ todoId, newText }) {
+    const todo = Todos.findOne(todoId);
+    if (!todo.editableBy(this.userId)) {
+      throw new Meteor.Error('todos.updateText.unauthorized',
+        'Cannot edit todos in a private list that is not yours');
+    }
+    Todos.update(todoId, {
+      $set: { text: newText }
+    });
+  }
+});*/
