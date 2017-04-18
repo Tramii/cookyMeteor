@@ -33,25 +33,21 @@ Meteor.methods({
     if (!Meteor.userId()) {
       throw new Meteor.Error('not-authorized');
     }
-    UsersWithRecipesCollection.remove(recipeId);
-  },
-  'recipes.setChecked'(taskId, setChecked) {
-    check(taskId, String);
-    check(setChecked, Boolean);
-
-    UsersWithRecipesCollection.update(taskId, { $set: { checked: setChecked } });
+    //si aqui mandan recipesID {} borraria todas las recetas!!
+    if(((typeof recipesId) === 'string') && !recipesId.includes("{")){
+      UsersWithRecipesCollection.remove(recipeId);
+    }
   },
   'recipesLike.update'(recipesId) {
     /** check(recipesId, String);*/
-    //si aqui mandan recipesID {} le daria like a todo!!
+    //si aqui mandan recipesID {} sin seguridad le daria like a todo!!
     if(((typeof recipesId) === 'string') && !recipesId.includes("{")){
       UsersWithRecipesCollection.update(recipesId, {
         $inc: { likes: 1 }
       });
     }
-  },
+  },/**
   'recipes.findAll'() {
-    /* check(recipesId, String);*/
     UsersWithRecipesCollection.find({}, { sort: { likes: -1 } }).fetch()
   },
   'user.points'(){
@@ -59,7 +55,7 @@ Meteor.methods({
       throw new Meteor.Error('not-authorized');
     }
     UsersWithRecipesCollection.find({}).fetch();
-  },
+  },*/
 });
 
 /**
