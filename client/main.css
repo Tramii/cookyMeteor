@@ -9,6 +9,15 @@
   font-family: 'Open Sans', sans-serif;
 }
 
+.pad{
+  padding-top: 5em;
+}
+
+a {
+    color: rgb(51,51,51) !important;
+    text-decoration: none;
+}
+
 .bold{
   font-weight: bold;
 }
@@ -36,28 +45,40 @@
 .hide{
   visibility: hidden;
 }
+
+.right{
+  float: right;
+}
 /*Navbar --------------------------------------------------------------------*/
 .perfil{
   float: right;
 }
 
-.brand{
-  margin-left: 1em !important;
-}
-
 .navbar .nav > li > a{
   padding: 10px 15px 20px;
 }
-.navbar .nav {
-  width: 60em;
+
+#login-buttons .login-button, .accounts-dialog .login-button {
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    padding: 4px 8px;
+    font-size: 80%;
+    font-family: 'Open Sans', sans-serif !important;
+    line-height: 1.5;
+    text-align: center;
+    color: #fff;
+    background: #e96309 !important;
+    border: 1px solid #e96309 !important;
+    border-radius: 4px;
+    text-decoration: none !important;
 }
 
-#login-buttons a, .accounts-dialog a{
-  text-decoration: none !important;
-  color: #706F73;
-}
 .signIn{
-  float: right;
+  float: right !important;
 }
 
 /*HomePage --------------------------------------------------------------------*/
@@ -76,4 +97,17 @@
 /*Recipes--------------------------------------------------------------------------*/
 .deleteRecipe{
   text-align: center !important;
+}
+
+.buscar{
+  text-align: center !important;
+  cursor: pointer;
+}
+
+.recipe{
+  float: left;
+}
+
+.trsh{
+  padding-top: 0em;
 }

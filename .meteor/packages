@@ -24,4 +24,10 @@ bootstrap
 timmyg:wow
 tsega:skrollr
 react-meteor-data
-insecure
+practicalmeteor:mocha
+xolvio:cleaner
+dburles:factory
+hwillson:stub-collections
+dispatch:mocha
+dispatch:mocha-browser
+mdg:validated-method

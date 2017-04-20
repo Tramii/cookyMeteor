@@ -1,12 +1,12 @@
-import React, {Component, PropTypes} from 'react';
-import {Table, Button, Well} from 'react-bootstrap';
-import Ingredient from './ingredient';
-
+import React, { Component } from 'react';
+import { Table, Button, Well } from 'react-bootstrap';
+import Ingredient from './ingredient.jsx';
 import { createContainer } from 'meteor/react-meteor-data';
-import { UsersWithRecipesCollection } from '../../api/users.js';
+import HoverBox  from 'react-hoverbox';
 
 class Recipe extends Component {
 
+<<<<<<< HEAD
     constructor(props) {
         super(props);
         this.state = {
@@ -26,61 +26,88 @@ class Recipe extends Component {
             this.props.getRecipes()
           })
         }
+=======
+  constructor(props) {
+    super(props);
+    this.state = {
+    };
+  }
 
-     like(title){
-          UsersWithRecipesCollection.update(
-          {titulo: this.props.recipe.title},
-          {$inc: 'likes'},
-                   {multi: false}
-        );
-     }
-    render() {
-        return (
-            <div className="row">
-              <div className="col-md-2"></div>
-              <div className="col-md-8">
-                <Well>
-                    <Table condensed hover>
-                        <tbody>
-                            <tr>
-                                <td>Cook</td>
-                                <td>{this.props.recipe.username}</td>
-                            </tr>
-                            <tr>
-                                <td>Title</td>
-                                <td>{this.props.recipe.title}</td>
-                            </tr>
-                            <tr>
-                                <td>Ingredients</td>
-                                <td>{this.props.ingredients.map(ingredient =>{
-                                  return(
-                                    <ul key={ingredient.ingrediente}>
-                                        <Ingredient name={ingredient.ingrediente}/>
-                                    </ul>
-                                  );
-                                })}</td>
-                            </tr>
-                            <tr>
-                                <td>Instructions</td>
-                                <td>{this.props.recipe.description}</td>
-                            </tr>
-                            <tr>
-                                <td><Button bsStyle="info" onClick={() => {this.like(this.props.title)}}>Likes</Button></td>
-                                <td>{this.props.recipe.likes}</td>
-                            </tr>
-                            <tr>
-                              {this.props.showDelete?<td  className="deleteRecipe" colSpan="2"><Button onClick={() => {this.deleteRecipe(this.props.title)}}
-                                 bsStyle="danger">Delete</Button></td>:''}
-                            </tr>
-                        </tbody>
-                    </Table>
+  deleteRecipe() {
+    Meteor.call('recipes.remove', this.props.recipe._id);
+  }
+>>>>>>> upstream/master
 
-                </Well>
-              </div>
-              <div className="col-md-2"></div>
-            </div>
-        );
-    }
+  like() {
+    Meteor.call('recipesLike.update', this.props.recipe._id);
+  }
+  render() {
+    return (
+      <div className="col-md-6 recipe">
+            <Well>
+              <h3 className="orange head">
+                {this.props.recipe.title}
+              </h3>
+              <Table condensed hover>
+                <tbody>
+              <HoverBox render = {hover => (
+                  hover?
+                      <iframe width="420" height="315"
+                      src={this.props.recipe.pictureGif.replace("watch?v=", "embed/")}>
+                      </iframe>
+                    :
+                      <div><tr>
+                        <td>
+                          <h4 className="bold bod">
+                            <i className="fa fa-child" aria-hidden="true" /> Cook
+                          </h4>
+                          <p>{this.props.recipe.username}</p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <h4 className="bold bod">
+                            <i className="fa fa-lemon-o" aria-hidden="true" /> Ingredientes
+                          </h4>
+                          <p>
+                            {this.props.ingredients.map(ingredient =>{
+                              return (
+                                <ul key={ingredient.ingrediente}>
+                                  <Ingredient name={ingredient.ingrediente}/>
+                                </ul>
+                              );
+                            })}
+                          </p>
+                        </td>
+                      </tr></div>
+
+              )}/>
+              <tr>
+                <td>
+                  <h4 className="bold bod">
+                    <i className="fa fa-list-ol" aria-hidden="true" /> Instrucciones
+                  </h4>
+                  <p>{this.props.recipe.description}</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <Button className="center" onClick={() => {this.like()}}>
+                    {this.props.recipe.likes} <i className="fa fa-thumbs-o-up" aria-hidden="true"> </i>
+                  </Button>
+                  {' '}
+                  {this.props.showDelete?
+                    <Button bsStyle="danger" onClick={() => {this.deleteRecipe()}}>
+                      <i className="fa fa-trash" aria-hidden="true" /> Borrar
+                    </Button>:''}
+                </td>
+              </tr>
+            </tbody>
+          </Table>
+            </Well>
+      </div>
+    );
+  }
 }
 
 export default Recipe;
