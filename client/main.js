@@ -1,3 +1,4 @@
+/*Esta un poco desordenado el tema de los inputs!*/
 import React from 'react';
 import { meteor } from 'meteor/meteor';
 import { render } from 'react-dom';

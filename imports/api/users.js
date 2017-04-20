@@ -2,6 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import { Mongo } from 'meteor/mongo';
 import { check } from 'meteor/check';
 
+
 export const UsersWithRecipesCollection = new Mongo.Collection('UsersWithRecipesCollection');
 
 // Deny all client-side updates on the Lists collection
@@ -12,6 +13,7 @@ UsersWithRecipesCollection.deny({
 });
 
 Meteor.methods({
+    //Deberían considerar utilizar el ValidatedMethod de meteor, para no tener que verificar todo a mano!
   'recipes.insert'(recipe) {
     // Make sure the user is logged in before inserting a task
     if (!Meteor.userId()) {

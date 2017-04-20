@@ -6,6 +6,27 @@ import HoverBox  from 'react-hoverbox';
 
 class Recipe extends Component {
 
+<<<<<<< HEAD
+    constructor(props) {
+        super(props);
+        this.state = {
+        }
+    }
+
+    deleteRecipe(titleR){
+//Deberían usar meteor para el manejo de collections
+          console.log("nickName: "+this.props.username);
+            axios.post(ROOT_URL+"/recipes/deleteRecipe",{
+              nickName: this.props.username,
+              password: this.props.password,
+              title: titleR
+            }
+          ).then(response => {
+            console.log("BORROOOO"+response),
+            this.props.getRecipes()
+          })
+        }
+=======
   constructor(props) {
     super(props);
     this.state = {
@@ -15,6 +36,7 @@ class Recipe extends Component {
   deleteRecipe() {
     Meteor.call('recipes.remove', this.props.recipe._id);
   }
+>>>>>>> upstream/master
 
   like() {
     Meteor.call('recipesLike.update', this.props.recipe._id);

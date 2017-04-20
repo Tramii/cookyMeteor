@@ -13,6 +13,30 @@ class Featured extends Component {
     };
   }
 
+<<<<<<< HEAD
+	render()
+	{
+		console.log("entra a destacado");
+		return(
+			/*General styling*/
+			<div name="app">
+				<Header/>
+				{console.log(this.props.allRecipes)}
+				{this.props.allRecipes.map((recipe) => {
+					console.log(recipe);
+						return (
+							<div key={recipe.title}>
+								<Recipe recipe={recipe} ingredients={recipe.Ingredients}
+								 username={recipe.username}
+								 title={recipe.title} showDelete={false}/>
+							</div>
+						);
+
+				})}
+			</div>
+		);
+	}
+=======
   render() {
     console.log("entra a destacado");
     return (
@@ -40,6 +64,7 @@ class Featured extends Component {
       </div>
     );
   }
+>>>>>>> upstream/master
 }
 Featured.propTypes = {
   allRecipes: PropTypes.any.isRequired,

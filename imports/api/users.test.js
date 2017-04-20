@@ -7,6 +7,7 @@ import {assert} from 'meteor/practicalmeteor:chai';
         return {'username': 'pruebita'};
     };
 
+    //El _id es automático de MongoDB, no hace falta que lo incluyan en el objeto que vas a insertar
     describe('UsersWithRecipesCollection', function() {
         beforeEach(function() {
             UsersWithRecipesCollection.remove({});
@@ -34,7 +35,37 @@ import {assert} from 'meteor/practicalmeteor:chai';
                     }
                 ]
             });
-            UsersWithRecipesCollection.insert({
+            // UsersWithRecipesCollection.insert({
+            //     "_id": "HEsTX6vgjjES4CyEi",
+            //     "tipos": [
+            //         {
+            //             "tipo": "2"
+            //         }
+            //     ],
+            //     "likes": 4,
+            //     "username": "josega149",
+            //     "title": "Ramen para 2",
+            //     "description": "500ml chicken stock 3 cloves of garlic, halved 2 slices of ginger 2-3 tablespoons soy sauce 1/2 teaspoon Chinese Five Spice Powder 1 tablespoon mirin 1 teaspoon sugar (or more to taste)\nPork or Chicken marinated in garlic/soy sauce, soft boiled eggs, green onions, noodles.",
+            //     "pictureGif": "https://www.youtube.com/watch?v=MEroOP0Z1lA",
+            //     "Ingredients": [
+            //         {
+            //             "ingrediente": "Pollo"
+            //         }, {
+            //             "ingrediente": "Ajo"
+            //         }, {
+            //             "ingrediente": "Salsa soya"
+            //         }, {
+            //             "ingrediente": "Fideos japoneses"
+            //         }
+            //     ]
+            // });
+        });
+
+        it("Should find inserted recipes", function() {
+            /*Para qe este test funcione correctamente y pruebe el método que tienes en users.js,
+            deberías insertar una nueva receta haciendo uso de Meteor.call(recipes.insert)*/
+
+            const receta = {
                 "_id": "HEsTX6vgjjES4CyEi",
                 "tipos": [
                     {
@@ -57,12 +88,13 @@ import {assert} from 'meteor/practicalmeteor:chai';
                         "ingrediente": "Fideos japoneses"
                     }
                 ]
-            });
-        });
+            };
 
-        it("Should find inserted recipes", function() {
-            const result = UsersWithRecipesCollection.find({});
-            assert.equal(result.count(), 2);
+            Meteor.call('recipes.insert', receta, function() {
+                const result = UsersWithRecipesCollection.find({});
+                assert.equal(result.count(), 2);
+            });
+
         });
 
         it("Should update likes", function() {
@@ -75,7 +107,7 @@ import {assert} from 'meteor/practicalmeteor:chai';
         it("Should remove recipes", function() {
             Meteor.call('recipes.remove', 'HEsTX6vgjjES4CyEi', function() {
                 const recipes = UsersWithRecipesCollection.find({}).fetch();
-                assert.equal(recipes.length, 1);
+                assert.equal(recipes.length, 0);
             });
         });
     })
