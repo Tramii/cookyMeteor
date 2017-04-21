@@ -68,14 +68,15 @@ import {assert} from 'meteor/practicalmeteor:chai';
         it("Should update likes", function() {
             Meteor.call('recipesLike.update', 'JxojW4S4QW6CkJpye', function() {
                 const recipes = UsersWithRecipesCollection.find({}).fetch();
-                assert.equal(recipes[0].likes, 1);
+                assert.equal(recipes[0].likes, 7);
             });
         });
 
         it("Should remove recipes", function() {
-            Meteor.call('recipes.remove', 'HEsTX6vgjjES4CyEi', function() {
-                const recipes = UsersWithRecipesCollection.find({}).fetch();
-                assert.equal(recipes.length, 1);
+            Meteor.call('recipes.remove', 'JxojW4S4QW6CkJpye', function() {
+              console.log('margaritaa');
+                const recipex = UsersWithRecipesCollection.find({}).fetch();
+                assert.equal(recipex.length, 1);
             });
         });
     })
