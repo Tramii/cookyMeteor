@@ -7,6 +7,10 @@ import {assert} from 'meteor/practicalmeteor:chai';
         return {'username': 'pruebita'};
     };
 
+    Meteor.userId = function() {
+      return {'userId':'4382243089'};
+    };
+
     describe('UsersWithRecipesCollection', function() {
         beforeEach(function() {
             UsersWithRecipesCollection.remove({});
@@ -73,8 +77,7 @@ import {assert} from 'meteor/practicalmeteor:chai';
         });
 
         it("Should remove recipes", function() {
-            Meteor.call('recipes.remove', 'JxojW4S4QW6CkJpye', function() {
-              console.log('margaritaa');
+            Meteor.call('recipes.remove', 'JxojW4S4QW6CkJpye', function(){
                 const recipex = UsersWithRecipesCollection.find({}).fetch();
                 assert.equal(recipex.length, 1);
             });
