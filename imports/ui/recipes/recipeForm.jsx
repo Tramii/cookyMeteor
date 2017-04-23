@@ -34,7 +34,7 @@ class RecipeForm extends Component {
             addIngredient={this.props.addIngredient}
             deleteIngredient={this.props.deleteIngredient}
           />
-          <HelpBlock> Presiona Enter para guardar el ingrediente.</HelpBlock>
+          
         </FormGroup>
       </div>
     );

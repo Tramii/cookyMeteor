@@ -110,3 +110,12 @@ a {
 .trsh{
   padding-top: 0em;
 }
+.Enter{
+  float: left;
+}
+.Enter2{
+  position: relative;
+  bottom: 0.5em;
+}
+.inputEnter{
+}

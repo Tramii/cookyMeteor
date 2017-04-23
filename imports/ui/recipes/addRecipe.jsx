@@ -149,11 +149,10 @@ class AddRecipe extends Component {
             <div className="pad">
                 <Header/>
                 <div className="row">
-                    <div className="col-md-2"/>
-                    <div className="col-md-8">
+                    <div className="col-md-3"/>
+                    <div className="col-md-6">
                         <h1 className="head orange bold">
-                            <i className="fa fa-plus" aria-hidden="true"/>
-                            Añadir una nueva receta
+                            <i className="fa fa-plus" aria-hidden="true"/> Añadir una nueva receta
                         </h1>
                         <p className="bod">Llena todos los campos para guardar tu receta</p>
 
@@ -183,6 +182,7 @@ class AddRecipe extends Component {
                         </div>
 
                     </div>
+                    <div className="col-md-3"/>
                 </div>
             </div>
         );

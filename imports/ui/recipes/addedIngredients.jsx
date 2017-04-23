@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import AddedIngredient from './addedIngredient.jsx';
+import { FormGroup, ControlLabel, FormControl, Checkbox, HelpBlock } from 'react-bootstrap';
 
 class AddedIngredients extends Component {
   constructor(props) {
@@ -40,8 +41,8 @@ class AddedIngredients extends Component {
           );
         })}
 
-        <div>
-          <form onSubmit={this.addIngredient.bind(this)}>
+        <div className="col-md-12"><div className="Enter">
+          <form onSubmit={this.addIngredient.bind(this)} className="inputEnter">
             <input
               value={this.state.currIngredient}
               type="text"
@@ -49,9 +50,7 @@ class AddedIngredients extends Component {
               onChange={this.handleIngredient.bind(this)}
               aria-label="Ingresa un ingrediente"
             />
-          </form>
-        </div>
-
+          </form></div><HelpBlock className="col-md-7 Enter2">Presiona Enter para guardar el ingrediente.</HelpBlock></div>
       </div>
     );
   }
