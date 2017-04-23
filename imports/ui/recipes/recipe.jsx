@@ -20,21 +20,32 @@ class Recipe extends Component {
     Meteor.call('recipesLike.update', this.props.recipe._id);
   }
   render() {
+    /**
+    <HoverBox render = {hover => (
+        hover?
+            <iframe width="420" height="315"
+            src={this.props.recipe.pictureGif.replace("watch?v=", "embed/")}>
+            </iframe>
+          :
+    */
+    // )}/>
+    const description = this.props.recipe.description;
     return (
       <div className="col-md-6 recipe">
             <Well>
-              <h3 className="orange head">
-                {this.props.recipe.title}
-              </h3>
-              <Table condensed hover>
-                <tbody>
               <HoverBox render = {hover => (
                   hover?
                       <iframe width="420" height="315"
                       src={this.props.recipe.pictureGif.replace("watch?v=", "embed/")}>
                       </iframe>
                     :
-                      <div><tr>
+              <div><h3 className="orange head">
+                {this.props.recipe.title}
+              </h3>
+              </div> )}/>
+              <Table condensed hover>
+                <tbody>
+                      <tr>
                         <td>
                           <h4 className="bold bod">
                             <i className="fa fa-child" aria-hidden="true" /> Cook
@@ -44,28 +55,40 @@ class Recipe extends Component {
                       </tr>
                       <tr>
                         <td>
-                          <h4 className="bold bod">
-                            <i className="fa fa-lemon-o" aria-hidden="true" /> Ingredientes
-                          </h4>
-                          <p>
-                            {this.props.ingredients.map(ingredient =>{
-                              return (
-                                <ul key={ingredient.ingrediente}>
-                                  <Ingredient name={ingredient.ingrediente}/>
-                                </ul>
-                              );
-                            })}
-                          </p>
-                        </td>
-                      </tr></div>
+                          <HoverBox render = {hover => (
+                              hover?
+                              <div><h4 className="bold bod">
+                                <i className="fa fa-lemon-o" aria-hidden="true" /> Ingredientes
+                              </h4>
+                              <p>
+                                {this.props.ingredients.map(ingredient =>{
+                                  return (
+                                    <ul key={ingredient.ingrediente}>
+                                      <Ingredient name={ingredient.ingrediente}/>
+                                    </ul>
+                                  );
+                                })}
+                              </p></div>
+                              :
+                              <h4 className="bold bod">
+                                <i className="fa fa-lemon-o" aria-hidden="true" /> Ingredientes
+                              </h4>
 
-              )}/>
+                          )}/>
+                        </td>
+                      </tr>
               <tr>
                 <td>
+
+                  <HoverBox render = {hover => (
+                      hover?
+                      <div><h4 className="bold bod">
+                        <i className="fa fa-list-ol" aria-hidden="true" /> Instrucciones
+                      </h4>
+                      <p>{description}</p></div>:
                   <h4 className="bold bod">
                     <i className="fa fa-list-ol" aria-hidden="true" /> Instrucciones
-                  </h4>
-                  <p>{this.props.recipe.description}</p>
+                  </h4>)}/>
                 </td>
               </tr>
               <tr>
