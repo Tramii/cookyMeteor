@@ -39,7 +39,7 @@ class Recipe extends Component {
                       src={this.props.recipe.pictureGif.replace("watch?v=", "embed/")}>
                       </iframe>
                     :
-              <div><h3 className="orange head">
+              <div><h3 className="orange head centrar">
                 {this.props.recipe.title}
               </h3>
               </div> )}/>

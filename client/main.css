@@ -117,5 +117,6 @@ a {
   position: relative;
   bottom: 0.5em;
 }
-.inputEnter{
+.centrar{
+  text-align: center;
 }

@@ -146,8 +146,7 @@ export default class Search extends Component {
         const form = (
             <div>
                 <h1 className="head orange bold">
-                    <i className="fa fa-search" aria-hidden="true"/>
-                    Búsqueda de recetas
+                    <i className="fa fa-search" aria-hidden="true"/> Búsqueda de recetas
                 </h1>
                 <p className="bod">
                     Llena los campos por los cuales deseas filtrar tu búsqueda.
@@ -157,8 +156,7 @@ export default class Search extends Component {
                     <Button bsSize="large" onClick={() => {
                         this.buscar()
                     }}>
-                        <i className="fa fa-search" aria-hidden="true"/>
-                        <strong>Buscar</strong>
+                        <i className="fa fa-search" aria-hidden="true"/> <strong> Buscar</strong>
                     </Button>
                 </div>
             </div>
@@ -181,15 +179,21 @@ export default class Search extends Component {
             </div>
         );
         return (
-            <div className="pad" name="app">
+            <div className="pad row" name="app">
                 <Header/>
-                <div className="col-md-1"/>
-                <div className="col-md-10">
                     {this.state.modoForm
-                        ? form
-                        : busquedaCompleta}
-                </div>
-                <div className="col-md-1"/>
+                        ? <div><div className="col-md-3"></div>
+                          <div className="col-md-6">
+                          {form}
+                          </div>
+                          <div className="col-md-3"></div></div>
+                        :
+                        <div><div className="col-md-1"></div>
+                        <div className="col-md-10">
+                          {busquedaCompleta}
+                        </div>
+                        <div className="col-md-1"></div></div>
+                    }
             </div>
         );
     }
