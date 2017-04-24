@@ -29,38 +29,50 @@ class Header extends Component {
         <Nav>
           <NavItem className="bod">
             <Link to="/misRecetas/adicionar">
-              <i className="fa fa-plus" aria-hidden="true" /> Añadir receta
+              <i className="fa fa-plus btn text-center black" aria-hidden="true" /> Añadir receta
             </Link>
           </NavItem>
           <NavItem className="bod">
             <Link to="/misRecetas/ver">
-              <i className="fa fa-cutlery" aria-hidden="true" /> Mis recetas
+              <i className="fa fa-cutlery btn text-center black" aria-hidden="true" /> Mis recetas
             </Link>
           </NavItem>
           <NavItem className="bod">
             <Link to="/general/featured">
-              <i className="fa fa-star" aria-hidden="true" /> Destacado
+              <i className="fa fa-star btn text-center black" aria-hidden="true" /> Destacado
             </Link>
           </NavItem>
           <NavItem className="bod">
             <Link to="/general/search">
-              <i className="fa fa-search" aria-hidden="true" /> Buscar
+              <i className="fa fa-search btn text-center black" aria-hidden="true" /> Buscar
             </Link>
           </NavItem>
           <NavItem className="bod">
             <Link to="/miPerfil">
-              <i className="fa fa-child" aria-hidden="true" /> Mi perfil
+              <i className="fa fa-child btn text-center black" aria-hidden="true" /> Mi perfil
             </Link>
           </NavItem>
-          <NavItem className="dropdown pull-center signIn">
-            <Accounts />
+          
+          <NavItem className="bod">
+            <Link className="" to={'/login' }>
+            <i className="fa fa-sign-in fa-2x btn text-center black">
+              <span id="add">Login / Sign up</span>
+            </i>
+          </Link>
           </NavItem>
         </Nav>
             );
     } else {
       bar = (
         <Nav>
-          <NavItem className="dropdown pull-center signIn"><Accounts /></NavItem>
+
+          <NavItem className="bod">
+            <Link className="" to={'/signup' }>
+            <i className="fa fa-sign-in btn text-center black">
+              <span id="add">Login / Sign up</span>
+            </i>
+          </Link>
+          </NavItem>
         </Nav>
       );
     }

@@ -14,10 +14,10 @@ import Featured from '../imports/ui/recipes/Featured.jsx';
 import Search from '../imports/ui/recipes/Search.jsx';
 import myRecipes from '../imports/ui/recipes/myRecipes.jsx';
 import Add from '../imports/ui/recipes/addRecipe.jsx';
-import LoginPage from '../imports/ui/auth/LoginPage';
-import SignupPage from '../imports/ui/auth/SignupPage';
+import LoginPage from '../imports/ui/auth/LoginPage.jsx';
+import SignupPage from '../imports/ui/auth/SignupPage.jsx';
 import Me from '../imports/ui/Me.jsx';
-import '../imports/startup/accounts-config.js';
+//import '../imports/startup/accounts-config.js';
 
 Meteor.startup(() => {
 	ReactDOM.render((
@@ -29,8 +29,8 @@ Meteor.startup(() => {
 		     <Route path='/misRecetas/adicionar' component={Add}/>
 		     <Route path='/misRecetas/ver' component={myRecipes}/>
 		     <Route path='/miPerfil' component={Me}/>
-				 <Route path="/login" component={ LoginPage }/>
-      	 <Route path="/signup" component={ SignupPage }/>
+				 <Route path="/login" component={LoginPage}/>
+      	 <Route path="/signup" component={SignupPage}/>
 	 		 </div>
 	  	 </HashRouter>
 		), document.getElementById('render-target')

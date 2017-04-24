@@ -1,6 +1,6 @@
-import React, { Component, PropTypes } from 'react'
-import { browserHistory, Link } from 'react-router'
-import { Accounts } from 'meteor/accounts-base'
+import React, { Component } from 'react'
+import { Link } from 'react-router-dom';
+import { Accounts } from 'meteor/accounts-base';
 
 export default class SignupPage extends Component {
   constructor(props){
@@ -23,7 +23,7 @@ export default class SignupPage extends Component {
           error: err.reason
         });
       } else {
-        browserHistory.push('/login');
+
       }
     });
   }
@@ -31,13 +31,13 @@ export default class SignupPage extends Component {
   render(){
     const error = this.state.error;
     return (
-      <div className="modal show">
-        <div className="modal-dialog">
-          <div className="modal-content">
-            <div className="modal-header">
+      <div className="">
+        <div className="">
+          <div className="">
+            <div className="">
               <h1 className="text-center">Sign up</h1>
             </div>
-            <div className="modal-body">
+            <div className="">
               { error.length > 0 ? <div className="alert alert-danger fade in">{error}</div> :''}
               <form id="login-form" className="form col-md-12 center-block" onSubmit={this.handleSubmit}>
                 <div className="form-group">

@@ -1,6 +1,7 @@
-import React, { Component, PropTypes } from 'react'
-import { browserHistory, Link } from 'react-router'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { createContainer } from 'meteor/react-meteor-data'
+import Header from '../Header.jsx';
 
 export default class LoginPage extends Component {
   constructor(props){
@@ -21,7 +22,7 @@ export default class LoginPage extends Component {
           error: err.reason
         });
       } else {
-        browserHistory.push('/programs');
+
       }
     });
   }
@@ -29,7 +30,9 @@ export default class LoginPage extends Component {
   render(){
     const error = this.state.error;
     return (
-      <div className="modal show">
+      <div className="row">
+        <Header/>
+        <div className="modal show">
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-header">
@@ -62,7 +65,7 @@ export default class LoginPage extends Component {
             <div className="modal-footer" style={{borderTop: 0}}></div>
           </div>
         </div>
-      </div>
+      </div></div>
     );
   }
 }

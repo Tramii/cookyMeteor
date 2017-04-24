@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { render } from 'react-dom';
 import { Well } from 'react-bootstrap';
 import { Meteor } from 'meteor/meteor';
+import {Link} from 'react-router';
 
 export default class HomePage extends Component {
 
