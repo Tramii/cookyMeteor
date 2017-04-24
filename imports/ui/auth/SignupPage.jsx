@@ -46,7 +46,7 @@ export default class SignupPage extends Component {
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-header">
-              <h1 className="text-center">Sign up</h1>
+              <h1 className="text-center head">Sign up</h1>
             </div>
             <div className="modal-body">
               { error.length > 0 ? <div className="alert alert-danger fade in">{error}</div> :''}
@@ -62,11 +62,11 @@ export default class SignupPage extends Component {
                     <input type="submit" id="login-button" className="btn btn-app btn-lg  btn-block" value="Sign Up" />
                   </div>
                   <div className="col-md-6">
-                      <Link className="btn btn-danger btn-lg btn-block" to={'/' }>Go Back</Link>
+                      <Link className="btn btn-danger btn-lg btn-block head" to={'/' }>Go Back</Link>
                     </div>
               </div>
                 <div className="form-group">
-                  <p className="text-center">Already have an account? Please login <Link to="/login">here</Link></p>
+                  <p className="text-center head">Already have an account? Please login <Link to="/login">here</Link></p>
                 </div>
               </form>
             </div>

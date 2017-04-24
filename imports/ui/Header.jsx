@@ -59,7 +59,7 @@ class Header extends Component {
           <NavItem className="bod">
             <Link className="" to={'/' } >
             <i className="fa fa-sign-out text-center black">
-              <span id="add" onClick={()=>{this.logout()}}>Logout</span>
+              <span id="add" onClick={()=>{this.logout()}}>Sign Out</span>
             </i>
           </Link>
           </NavItem>
@@ -72,7 +72,7 @@ class Header extends Component {
           <NavItem className="bod">
             <Link className="" to={'/login' }>
             <i className="fa fa-sign-in btn text-center black">
-              <span id="add">Login / Sign up</span>
+              <span id="add">Sign In / Sign up</span>
             </i>
           </Link>
           </NavItem>

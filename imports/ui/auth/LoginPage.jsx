@@ -44,7 +44,7 @@ export default class LoginPage extends Component {
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-header">
-              <h1 className="text-center">Login</h1>
+              <h1 className="text-center head">Sign In</h1>
             </div>
             <div className="modal-body">
               { error.length > 0 ? <div className="alert alert-danger fade in">{error}</div> :''}
@@ -57,16 +57,15 @@ export default class LoginPage extends Component {
                 </div>
                 <div className="form-group text-center">
                   <div className="col-md-6">
-                    <input type="submit" id="login-button" className="btn btn-app btn-lg btn-block" value="Login"/>
+                    <input type="submit" id="login-button" className="btn btn-app btn-lg btn-block" value="Sign In"/>
                   </div>
                   <div className="col-md-6">
-                    <Link className="btn btn-danger btn-lg btn-block" to={'/' }>Go Back</Link>
-
+                    <Link className="btn btn-danger btn-lg btn-block head" to={'/' }>Go Back</Link>
                   </div>
 
               </div>
                 <div className="row form-group text-center">
-                  <p className="text-center">Don't have an account? Register <Link to="/signup">here</Link></p>
+                  <p className="text-center head">Don't have an account? Register <Link to="/signup">here</Link></p>
                 </div>
               </form>
             </div>

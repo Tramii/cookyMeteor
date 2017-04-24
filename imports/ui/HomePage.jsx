@@ -21,12 +21,19 @@ export default class HomePage extends Component {
               <div className="col-md-1" id="space"/>
               <div className="col-md-1"/>
               <div className="col-md-5"><img className="bigCooky" src="https://68.media.tumblr.com/caa95bb0890f2f65129cd56a50130c64/tumblr_omd0idc0Wd1w7ypfio1_1280.png" alt="Cooky logo" /></div>
-              <div className="col-md-4"> <div className="ingresa head grey"><strong>Ingresa ya!</strong></div> <br/><br/>
+              <div className="col-md-4">
+                {Meteor.user()?<div><div className="ingresa head grey"><strong>Bienvenido!</strong></div> <br/><br/>
+                <Button><Link className="" to={'/general/featured' }>
+                    <i className="fa fa-ok fa-2x">
+                      <span id="add" className="head grey"> <strong>Comienza a explorar</strong></span>
+                    </i>
+                </Link></Button></div>:<div><div className="ingresa head grey"><strong>Ingresa ya!</strong></div> <br/><br/>
                 <Button><Link className="" to={'/login' }>
                     <i className="fa fa-sign-in fa-2x">
                       <span id="add" className="head grey"> <strong>Sign In</strong></span>
                     </i>
-                </Link></Button>
+                </Link></Button></div>}
+
                 <br /> <br />
               </div>
             </div>
