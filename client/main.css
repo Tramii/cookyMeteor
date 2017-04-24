@@ -81,10 +81,12 @@ a {
 }
 
 /*HomePage --------------------------------------------------------------------*/
-.bigCooky{
-  width: 30em;
+#space{
+  height:5.8em;
 }
-
+.ingresa{
+  font-size: 3em;
+}
 .final{
   text-align: center;
 }
@@ -124,9 +126,7 @@ a {
   margin-left: 0;
   width: 100%
 }
-.btnNav{
-  /*border: 0.6em solid transparent !important;*/
-}
+
 
 input[type="password"]{
   height: 46px !important;
