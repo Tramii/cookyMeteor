@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
-import { Well } from 'react-bootstrap';
+import { Well, Button } from 'react-bootstrap';
 import { Meteor } from 'meteor/meteor';
 import { Link } from 'react-router-dom';
 
 export default class HomePage extends Component {
-
 
   render() {
     return (
@@ -13,22 +12,26 @@ export default class HomePage extends Component {
       {new WOW().init()}
         <section id="intro" className="colored text-center">
           <div className="container">
-            <div className="intro-well wow animated bounceIn" >
-              <div className="row">
+            <div className="intro-well wow animated bounceIn row" >
+              <div className="col-md-1"/>
+              <div className="col-md-6">
                 <h1 className="textP head orange bold"> Bienvenido a</h1>
               </div>
-              <div className="row bg">
-                <img className="bigCooky" src="https://68.media.tumblr.com/caa95bb0890f2f65129cd56a50130c64/tumblr_omd0idc0Wd1w7ypfio1_1280.png" alt="Cooky logo" />
+              <div className="col-md-4" id="space"></div>
+              <div className="col-md-1" id="space"/>
+              <div className="col-md-1"/>
+              <div className="col-md-6"><img className="bigCooky" src="https://68.media.tumblr.com/caa95bb0890f2f65129cd56a50130c64/tumblr_omd0idc0Wd1w7ypfio1_1280.png" alt="Cooky logo" /></div>
+              <div className="col-md-4"> <div className="ingresa head grey"><strong>Ingresa ya!</strong></div> <br/><br/>
+                <Button><Link className="" to={'/login' }>
+                    <i className="fa fa-sign-in fa-2x">
+                      <span id="add" className="head grey"> <strong>Sign In</strong></span>
+                    </i>
+                </Link></Button>
                 <br /> <br />
               </div>
             </div>
           </div>
         </section>
-        <Link className="" to={'/login' }>
-            <i className="fa fa-sign-in fa-2x btn text-center black">
-              <span id="add">Login</span>
-            </i>
-          </Link>
         <section id="how-it-works" className="text-center bod">
           <div className="container wow fadeIn animated" >
             <div className="row col-md-12 bod">
