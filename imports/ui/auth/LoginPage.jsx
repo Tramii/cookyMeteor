@@ -1,33 +1,41 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { browserHistory, Link } from 'react-router-dom';
 import { createContainer } from 'meteor/react-meteor-data'
+import { Redirect } from 'react-router';
 import Header from '../Header.jsx';
 
 export default class LoginPage extends Component {
   constructor(props){
     super(props);
     this.state = {
-      error: ''
+      error: '',
+      redirect: false
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleSubmit(e){
     e.preventDefault();
-    let email = document.getElementById('login-email').value;
+    let username = document.getElementById('login-username').value;
     let password = document.getElementById('login-password').value;
-    Meteor.loginWithPassword(email, password, (err) => {
+    Meteor.loginWithPassword(username, password, (err) => {
       if(err){
         this.setState({
           error: err.reason
         });
       } else {
-
+        this.setState({
+          redirect: true
+        });
       }
     });
   }
 
   render(){
+    if(this.state.redirect){
+      console.log("entra a redirigir");
+      return <Redirect to="/" />;
+    }
     const error = this.state.error;
     return (
       <div className="row">
@@ -42,14 +50,14 @@ export default class LoginPage extends Component {
               { error.length > 0 ? <div className="alert alert-danger fade in">{error}</div> :''}
               <form id="login-form" className="form col-md-12 center-block" onSubmit={this.handleSubmit}>
                 <div className="form-group">
-                  <input type="email" id="login-email" className="form-control input-lg" placeholder="email"/>
+                  <input type="username" id="login-username" className="form-control input-lg" placeholder="username"/>
                 </div>
                 <div className="form-group">
                   <input type="password" id="login-password" className="form-control input-lg" placeholder="password"/>
                 </div>
                 <div className="form-group text-center">
                   <div className="col-md-6">
-                    <input type="submit" id="login-button" className="btn btn-app btn-lg btn-block" value="Login" />
+                    <input type="submit" id="login-button" className="btn btn-app btn-lg btn-block" value="Login"/>
                   </div>
                   <div className="col-md-6">
                     <Link className="btn btn-danger btn-lg btn-block" to={'/' }>Go Back</Link>

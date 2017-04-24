@@ -120,3 +120,15 @@ a {
 .centrar{
   text-align: center;
 }
+.modal{
+  margin-left: 0;
+  width: 100%
+}
+
+input[type="password"]{
+  height: 46px !important;
+padding: 10px 16px !important;
+font-size: 18px !important;
+line-height: 1.3333333 !important;
+border-radius: 6px !important;
+}
