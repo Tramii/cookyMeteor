@@ -30,33 +30,33 @@ class Header extends Component {
     if (logueado !== null) {
       bar = (
         <Nav>
-          <NavItem className="bod btn">
+          <NavItem className="bod">
             <Link to="/misRecetas/adicionar">
               <i className="fa fa-plus  text-center black" aria-hidden="true" /> Añadir receta
             </Link>
           </NavItem>
-          <NavItem className="bod btn">
+          <NavItem className="bod">
             <Link to="/misRecetas/ver">
               <i className="fa fa-cutlery  text-center black" aria-hidden="true" /> Mis recetas
             </Link>
           </NavItem>
-          <NavItem className="bod btn">
+          <NavItem className="bod">
             <Link to="/general/featured">
               <i className="fa fa-star  text-center black" aria-hidden="true" /> Destacado
             </Link>
           </NavItem>
-          <NavItem className="bod btn">
+          <NavItem className="bod">
             <Link to="/general/search">
               <i className="fa fa-search  text-center black" aria-hidden="true" /> Buscar
             </Link>
           </NavItem>
-          <NavItem className="bod btn">
+          <NavItem className="bod">
             <Link to="/miPerfil">
               <i className="fa fa-child  text-center black" aria-hidden="true" /> Mi perfil
             </Link>
           </NavItem>
 
-          <NavItem className="bod btn">
+          <NavItem className="bod">
             <Link className="" to={'/' }>
             <i className="fa fa-sign-out btn text-center black">
               <span id="add" onClick={()=>{this.logout()}}>Logout</span>
