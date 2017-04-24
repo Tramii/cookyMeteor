@@ -31,33 +31,33 @@ class Header extends Component {
       bar = (
         <Nav>
           <NavItem className="bod">
-            <Link to="/misRecetas/adicionar">
+            <Link to="/misRecetas/adicionar" className="btn btnNav">
               <i className="fa fa-plus  text-center black" aria-hidden="true" /> Añadir receta
             </Link>
           </NavItem>
           <NavItem className="bod">
-            <Link to="/misRecetas/ver">
+            <Link to="/misRecetas/ver" className="btn btnNav">
               <i className="fa fa-cutlery  text-center black" aria-hidden="true" /> Mis recetas
             </Link>
           </NavItem>
           <NavItem className="bod">
-            <Link to="/general/featured">
+            <Link to="/general/featured" className="btn btnNav">
               <i className="fa fa-star  text-center black" aria-hidden="true" /> Destacado
             </Link>
           </NavItem>
           <NavItem className="bod">
-            <Link to="/general/search">
+            <Link to="/general/search" className="btn btnNav">
               <i className="fa fa-search  text-center black" aria-hidden="true" /> Buscar
             </Link>
           </NavItem>
           <NavItem className="bod">
-            <Link to="/miPerfil">
+            <Link to="/miPerfil" className="btn btnNav">
               <i className="fa fa-child  text-center black" aria-hidden="true" /> Mi perfil
             </Link>
           </NavItem>
 
           <NavItem className="bod">
-            <Link className="" to={'/' }>
+            <Link className="" to={'/' } >
             <i className="fa fa-sign-out btn text-center black">
               <span id="add" onClick={()=>{this.logout()}}>Logout</span>
             </i>

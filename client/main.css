@@ -124,6 +124,9 @@ a {
   margin-left: 0;
   width: 100%
 }
+.btnNav{
+  border: 2em solid transparent !important;
+}
 
 input[type="password"]{
   height: 46px !important;

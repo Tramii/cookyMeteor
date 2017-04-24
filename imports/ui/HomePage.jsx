@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { render } from 'react-dom';
 import { Well } from 'react-bootstrap';
 import { Meteor } from 'meteor/meteor';
-import {Link} from 'react-router';
+import { Link } from 'react-router-dom';
 
 export default class HomePage extends Component {
 
@@ -24,6 +24,11 @@ export default class HomePage extends Component {
             </div>
           </div>
         </section>
+        <Link className="" to={'/login' }>
+            <i className="fa fa-sign-in fa-2x btn text-center black">
+              <span id="add">Login</span>
+            </i>
+          </Link>
         <section id="how-it-works" className="text-center bod">
           <div className="container wow fadeIn animated" >
             <div className="row col-md-12 bod">
