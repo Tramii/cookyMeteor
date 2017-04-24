@@ -125,7 +125,7 @@ a {
   width: 100%
 }
 .btnNav{
-  border: 2em solid transparent !important;
+  /*border: 0.6em solid transparent !important;*/
 }
 
 input[type="password"]{
