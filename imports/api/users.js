@@ -38,7 +38,7 @@ Meteor.methods({
     }
 
     const description = recipe.description;
-    if((typeof description) !== 'string' || description.length > 1000){
+    if((typeof description) !== 'string' || description.length > 100000){
       throw new Meteor.Error('description is not well defined');
     }
 
