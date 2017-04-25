@@ -59,7 +59,7 @@ class Header extends Component {
           <NavItem className="bod">
             <Link className="" to={'/' } >
             <i className="fa fa-sign-out text-center black">
-              <span id="add" onClick={()=>{this.logout()}}>Sign Out</span>
+              <span id="add" oclassName="head" nClick={()=>{this.logout()}}>Sign Out</span>
             </i>
           </Link>
           </NavItem>
