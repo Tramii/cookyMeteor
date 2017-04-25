@@ -72,7 +72,7 @@ class Header extends Component {
           <NavItem className="bod">
             <Link className="" to={'/login' }>
             <i className="fa fa-sign-in btn text-center black">
-              <span id="add" className="head">Sign In / Sign up</span>
+              <span id="add" className="head"> Sign In / Sign up</span>
             </i>
           </Link>
           </NavItem>
