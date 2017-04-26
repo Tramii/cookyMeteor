@@ -8,9 +8,8 @@ import { shallow, mount } from 'enzyme';
 import { chai, expect } from 'meteor/practicalmeteor:chai';
 
 if (Meteor.isClient){
-
-    describe('HomePage', function(){
-
+  console.log('hola');
+  describe(HomePage, function(){
         it('Should appear as a Client test', function(){
           chai.assert(true);
         })
