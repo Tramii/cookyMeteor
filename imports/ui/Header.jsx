@@ -58,10 +58,10 @@ class Header extends Component {
 
           <NavItem className="bod">
             <Link className="" to={'/' } >
-            <i className="fa fa-sign-out text-center black">
-              <span id="add" className="head" onClick={()=>{this.logout()}}> Sign Out</span>
-            </i>
-          </Link>
+              <i className="fa fa-sign-out text-center black">
+                <span id="add" className="head" onClick={()=>{this.logout()}}> Sign Out</span>
+              </i>
+            </Link>
           </NavItem>
         </Nav>
             );
@@ -80,7 +80,7 @@ class Header extends Component {
       );
     }
     return (
-      <div name="header">
+      <div className="header">
         <Navbar collapseOnSelect className="navbar-fixed-top">
           <Navbar.Header>
             <Navbar.Brand className="head bold orange">
