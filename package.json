@@ -34,7 +34,8 @@
     "eslint-plugin-meteor": "^4.0.1",
     "eslint-plugin-react": "^6.10.0",
     "faker": "^4.1.0",
-    "mocha": "^3.2.0"
+    "mocha": "^3.2.0",
+    "spacejam": "https://github.com/serut/spacejam/tarball/windows-suppport-rc4"
   },
   "eslintConfig": {
     "parser": "babel-eslint",
