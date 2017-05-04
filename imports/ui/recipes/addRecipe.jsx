@@ -1,13 +1,5 @@
 import React, {Component, PropTypes} from 'react';
-import {
-    Button,
-    Well,
-    Table,
-    FormGroup,
-    ControlLabel,
-    FormControl,
-    Checkbox
-} from 'react-bootstrap';
+import { Button, Well,Table,FormGroup, ControlLabel,FormControl,Checkbox} from 'react-bootstrap';
 import Header from '../Header.jsx';
 import RecipeForm from './recipeForm.jsx';
 import {createContainer} from 'meteor/react-meteor-data';
@@ -46,7 +38,6 @@ class AddRecipe extends Component {
                 this.setState({
                     ingredients: this.state.ingredients.concat(ing)
                 }, () => {
-                    console.log('holaa');
                     console.log(this.state.ingredients);
                 });
             }
