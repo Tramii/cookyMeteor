@@ -5,7 +5,7 @@ class AddedIngredient extends Component {
 
   render() {
     return (
-      <div>
+      <div className="addedIngredient">
         <Well>
           {this.props.text}
           <Button className="right trsh" onClick={() => this.props.deleteIngredient(this.props.text)}>
