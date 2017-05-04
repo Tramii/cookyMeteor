@@ -17,7 +17,7 @@ if(Meteor.isClient){
         return {'userId': '4382243089'};
     };
 
-    describe('Header', function() {
+    describe('Ingredient', function() {
 
         it('Should render correctly', function() {
           const header = shallow(<Ingredient />);

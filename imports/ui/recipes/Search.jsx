@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
 import {render} from 'react-dom';
-
 import {Button} from 'react-bootstrap';
-
 import Header from '../Header.jsx';
 import RecipeForm from './recipeForm.jsx';
 import Recipe from './recipe.jsx';
