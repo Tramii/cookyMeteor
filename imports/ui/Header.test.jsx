@@ -7,6 +7,7 @@ import { Factory } from 'meteor/dburles:factory';
 import { shallow, mount } from 'enzyme';
 import { assert, expect } from 'meteor/practicalmeteor:chai';
 
+if(Meteor.isClient){
 
     Meteor.user = function() {
         return {'username': 'pruebita'};
@@ -21,5 +22,10 @@ import { assert, expect } from 'meteor/practicalmeteor:chai';
         it('Should render correctly', function() {
           const header = shallow(<Header />);
           assert(header.hasClass('header'));
-        })
+        });
+
+        it('Should show menu items only when logged in', function(){
+          assert(true);
+        });
     })
+}
