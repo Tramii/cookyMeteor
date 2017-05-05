@@ -79,7 +79,7 @@ if (Meteor.server) {
         const recipes = UsersWithRecipesCollection.find({}).fetch();
         assert.equal(recipes[0].likes, 7);
       });
-    });
+    }); 
 
     it("Should remove recipes", function() {
       Meteor.call('recipes.remove', 'JxojW4S4QW6CkJpye', function(){
