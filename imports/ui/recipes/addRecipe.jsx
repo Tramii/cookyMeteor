@@ -191,7 +191,7 @@ class AddRecipe extends Component {
             <div className="row">
               {' '}
             </div>
-
+            
           </div>
           <div className="col-md-3" />
         </div>

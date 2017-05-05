@@ -18,24 +18,24 @@ class Featured extends Component {
   }
 
   render() {
-    console.log("entra a destacado");
     return (
-      <div className="pad x" name="app">
+      <div className="pad hello" name="app">
         <Header />
         <div className="col-md-1" />
         <div className="col-md-10">
           <h1 className="head orange bold">
             <i className="fa fa-star" aria-hidden="true" /> Recetas destacadas
           </h1>
-          {console.log(this.props.allRecipes)}
           {this.props.allRecipes.map((recipe) => {
             console.log(recipe);
             return (
               <div key={recipe.title}>
                 <Recipe
-                  recipe={recipe} ingredients={recipe.Ingredients}
+                  recipe={recipe}
+                  ingredients={recipe.Ingredients}
                   username={recipe.username}
-                  title={recipe.title} showDelete={false}
+                  title={recipe.title}
+                  showDelete={false}
                 />
               </div>
             );
