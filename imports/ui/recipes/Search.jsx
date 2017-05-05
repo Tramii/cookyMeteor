@@ -5,12 +5,7 @@ no-useless-escape, react/forbid-proptypes, no-unused-vars, no-tabs, quote-props
 no-mixed-spaces-and-tabs, jsx-quotes,import/prefer-default-export, react/prop-types */
 import React, { Component } from 'react';
 import { render } from 'react-dom';
-
 import { Button } from 'react-bootstrap';
-
-import React, {Component} from 'react';
-import {render} from 'react-dom';
-import {Button} from 'react-bootstrap';
 import Header from '../Header.jsx';
 import RecipeForm from './recipeForm.jsx';
 import Recipe from './recipe.jsx';
