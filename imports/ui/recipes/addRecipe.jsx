@@ -1,3 +1,4 @@
+
 /* eslint-disable no-global-assign, no-undef, import/extensions,
 import/no-extraneous-dependencies, meteor/no-session, react/jsx-no-bind, quotes
 no-useless-escape, react/forbid-proptypes, no-unused-vars, no-tabs, quote-props
@@ -12,6 +13,9 @@ import {
     FormControl,
     Checkbox,
 } from 'react-bootstrap';
+import React, {Component, PropTypes} from 'react';
+import { Button, Well,Table,FormGroup, ControlLabel,FormControl,Checkbox} from 'react-bootstrap';
+
 import Header from '../Header.jsx';
 import RecipeForm from './recipeForm.jsx';
 import { createContainer } from 'meteor/react-meteor-data';
@@ -42,6 +46,27 @@ class AddRecipe extends Component {
           rep = true;
           console.log('Ingrediente repetido');
           window.alert('Ingrediente repetido');
+    addIngredient(ing) {
+        if (!ing.includes("<")) {
+            let i = 0;
+            const n = this.state.ingredients.length;
+            let rep = false;
+            while (i < n && !rep) {
+                if (ing === this.state.ingredients[i]) {
+                    rep = true;
+                    console.log('Ingrediente repetido');
+                    window.alert('Ingrediente repetido');
+                }
+                console.log('holaaaaaaaa ' + i);
+                i++;
+            }
+            if (!rep) {
+                this.setState({
+                    ingredients: this.state.ingredients.concat(ing)
+                }, () => {
+                    console.log(this.state.ingredients);
+                });
+            }
         }
         console.log(i);
         i++;

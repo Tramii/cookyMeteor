@@ -18,4 +18,10 @@ if (Meteor.isClient) {
       chai.assert(true);
     });
   });
+  describe('HomePage', function(){
+        it('Should render correctly', function(){
+          chai.assert(true);
+        });
+
+    })
 }

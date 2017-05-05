@@ -32,7 +32,7 @@ class AddedIngredients extends Component {
 
   render() {
     return (
-      <div>
+      <div className="addedIngredients">
 
         {this.props.ingredients.map((ingredient) => {
           return (

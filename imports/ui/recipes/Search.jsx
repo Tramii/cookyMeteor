@@ -1,3 +1,4 @@
+
 /* eslint-disable no-global-assign, no-undef, import/extensions,
 import/no-extraneous-dependencies, meteor/no-session, react/jsx-no-bind, quotes
 no-useless-escape, react/forbid-proptypes, no-unused-vars, no-tabs, quote-props
@@ -7,6 +8,9 @@ import { render } from 'react-dom';
 
 import { Button } from 'react-bootstrap';
 
+import React, {Component} from 'react';
+import {render} from 'react-dom';
+import {Button} from 'react-bootstrap';
 import Header from '../Header.jsx';
 import RecipeForm from './recipeForm.jsx';
 import Recipe from './recipe.jsx';

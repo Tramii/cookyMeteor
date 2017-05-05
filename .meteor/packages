@@ -28,7 +28,6 @@ xolvio:cleaner
 dburles:factory
 hwillson:stub-collections
 dispatch:mocha
-dispatch:mocha-browser
 mdg:validated-method
 lmieulet:meteor-coverage
 practicalmeteor:mocha-console-runner
