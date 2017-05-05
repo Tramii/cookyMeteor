@@ -13,8 +13,6 @@ import {
     FormControl,
     Checkbox,
 } from 'react-bootstrap';
-import React, {Component, PropTypes} from 'react';
-import { Button, Well,Table,FormGroup, ControlLabel,FormControl,Checkbox} from 'react-bootstrap';
 
 import Header from '../Header.jsx';
 import RecipeForm from './recipeForm.jsx';

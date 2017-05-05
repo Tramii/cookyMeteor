@@ -21,20 +21,14 @@ Meteor.userId = function() {
   return { 'userId': '4382243089' };
 };
 
-describe ('Header', function() {
+  describe('Header', function () {
+    it('Should render correctly', function () {
+      const header = shallow(<Header />);
+      assert(header.hasClass('header'));
+    });
 
-  it ('Should render correctly', function() {
-    const header = shallow(<Header />);
-    assert(header.hasClass('header'));
+    it('Should show menu items only when logged in', function () {
+      assert(true);
+    });
   });
-});
-        it('Should render correctly', function() {
-          const header = shallow(<Header />);
-          assert(header.hasClass('header'));
-        });
-
-        it('Should show menu items only when logged in', function(){
-          assert(true);
-        });
-    })
 }
