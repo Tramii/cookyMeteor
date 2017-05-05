@@ -190,7 +190,9 @@ export default class Search extends Component {
                 <Recipe
                   recipe={recipe}
                   ingredients={recipe.Ingredients}
-                  username={recipe.username} title={recipe.title} showDelete={false}
+                  username={recipe.username}
+                  title={recipe.title}
+                  showDelete={false}
                 />
               </div>
             );
@@ -199,7 +201,7 @@ export default class Search extends Component {
     );
     return (
       <div className="pad row" name="app">
-        <Header /> {this.state.modoForm
+        <Header /> { this.state.modoForm
               ? <div>
                 <div className="col-md-3" />
                 <div className="col-md-6">
