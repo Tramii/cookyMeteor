@@ -1,21 +1,26 @@
-import {Meteor} from 'meteor/meteor';
-import {UsersWithRecipesCollection} from './users.js';
-import {assert} from 'meteor/practicalmeteor:chai';
+/* eslint-disable no-global-assign, no-undef, import/extensions,
+import/no-extraneous-dependencies, meteor/no-session, react/jsx-no-bind,
+no-useless-escape, react/forbid-proptypes, no-unused-vars, no-tabs,
+no-mixed-spaces-and-tabs, jsx-quotes,import/prefer-default-export, quote-props */
 
-if (Meteor.server){
-  Meteor.user = function() {
-      return {'username': 'pruebita'};
+import { Meteor } from 'meteor/meteor';
+import { UsersWithRecipesCollection } from './users.js';
+import { assert } from 'meteor/practicalmeteor:chai';
+
+if (Meteor.server) {
+  Meteor.user = function () {
+      return { 'username': 'pruebita' };
   };
 
-  Meteor.userId = function() {
-    return {'userId':'4382243089'};
+  Meteor.userId = function () {
+    return { 'userId':'4382243089' };
   };
 
-  describe('UsersWithRecipesCollection', function() {
-      beforeEach(function() {
-          UsersWithRecipesCollection.remove({});
-          UsersWithRecipesCollection.insert({
-              "_id": "JxojW4S4QW6CkJpye",
+  describe('UsersWithRecipesCollection', function () {
+    beforeEach(function() {
+      UsersWithRecipesCollection.remove({});
+      UsersWithRecipesCollection.insert({
+        "_id": "JxojW4S4QW6CkJpye",
               "tipos": [
                   {
                       "tipo": "1"
@@ -38,7 +43,7 @@ if (Meteor.server){
                   }
               ]
           });
-          UsersWithRecipesCollection.insert({
+      UsersWithRecipesCollection.insert({
               "_id": "HEsTX6vgjjES4CyEi",
               "tipos": [
                   {
@@ -61,27 +66,26 @@ if (Meteor.server){
                       "ingrediente": "Fideos japoneses"
                   }
               ]
-          });
       });
+    });
 
-      it("Should find inserted recipes", function() {
-          const result = UsersWithRecipesCollection.find({});
-          assert.equal(result.count(), 2);
+    it("Should find inserted recipes", function () {
+      const result = UsersWithRecipesCollection.find({});
+      assert.equal(result.count(), 2);
+    });
+
+    it("Should update likes", function() {
+      Meteor.call('recipesLike.update', 'JxojW4S4QW6CkJpye', function() {
+        const recipes = UsersWithRecipesCollection.find({}).fetch();
+        assert.equal(recipes[0].likes, 7);
       });
+    });
 
-      it("Should update likes", function() {
-          Meteor.call('recipesLike.update', 'JxojW4S4QW6CkJpye', function() {
-              const recipes = UsersWithRecipesCollection.find({}).fetch();
-              assert.equal(recipes[0].likes, 7);
-          });
+    it("Should remove recipes", function() {
+      Meteor.call('recipes.remove', 'JxojW4S4QW6CkJpye', function(){
+        const recipex = UsersWithRecipesCollection.find({}).fetch();
+        assert.equal(recipex.length, 1);
       });
-
-      it("Should remove recipes", function() {
-          Meteor.call('recipes.remove', 'JxojW4S4QW6CkJpye', function(){
-              const recipex = UsersWithRecipesCollection.find({}).fetch();
-              assert.equal(recipex.length, 1);
-          });
-      });
-  })
-
+    });
+  });
 }

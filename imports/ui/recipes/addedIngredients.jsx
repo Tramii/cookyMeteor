@@ -1,3 +1,7 @@
+/* eslint-disable no-global-assign, no-undef, import/extensions,
+import/no-extraneous-dependencies, meteor/no-session, react/jsx-no-bind,
+no-useless-escape, react/forbid-proptypes, no-unused-vars, no-tabs,
+no-mixed-spaces-and-tabs, jsx-quotes,import/prefer-default-export, react/prop-types */
 import React, { Component } from 'react';
 import AddedIngredient from './addedIngredient.jsx';
 import { FormGroup, ControlLabel, FormControl, Checkbox, HelpBlock } from 'react-bootstrap';
@@ -30,7 +34,7 @@ class AddedIngredients extends Component {
     return (
       <div>
 
-        {this.props.ingredients.map(ingredient => {
+        {this.props.ingredients.map((ingredient) => {
           return (
             <div key={ingredient}>
               <AddedIngredient

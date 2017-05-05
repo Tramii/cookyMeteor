@@ -1,3 +1,7 @@
+/* eslint-disable no-global-assign, no-undef, import/extensions,
+import/no-extraneous-dependencies, meteor/no-session, react/jsx-no-bind, quotes
+no-useless-escape, react/forbid-proptypes, no-unused-vars, no-tabs, quote-props
+no-mixed-spaces-and-tabs, jsx-quotes,import/prefer-default-export, react/prop-types */
 import React, { Component } from 'react';
 import { Table, Button, Well } from 'react-bootstrap';
 import Ingredient from './ingredient.jsx';
@@ -32,80 +36,90 @@ class Recipe extends Component {
     const description = this.props.recipe.description;
     return (
       <div className="col-md-6 recipe">
-            <Well>
-              <HoverBox render = {hover => (
-                  hover?
-                      <iframe width="420" height="315"
-                      src={this.props.recipe.pictureGif.replace("watch?v=", "embed/")}>
-                      </iframe>
+        <Well>
+          <HoverBox
+            render={hover => (
+                  hover ?
+                    <iframe
+                      width="420" height="315"
+                      src={this.props.recipe.pictureGif.replace('watch?v=', 'embed/')}
+                    />
                     :
-              <div><h3 className="orange head centrar">
-                {this.props.recipe.title}
-              </h3>
-              </div> )}/>
-              <Table condensed hover>
-                <tbody>
-                      <tr>
-                        <td>
-                          <h4 className="bold bod">
-                            <i className="fa fa-child" aria-hidden="true" /> Cook
-                          </h4>
-                          <p>{this.props.recipe.username}</p>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <HoverBox render = {hover => (
-                              hover?
-                              <div><h4 className="bold bod">
-                                <i className="fa fa-lemon-o" aria-hidden="true" /> Ingredientes
-                              </h4>
-                              <p>
-                                {this.props.ingredients.map(ingredient =>{
-                                  return (
-                                    <ul key={ingredient.ingrediente}>
-                                      <Ingredient name={ingredient.ingrediente}/>
-                                    </ul>
-                                  );
-                                })}
-                              </p></div>
-                              :
-                              <h4 className="bold bod">
-                                <i className="fa fa-lemon-o" aria-hidden="true" /> Ingredientes
-                              </h4>
-
-                          )}/>
-                        </td>
-                      </tr>
+                    <div><h3 className="orange head centrar">
+                      {this.props.recipe.title}
+                    </h3>
+                    </div>)}
+          />
+          <Table condensed hover>
+            <tbody>
               <tr>
                 <td>
-
-                  <HoverBox render = {hover => (
-                      hover?
-                      <div><h4 className="bold bod">
-                        <i className="fa fa-list-ol" aria-hidden="true" /> Instrucciones
-                      </h4>
-                      <p>{description}</p></div>:
                   <h4 className="bold bod">
-                    <i className="fa fa-list-ol" aria-hidden="true" /> Instrucciones
-                  </h4>)}/>
+                    <i className="fa fa-child" aria-hidden="true" /> Cook
+                  </h4>
+                  <p>{this.props.recipe.username}</p>
                 </td>
               </tr>
               <tr>
                 <td>
-                  <Button className="center" onClick={() => {this.like()}}>
-                    {this.props.recipe.likes} <i className="fa fa-thumbs-o-up" aria-hidden="true"> </i>
+                  <HoverBox
+                    render={hover => (
+                        hover ?
+                          <div><h4 className="bold bod">
+                            <i className="fa fa-lemon-o" aria-hidden="true" /> Ingredientes
+                              </h4>
+                            <p>
+                              {this.props.ingredients.map(ingredient => {
+                                return (
+                                  <ul key={ingredient.ingrediente}>
+                                    <Ingredient name={ingredient.ingrediente} />
+                                  </ul>
+                                );
+                              })}
+                            </p></div>
+                            :
+                          <h4 className="bold bod">
+                            <i className="fa fa-lemon-o" aria-hidden="true" /> Ingredientes
+                          </h4>
+
+                          )}
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>
+
+                  <HoverBox
+                    render={hover => (
+                      hover ?
+                        <div><h4 className="bold bod">
+                          <i className="fa fa-list-ol" aria-hidden="true" /> Instrucciones
+                      </h4>
+                          <p>{description}</p></div>
+                          :
+                        <h4 className="bold bod">
+                          <i className="fa fa-list-ol" aria-hidden="true" /> Instrucciones
+                        </h4>)}
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <Button className="center" onClick={() => { this.like(); }}>
+                    {this.props.recipe.likes} <i className="fa fa-thumbs-o-up" aria-hidden="true" />
                   </Button>
                   {' '}
-                  {this.props.showDelete?
-                    <Button bsStyle="danger" onClick={() => {this.deleteRecipe()}}>
+                  {this.props.showDelete ?
+                    <Button bsStyle="danger" onClick={() => { this.deleteRecipe(); }}>
                       <i className="fa fa-trash" aria-hidden="true" /> Borrar
-                    </Button>:''}
+                    </Button>
+                    : ''
+                  }
                 </td>
               </tr>
             </tbody>
           </Table>
-            </Well>
+        </Well>
       </div>
     );
   }

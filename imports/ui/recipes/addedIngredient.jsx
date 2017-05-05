@@ -1,3 +1,4 @@
+/* eslint-disable no-global-assign, react/prop-types */
 import React, { Component } from 'react';
 import { Button, Well } from 'react-bootstrap';
 

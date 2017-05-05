@@ -1,3 +1,7 @@
+/* eslint-disable no-global-assign, no-undef, import/extensions,
+import/no-extraneous-dependencies, meteor/no-session, react/jsx-no-bind, quotes
+no-useless-escape, react/forbid-proptypes, no-unused-vars, no-tabs, quote-props
+no-mixed-spaces-and-tabs, jsx-quotes,import/prefer-default-export, react/prop-types */
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 import { Well, Button } from 'react-bootstrap';
@@ -9,30 +13,40 @@ export default class HomePage extends Component {
   render() {
     return (
       <div className="pad" name="app">
-      {new WOW().init()}
+        { new WOW().init() }
         <section id="intro" className="colored text-center">
           <div className="container">
             <div className="intro-well wow animated bounceIn row" >
-              <div className="col-md-1"/>
+              <div className="col-md-1" />
               <div className="col-md-6">
                 <h1 className="textP head orange bold"> Bienvenido a</h1>
               </div>
-              <div className="col-md-4" id="space"></div>
-              <div className="col-md-1" id="space"/>
-              <div className="col-md-1"/>
+              <div className="col-md-4" id="space" />
+              <div className="col-md-1" id="space" />
+              <div className="col-md-1" />
               <div className="col-md-5"><img className="bigCooky" src="https://68.media.tumblr.com/caa95bb0890f2f65129cd56a50130c64/tumblr_omd0idc0Wd1w7ypfio1_1280.png" alt="Cooky logo" /></div>
               <div className="col-md-4">
-                {Meteor.user()?<div><div className="ingresa head grey"><strong>Bienvenido!</strong></div> <br/><br/>
-                <Button><Link className="" to={'/general/featured' }>
-                    <i className="fa fa-ok fa-2x">
-                      <span id="add" className="head grey"> <strong>Comienza a explorar</strong></span>
-                    </i>
-                </Link></Button></div>:<div><div className="ingresa head grey"><strong>Ingresa ya!</strong></div> <br/><br/>
-                <Button><Link className="" to={'/login' }>
-                    <i className="fa fa-sign-in fa-2x">
-                      <span id="add" className="head grey"> <strong>Sign In</strong></span>
-                    </i>
-                </Link></Button></div>}
+                {Meteor.user()
+                  ?
+                    <div>
+                      <div className="ingresa head grey"><strong>Bienvenido!</strong></div> <br /><br />
+                      <Button><Link
+                        className="" to={'/general/featured'}
+                      >
+                        <i className="fa fa-ok fa-2x">
+                          <span id="add" className="head grey"> <strong>Comienza a explorar</strong></span>
+                        </i>
+                      </Link></Button></div>
+                      :
+                    <div>
+                      <div className="ingresa head grey"><strong>Ingresa ya!</strong></div> <br /><br />
+                      <Button><Link
+                        className="" to={'/login'}
+                      >
+                        <i className="fa fa-sign-in fa-2x">
+                          <span id="add" className="head grey"> <strong>Sign In</strong></span>
+                        </i>
+                      </Link></Button></div>}
 
                 <br /> <br />
               </div>

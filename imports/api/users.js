@@ -1,3 +1,7 @@
+/* eslint-disable no-global-assign, no-undef, import/extensions,
+import/no-extraneous-dependencies, meteor/no-session, react/jsx-no-bind,
+no-useless-escape, react/forbid-proptypes, no-unused-vars, no-tabs,
+no-mixed-spaces-and-tabs, jsx-quotes,import/prefer-default-export */
 import { Meteor } from 'meteor/meteor';
 import { Mongo } from 'meteor/mongo';
 import { check } from 'meteor/check';
@@ -18,37 +22,37 @@ Meteor.methods({
       throw new Meteor.Error('not-authorized');
     }
     const tipos = recipe.tipos;
-    if((typeof tipos) !== 'object' || tipos.length === 0){
+    if ((typeof tipos) !== 'object' || tipos.length === 0) {
       throw new Meteor.Error('tipos is not well defined');
     }
 
     const likes = recipe.likes;
-    if((typeof likes) !== 'number' || likes !== 0){
+    if ((typeof likes) !== 'number' || likes !== 0){
       throw new Meteor.Error('likes is not well defined');
     }
 
     const username = recipe.username;
-    if((typeof username) !== 'string' || username !==  Meteor.user().username){
+    if ((typeof username) !== 'string' || username !==  Meteor.user().username) {
       throw new Meteor.Error('username not valid');
     }
 
     const title = recipe.title;
-    if((typeof title) !== 'string' || title.includes("{") || title.includes("[")){
+    if ((typeof title) !== 'string' || title.includes("{") || title.includes("[")) {
       throw new Meteor.Error('title is not well defined');
     }
 
     const description = recipe.description;
-    if((typeof description) !== 'string' || description.length > 100000){
+    if ((typeof description) !== 'string' || description.length > 100000) {
       throw new Meteor.Error('description is not well defined');
     }
 
     const pictureGif = recipe.pictureGif;
-    if((typeof pictureGif) !== 'string' || !pictureGif.includes("www")){
+    if ((typeof pictureGif) !== 'string' || !pictureGif.includes("www")) {
       throw new Meteor.Error('pictureGif is not well defined');
     }
 
     const Ingredients = recipe.Ingredients;
-    if((typeof Ingredients) !== 'object' || Ingredients.length === 0){
+    if ((typeof Ingredients) !== 'object' || Ingredients.length === 0) {
       throw new Meteor.Error('Ingredients is not well defined');
     }
 
@@ -60,20 +64,20 @@ Meteor.methods({
     if (!Meteor.userId()) {
       throw new Meteor.Error('not-authorized');
     }
-    //si aqui mandan recipesID {} borraria todas las recetas!!
-    if(((typeof recipeId) === 'string') && !recipeId.includes("{")){
+    // si aqui mandan recipesID {} borraria todas las recetas!!
+    if (((typeof recipeId) === 'string') && !recipeId.includes("{")){
       UsersWithRecipesCollection.remove(recipeId);
     }
   },
   'recipesLike.update'(recipesId) {
     /** check(recipesId, String);*/
-    //si aqui mandan recipesID {} sin seguridad le daria like a todo!!
-    if(((typeof recipesId) === 'string') && !recipesId.includes("{")){
+    // si aqui mandan recipesID {} sin seguridad le daria like a todo!!
+    if (((typeof recipesId) === 'string') && !recipesId.includes("{")) {
       UsersWithRecipesCollection.update(recipesId, {
         $inc: { likes: 1 }
       });
     }
-  },/**
+  }, /**
   'recipes.findAll'() {
     UsersWithRecipesCollection.find({}, { sort: { likes: -1 } }).fetch()
   },

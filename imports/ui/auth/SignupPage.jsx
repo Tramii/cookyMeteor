@@ -1,42 +1,46 @@
-import React, { Component } from 'react'
+/* eslint-disable no-global-assign, no-undef, import/extensions,
+import/no-extraneous-dependencies, meteor/no-session, react/jsx-no-bind,
+no-useless-escape, react/forbid-proptypes, no-unused-vars, no-tabs,
+no-mixed-spaces-and-tabs, jsx-quotes,import/prefer-default-export */
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Accounts } from 'meteor/accounts-base';
 import { Redirect } from 'react-router';
 
 export default class SignupPage extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       error: '',
-      redirect: false
+      redirect: false,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleSubmit(e){
+  handleSubmit(e) {
     e.preventDefault();
-    let name = document.getElementById("signup-name").value;
-    let password = document.getElementById("signup-password").value;
-    if(name === '' || password === ''){
+    const name = document.getElementById('signup-name').value;
+    const password = document.getElementById('signup-password').value;
+    if (name === '' || password === '') {
       this.setState({
-        error: 'bad request'
+        error: 'bad request',
       });
     }
-    Accounts.createUser({username: name, password: password}, (err) => {
-      if(err){
+    Accounts.createUser( {username: name, password: password }, (err) => {
+      if (err) {
         this.setState({
-          error: err.reason
+          error: err.reason,
         });
       } else {
         this.setState({
-          redirect: true
+          redirect: true,
         });
       }
     });
   }
 
-  render(){
-    if(this.state.redirect){
+  render() {
+    if (this.state.redirect) {
       console.log("entra a redirigir");
       return <Redirect to="/" />;
     }
@@ -62,15 +66,15 @@ export default class SignupPage extends Component {
                     <input type="submit" id="login-button" className="btn btn-app btn-lg  btn-block" value="Sign Up" />
                   </div>
                   <div className="col-md-6">
-                      <Link className="btn btn-danger btn-lg btn-block head" to={'/' }>Go Back</Link>
-                    </div>
-              </div>
+                    <Link className="btn btn-danger btn-lg btn-block head" to={'/' }>Go Back</Link>
+                  </div>
+                </div>
                 <div className="form-group">
                   <p className="text-center head">Already have an account? Please login <Link to="/login">here</Link></p>
                 </div>
               </form>
             </div>
-            <div className="modal-footer" style={{borderTop: 0}}></div>
+            <div className="modal-footer" style={{ borderTop: 0 }} />
           </div>
         </div>
       </div>

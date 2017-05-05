@@ -1,3 +1,7 @@
+/* eslint-disable no-global-assign, no-undef, import/extensions,
+import/no-extraneous-dependencies, meteor/no-session, react/jsx-no-bind, quotes
+no-useless-escape, react/forbid-proptypes, no-unused-vars, no-tabs, quote-props
+no-mixed-spaces-and-tabs, jsx-quotes,import/prefer-default-export, react/prop-types */
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 import { Template } from 'meteor/templating';
@@ -22,10 +26,9 @@ class Header extends Component {
     Meteor.logout();
   }
 
-  render()
-  {
-    var bar;
-    var logueado = Meteor.user();
+  render() {
+    let bar;
+    const logueado = Meteor.user();
     console.log(logueado);
     if (logueado !== null) {
       bar = (
@@ -57,9 +60,9 @@ class Header extends Component {
           </NavItem>
 
           <NavItem className="bod">
-            <Link className="" to={'/' } >
+            <Link className="" to={'/'}>
               <i className="fa fa-sign-out text-center black">
-                <span id="add" className="head" onClick={()=>{this.logout()}}> Sign Out</span>
+                <span id="add" className="head" onClick={() => { this.logout(); }}> Sign Out</span>
               </i>
             </Link>
           </NavItem>
@@ -70,11 +73,11 @@ class Header extends Component {
         <Nav>
 
           <NavItem className="bod">
-            <Link className="" to={'/login' }>
+            <Link className="" to={'/login'}>
             <i className="fa fa-sign-in btn text-center black">
               <span id="add" className="head"> Sign In / Sign up</span>
             </i>
-          </Link>
+            </Link>
           </NavItem>
         </Nav>
       );
@@ -98,5 +101,5 @@ class Header extends Component {
 }
 
 export default createContainer(() => {
-    return {currentUser: Meteor.user()};
+  return { currentUser: Meteor.user() };
 }, Header);

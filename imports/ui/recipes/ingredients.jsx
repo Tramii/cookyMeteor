@@ -13,7 +13,7 @@ class Ingredients extends Component {
   }
 
   nuevoIngrediente(event) {
-    this.setState( { ingredienteConstruccion: { ingrediente:event } });
+    this.setState({ ingredienteConstruccion: { ingrediente: event } });
   }
 
   saveIngredient() {
@@ -31,10 +31,11 @@ class Ingredients extends Component {
         <Well>
             {this.props.ingredients.map((ingredient,i)=> {
                 return <Ingredient name={ingredient.ingrediente} key={i}/>
-              })}
-            <Input ref="textInput" name="nuevoIngrediente" type="text"  onTextInput={this.nuevoIngrediente}
-             placeholder="New Ingredient" value={this.state.ingredienteConstruccion.name}/>
-             <Button onClick={() => {this.saveIngredient()}}  bsStyle="info">Insert ingredient!</Button>
+            })}
+          <Input ref="textInput" name="nuevoIngrediente" type="text" onTextInput={this.nuevoIngrediente}
+            placeholder="New Ingredient" value={this.state.ingredienteConstruccion.name}
+          />
+          <Button onClick={() => { this.saveIngredient(); }} bsStyle="info">Insert ingredient!</Button>
         </Well>
       </div>
     );
