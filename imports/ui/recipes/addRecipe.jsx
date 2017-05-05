@@ -46,27 +46,6 @@ class AddRecipe extends Component {
           rep = true;
           console.log('Ingrediente repetido');
           window.alert('Ingrediente repetido');
-    addIngredient(ing) {
-        if (!ing.includes("<")) {
-            let i = 0;
-            const n = this.state.ingredients.length;
-            let rep = false;
-            while (i < n && !rep) {
-                if (ing === this.state.ingredients[i]) {
-                    rep = true;
-                    console.log('Ingrediente repetido');
-                    window.alert('Ingrediente repetido');
-                }
-                console.log('holaaaaaaaa ' + i);
-                i++;
-            }
-            if (!rep) {
-                this.setState({
-                    ingredients: this.state.ingredients.concat(ing)
-                }, () => {
-                    console.log(this.state.ingredients);
-                });
-            }
         }
         console.log(i);
         i++;
