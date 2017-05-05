@@ -20,7 +20,7 @@ class Featured extends Component {
   render() {
     console.log("entra a destacado");
     return (
-      <div className="pad" name="app">
+      <div className="pad x" name="app">
         <Header />
         <div className="col-md-1" />
         <div className="col-md-10">

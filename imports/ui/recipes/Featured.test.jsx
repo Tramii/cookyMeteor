@@ -21,7 +21,7 @@ if(Meteor.isClient){
 
         it('Should render correctly', function() {
           const header = shallow(<Featured />);
-          assert(header.hasClass('pad'));
+          assert(header.hasClass('pad x'));
         });
 
         it('Shows all recipes', function(){
